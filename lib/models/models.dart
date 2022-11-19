@@ -9,6 +9,13 @@ final List<String> contants = [
   'Customer Retention',
   'Engage With Customers',
 ];
+final List<String> sliderList= [
+  'assets/images/slider1.png',
+  'assets/images/slider2.png',
+  'assets/images/slider3.png',
+];
+
+
 
 
 

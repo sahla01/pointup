@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/splash.dart';
-import 'package:pointup/splashscreen.dart';
+import 'package:pointup/onboardscreen/splashscreen.dart';
 
 
 void main() {
@@ -9,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:SplashScreen(),
-
+      home: const SplashScreen()
     );
   }
 }
+
