@@ -106,7 +106,7 @@ class _ResetPasswordState extends State<ResetPassword>
                             }
                             return null;
                           },
-                          cursorColor: Color(0xff19184D),
+                          cursorColor: const Color(0xff19184D),
                           controller: passwordController,
                           obscureText: visibility,
                           obscuringCharacter: "*",
@@ -157,7 +157,7 @@ class _ResetPasswordState extends State<ResetPassword>
                               }
                               return null;
                             },
-                            cursorColor: Color(0xff19184D),
+                            cursorColor: const Color(0xff19184D),
                             controller: confirmpasswordController,
                             obscureText: visibility,
                             obscuringCharacter: "*",

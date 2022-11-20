@@ -115,7 +115,7 @@ class _SignInState extends State<SignIn> {
                                 return null;
                               },
                               controller: idController,
-                              cursorColor: Color(0xff19184D),
+                              cursorColor: const Color(0xff19184D),
                               decoration: InputDecoration(
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 13, horizontal: 13),
@@ -166,7 +166,7 @@ class _SignInState extends State<SignIn> {
                                 }
                                 return null;
                               },
-                              cursorColor: Color(0xff19184D),
+                              cursorColor: const Color(0xff19184D),
                               controller: userController,
                               decoration: InputDecoration(
                                 contentPadding: const EdgeInsets.symmetric(
@@ -214,7 +214,7 @@ class _SignInState extends State<SignIn> {
                                 }
                                 return null;
                               },
-                              cursorColor: Color(0xff19184D),
+                              cursorColor: const Color(0xff19184D),
                               controller: passwordController,
                               obscureText: visibility,
                               obscuringCharacter: "*",

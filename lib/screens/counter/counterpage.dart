@@ -13,8 +13,7 @@ class CounterPage extends StatefulWidget {
 
 class _CounterPageState extends State<CounterPage> {
   final CarouselController _controller = CarouselController();
-  int _activePage = 0;
-
+  final int _activePage = 0;
 
   void initstate() {
     super.initState();
@@ -85,34 +84,34 @@ class _CounterPageState extends State<CounterPage> {
               ),
               items: sliderList
                   .map((item) => Container(
-                margin: const EdgeInsets.all(10),
-                child: ClipRRect(
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(8.0)),
-                    child: Stack(
-                      children: <Widget>[
-                        Image.asset(item,
-                            fit: BoxFit.cover, width: 1000.0),
-                        Positioned(
-                          bottom: 0.0,
-                          left: 0.0,
-                          right: 0.0,
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(200, 0, 0, 0),
-                                  Color.fromARGB(0, 0, 0, 0)
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
-              ))
+                        margin: const EdgeInsets.all(10),
+                        child: ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8.0)),
+                            child: Stack(
+                              children: <Widget>[
+                                Image.asset(item,
+                                    fit: BoxFit.cover, width: 1000.0),
+                                Positioned(
+                                  bottom: 0.0,
+                                  left: 0.0,
+                                  right: 0.0,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color.fromARGB(200, 0, 0, 0),
+                                          Color.fromARGB(0, 0, 0, 0)
+                                        ],
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ))
                   .toList(),
             ),
             Row(
@@ -122,43 +121,149 @@ class _CounterPageState extends State<CounterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List<Widget>.generate(
                       sliderList.length,
-                          (index) => Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 8),
-                        child: InkWell(
-                          onTap: () {
-                            _controller.animateToPage(index,
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeIn);
-                          },
-                          child: CircleAvatar(
-                            radius: 5,
-                            backgroundColor: _activePage == index
-                                ? const Color(0xffF99F1E)
-                                : const Color(0xffF4F6FF),
+                      (index) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: InkWell(
+                              onTap: () {
+                                _controller.animateToPage(index,
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeIn);
+                              },
+                              child: CircleAvatar(
+                                radius: 5,
+                                backgroundColor: _activePage == index
+                                    ? const Color(0xffF99F1E)
+                                    : const Color(0xffF4F6FF),
+                              ),
+                            ),
+                          )),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      AppText(
+                        text: "Customer At Your Counter",
+                        size: 14,
+                        fw: FontWeight.bold,
+                        color: const Color(0xff333333),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: 158,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xff125DEF),Color(0xff22ECBB)],
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AppText(text: "Points Credit",size: 14,fw: FontWeight.w700,color: Colors.white,),
+                                  const SizedBox(width: 10,),
+                                  const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: 158,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xffEF9712),Color(0xffE8EC22)],
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AppText(text: "Points Redeem",size: 14,fw: FontWeight.w700,color: Colors.white,),
+                                  const SizedBox(width: 10,),
+                                  const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Row(children: [
+                        Expanded(
+                          child: Container(
+                            width: 158,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xffEF12D9),Color(0xffB722EC)],
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AppText(text: "Order Redeem",size: 14,fw: FontWeight.w700,color: Colors.white,),
+                                const SizedBox(width: 10,),
+                                const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                              ],
+                            ),
                           ),
                         ),
-                      )),
-                ),
-              ],
-            ),
-            const SizedBox(height: 30,),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AppText(
-                  text: "Customer At Your Counter",
-                  size: 14,
-                  fw: FontWeight.bold,
-                  color: const Color(0xff333333),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: 158,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xff73BE14),Color(0xff11AE92)],
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            alignment: Alignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AppText(text: "Transactions",size: 14,fw: FontWeight.w700,color: Colors.white,),
+                                const SizedBox(width: 10,),
+                                const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                              ],
+                            ),
+                          ),
+                        )
+                      ]),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

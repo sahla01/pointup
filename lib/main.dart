@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pointup/onboardscreen/splashscreen.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen()
+      home:  const SplashScreen()
     );
   }
 }

@@ -182,7 +182,7 @@ class _OtpPageState extends State<OtpPage> {
               FocusScope.of(context).previousFocus();
             }
           },
-          cursorColor: Color(0xff19184D),
+          cursorColor: const Color(0xff19184D),
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,
