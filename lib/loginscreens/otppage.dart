@@ -39,6 +39,7 @@ class _OtpPageState extends State<OtpPage> {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AppText(
                     text: 'Verification Code',
@@ -62,13 +63,19 @@ class _OtpPageState extends State<OtpPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 30,),
             Padding(
-              padding: const EdgeInsets.only(right: 200, top: 20),
-              child: AppText(
-                text: "Enter Code",
-                size: 12,
-                fw: FontWeight.w500,
-                color: const Color(0xff333333),
+              padding: const EdgeInsets.only(left: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  AppText(
+                    text: "Enter Code",
+                    size: 12,
+                    fw: FontWeight.w500,
+                    color: const Color(0xff333333),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -94,24 +101,29 @@ class _OtpPageState extends State<OtpPage> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AppText(
-                  text: "Resend  Code",
-                  size: 12,
-                  fw: FontWeight.w600,
-                  color: const Color(0xffDADADA),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppText(
+                      text: "Resend  Code",
+                      size: 12,
+                      fw: FontWeight.w600,
+                      color: const Color(0xffDADADA),
+                    ),
+                    const SizedBox(
+                      width: 110,
+                    ),
+                    AppText(
+                      text: "Time Out: 04:59",
+                      size: 10,
+                      fw: FontWeight.w600,
+                      color: const Color(0xff19184D),
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  width: 110,
-                ),
-                AppText(
-                  text: "Time Out: 04:59",
-                  size: 10,
-                  fw: FontWeight.w600,
-                  color: const Color(0xff19184D),
-                )
               ],
             ),
             Padding(

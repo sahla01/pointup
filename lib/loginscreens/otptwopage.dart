@@ -39,38 +39,43 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
-                  children: [
-                    AppText(
-                      text: 'Verification Code',
-                      fw: FontWeight.bold,
-                      size: 18,
-                      color: const Color(0xff19184D),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    const Text(
-                      ' Verify your mobile number with verification code\n'
-                          'has sent to the number 997*******786',
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.normal,
-                          color: Color(0xffA1A2AB),
-                          height: 1.4),
-                      textAlign: TextAlign.center,
-                    ),
-                  ]),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(
+                    text: 'Verification Code',
+                    fw: FontWeight.bold,
+                    size: 18,
+                    color: const Color(0xff19184D),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    ' Verify your mobile number with verification code\n'
+                        'has sent to the number 997*******786',
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xffA1A2AB),
+                        height: 1.4),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(
-              height: 35,
-            ),
+            const SizedBox(height: 30,),
             Padding(
-              padding: const EdgeInsets.only(right: 200, top: 20),
-              child: AppText(
-                text: "Enter Code",
-                size: 12,
-                fw: FontWeight.w500,
-                color: const Color(0xff333333),
+              padding: const EdgeInsets.only(left: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  AppText(
+                    text: "Enter Code",
+                    size: 12,
+                    fw: FontWeight.w500,
+                    color: const Color(0xff333333),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -96,24 +101,29 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AppText(
-                  text: "Resend  Code",
-                  size: 12,
-                  fw: FontWeight.w600,
-                  color: const Color(0xffDADADA),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppText(
+                      text: "Resend  Code",
+                      size: 12,
+                      fw: FontWeight.w600,
+                      color: const Color(0xffDADADA),
+                    ),
+                    const SizedBox(
+                      width: 110,
+                    ),
+                    AppText(
+                      text: "Time Out: 04:59",
+                      size: 10,
+                      fw: FontWeight.w600,
+                      color: const Color(0xff19184D),
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  width: 110,
-                ),
-                AppText(
-                  text: "Time Out: 04:59",
-                  size: 10,
-                  fw: FontWeight.w600,
-                  color: const Color(0xff19184D),
-                )
               ],
             ),
             Padding(
@@ -135,10 +145,11 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
+
+                    Navigator.push(context,
                         MaterialPageRoute(
                             builder: (context) => const ResetPassword()));
+
                   },
                   child: Center(
                       child: AppText(

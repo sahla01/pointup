@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pointup/loginscreens/signin.dart';
 import 'package:pointup/models/models.dart';
@@ -11,15 +12,32 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  final PageController _pageViewController =
-      PageController(initialPage: 0);
-
+  final PageController _pageViewController = PageController(initialPage: 0);
+  late Timer _timer;
   int _activePage = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
+      if(_activePage < 2){
+        _activePage++;
+      }else{
+        _activePage = 0;
+      }
+      _pageViewController.animateToPage(
+          _activePage,
+          duration: const Duration(milliseconds: 350),
+          curve: Curves.easeIn,
+      );
+    });
+  }
 
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    _timer.cancel();
     _pageViewController.dispose();
   }
 
@@ -39,7 +57,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               itemCount: imgList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.only(top: 80),
+                  padding: const EdgeInsets.only(top: 90),
                   child: Column(
                     children: [
                       Image.asset(
@@ -72,7 +90,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                 );
               }),
-
           Positioned(
             bottom: 270,
             left: 0,

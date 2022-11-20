@@ -60,6 +60,7 @@ class _ResetPasswordState extends State<ResetPassword>
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppText(
                       text: "Reset Password",
@@ -78,148 +79,159 @@ class _ResetPasswordState extends State<ResetPassword>
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(right: 235, top: 70),
-                child: AppText(
-                  text: "New Password",
-                  color: const Color(0xff333333),
-                  size: 12,
-                  fw: FontWeight.w600,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Enter a Valid Password";
-                    } else if (passwordController.text.length < 8) {
-                      return "password must be 8 characters";
-                    }
-                    return null;
-                  },
-                  controller: passwordController,
-                  obscureText: visibility,
-                  obscuringCharacter: "*",
-                  decoration: InputDecoration(
-                      contentPadding:
-                          const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                      isDense: true,
-                      filled: true,
-                      fillColor: const Color(0xffF4F6FF),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 1, color: Color(0xffDADADA)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(width: 1, color: Color(0xffDADADA)),
-                          borderRadius: BorderRadius.circular(10)),
-                      hintStyle:
-                          const TextStyle(fontSize: 12, color: Color(0xffA1A2A8)),
-                      hintText: "Enter Password",
-                      prefixIcon: const Icon(
-                        Icons.lock_outline_rounded,
-                        color: Color(0xffA1A2A8),
-                      ),
-                      suffixIcon:
-                          const Icon(Icons.visibility, color: Color(0xff19184D))),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 215, top: 20),
-                child: AppText(
-                  text: "Confirm Password",
-                  color: const Color(0xff333333),
-                  size: 12,
-                  fw: FontWeight.w600,
-                ),
-              ),
-              Padding(
-                  padding:
-                      const EdgeInsets.only(top: 10.0, left: 20, right: 20),
-                  child: TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter a Valid Password";
-                      } else if (passwordController.text.length < 8) {
-                        return "password must be 8 characters";
-                      }
-                      return null;
-                    },
-                    controller: confirmpasswordController,
-                    obscureText: visibility,
-                    obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      contentPadding:
-                          const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                      isDense: true,
-                      filled: true,
-                      fillColor: const Color(0xffF4F6FF),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 1, color: Color(0xffDADADA)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(width: 1, color: Color(0xffDADADA)),
-                          borderRadius: BorderRadius.circular(10)),
-                      hintStyle:
-                          const TextStyle(fontSize: 12, color: Color(0xffA1A2A8)),
-                      hintText: "Confirm Password",
-                      prefixIcon: const Icon(
-                        Icons.lock_outline_rounded,
-                        color: Color(0xffA1A2A8),
-                      ),
-                      suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              if (visibility == true) {
-                                visibility = false;
-                              } else {
-                                visibility = true;
-                              }
-                            });
-                          },
-                          child: visibility == true
-                              ? const Icon(Icons.visibility_off,
-                                  color: Color(0xff19184D))
-                              : const Icon(Icons.visibility,
-                                  color: Color(0xff19184D))),
-                    ),
-                  )),
-              Padding(
-                padding: const EdgeInsets.only(top: 40),
-                child: Container(
-                  height: 48,
-                  margin: const EdgeInsets.all(20),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [
-                          Color.fromRGBO(25, 24, 77, 1),
-                          Color.fromRGBO(25, 24, 77, 1),
-                          Color.fromRGBO(28, 43, 174, 1)
-                        ]),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: InkWell(
-                    onTap: () {
-                      _showMyDialog();
-                    },
-                    child: Center(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20, top: 70,left: 20),
                         child: AppText(
-                      text: 'Reset',
-                      color: Colors.white,
-                      size: 12,
-                      fw: FontWeight.w700,
-                    )),
+                          text: "New Password",
+                          color: const Color(0xff333333),
+                          size: 12,
+                          fw: FontWeight.w600,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "Enter a Valid Password";
+                            } else if (passwordController.text.length < 8) {
+                              return "password must be 8 characters";
+                            }
+                            return null;
+                          },
+                          controller: passwordController,
+                          obscureText: visibility,
+                          obscuringCharacter: "*",
+                          decoration: InputDecoration(
+                              contentPadding:
+                              const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                              isDense: true,
+                              filled: true,
+                              fillColor: const Color(0xffF4F6FF),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                const BorderSide(width: 1, color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  const BorderSide(width: 1, color: Color(0xffDADADA)),
+                                  borderRadius: BorderRadius.circular(10)),
+                              hintStyle:
+                              const TextStyle(fontSize: 12, color: Color(0xffA1A2A8)),
+                              hintText: "Enter Password",
+                              prefixIcon: const Icon(
+                                Icons.lock_outline_rounded,
+                                color: Color(0xffA1A2A8),
+                              ),
+                              suffixIcon:
+                              const Icon(Icons.visibility, color: Color(0xff19184D))),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20, top: 20,left: 20),
+                        child: AppText(
+                          text: "Confirm Password",
+                          color: const Color(0xff333333),
+                          size: 12,
+                          fw: FontWeight.w600,
+                        ),
+                      ),
+                      Padding(
+                          padding:
+                          const EdgeInsets.only(top: 10.0, left: 20, right: 20),
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Enter a Valid Password";
+                              } else if (passwordController.text.length < 8) {
+                                return "password must be 8 characters";
+                              }
+                              return null;
+                            },
+                            controller: confirmpasswordController,
+                            obscureText: visibility,
+                            obscuringCharacter: "*",
+                            decoration: InputDecoration(
+                              contentPadding:
+                              const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                              isDense: true,
+                              filled: true,
+                              fillColor: const Color(0xffF4F6FF),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                const BorderSide(width: 1, color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  const BorderSide(width: 1, color: Color(0xffDADADA)),
+                                  borderRadius: BorderRadius.circular(10)),
+                              hintStyle:
+                              const TextStyle(fontSize: 12, color: Color(0xffA1A2A8)),
+                              hintText: "Confirm Password",
+                              prefixIcon: const Icon(
+                                Icons.lock_outline_rounded,
+                                color: Color(0xffA1A2A8),
+                              ),
+                              suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      if (visibility == true) {
+                                        visibility = false;
+                                      } else {
+                                        visibility = true;
+                                      }
+                                    });
+                                  },
+                                  child: visibility == true
+                                      ? const Icon(Icons.visibility_off,
+                                      color: Color(0xff19184D))
+                                      : const Icon(Icons.visibility,
+                                      color: Color(0xff19184D))),
+                            ),
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: Container(
+                          height: 48,
+                          margin: const EdgeInsets.all(20),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromRGBO(25, 24, 77, 1),
+                                  Color.fromRGBO(25, 24, 77, 1),
+                                  Color.fromRGBO(28, 43, 174, 1)
+                                ]),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              _showMyDialog();
+                            },
+                            child: Center(
+                                child: AppText(
+                                  text: 'Reset',
+                                  color: Colors.white,
+                                  size: 12,
+                                  fw: FontWeight.w700,
+                                )),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
               ),
             ],
           ),
@@ -235,24 +247,23 @@ class _ResetPasswordState extends State<ResetPassword>
         builder: (BuildContext context) {
           return AlertDialog(
               content:  Container(
-            width: 260.0,
-            height: 150.0,
+            width: 250.0,
+            height: 120.0,
             decoration:  const BoxDecoration(
               shape: BoxShape.rectangle,
               color:  Color(0xffFFFFFF),
-              borderRadius:  BorderRadius.all( Radius.circular(10)),
+              borderRadius:  BorderRadius.all( Radius.circular(12)),
             ),
             child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  // dialog top
                    Expanded(
                     child: Column(
                       children: [
                         Lottie.asset(
                           'assets/confirm.json',
-                          width: 70,
-                          height: 70,
+                          width: 60,
+                          height: 60,
                           controller: _controller,
                           onLoaded: (composition) {
                             _controller
