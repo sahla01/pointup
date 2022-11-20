@@ -182,6 +182,7 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
               FocusScope.of(context).previousFocus();
             }
           },
+          cursorColor: Color(0xff19184D),
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,

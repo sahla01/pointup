@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pointup/screens/counterpage.dart';
+import 'package:pointup/screens/counter/counterpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OtpPage extends StatefulWidget {
@@ -182,6 +182,7 @@ class _OtpPageState extends State<OtpPage> {
               FocusScope.of(context).previousFocus();
             }
           },
+          cursorColor: Color(0xff19184D),
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,

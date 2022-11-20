@@ -79,6 +79,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               }
                               return null;
                             },
+                            cursorColor: Color(0xff19184D),
                             controller: idController,
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
@@ -112,6 +113,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               }
                               return null;
                             },
+                            cursorColor: Color(0xff19184D),
                             controller: userController,
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),

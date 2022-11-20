@@ -15,6 +15,7 @@ class _CounterPageState extends State<CounterPage> {
   final CarouselController _controller = CarouselController();
   int _activePage = 0;
 
+
   void initstate() {
     super.initState();
   }
@@ -84,85 +85,80 @@ class _CounterPageState extends State<CounterPage> {
               ),
               items: sliderList
                   .map((item) => Container(
-                        margin: const EdgeInsets.all(10),
-                        child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8.0)),
-                            child: Stack(
-                              children: <Widget>[
-                                Image.asset(item,
-                                    fit: BoxFit.cover, width: 1000.0),
-                                Positioned(
-                                  bottom: 0.0,
-                                  left: 0.0,
-                                  right: 0.0,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color.fromARGB(200, 0, 0, 0),
-                                          Color.fromARGB(0, 0, 0, 0)
-                                        ],
-                                        begin: Alignment.bottomCenter,
-                                        end: Alignment.topCenter,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )),
-                      ))
+                margin: const EdgeInsets.all(10),
+                child: ClipRRect(
+                    borderRadius:
+                    const BorderRadius.all(Radius.circular(8.0)),
+                    child: Stack(
+                      children: <Widget>[
+                        Image.asset(item,
+                            fit: BoxFit.cover, width: 1000.0),
+                        Positioned(
+                          bottom: 0.0,
+                          left: 0.0,
+                          right: 0.0,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromARGB(200, 0, 0, 0),
+                                  Color.fromARGB(0, 0, 0, 0)
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ))
                   .toList(),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 140,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(
-                        sliderList.length,
-                        (index) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: InkWell(
-                                onTap: () {
-                                  _controller.animateToPage(index,
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      curve: Curves.easeIn);
-                                },
-                                child: CircleAvatar(
-                                  radius: 5,
-                                  backgroundColor: _activePage == index
-                                      ? const Color(0xffF99F1E)
-                                      : const Color(0xffF4F6FF),
-                                ),
-                              ),
-                            )),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(
+                      sliderList.length,
+                          (index) => Padding(
+                        padding:
+                        const EdgeInsets.symmetric(horizontal: 8),
+                        child: InkWell(
+                          onTap: () {
+                            _controller.animateToPage(index,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeIn);
+                          },
+                          child: CircleAvatar(
+                            radius: 5,
+                            backgroundColor: _activePage == index
+                                ? const Color(0xffF99F1E)
+                                : const Color(0xffF4F6FF),
+                          ),
+                        ),
+                      )),
                 ),
               ],
             ),
-            Padding(
-                padding: const EdgeInsets.all(40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AppText(
-                      text: "Customer At Your Counter",
-                      size: 14,
-                      fw: FontWeight.bold,
-                      color: const Color(0xff333333),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+            const SizedBox(height: 30,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AppText(
+                  text: "Customer At Your Counter",
+                  size: 14,
+                  fw: FontWeight.bold,
+                  color: const Color(0xff333333),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
 
-                  ],
-                ))
           ],
         ),
       ),
