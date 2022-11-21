@@ -42,7 +42,7 @@ class _SignInState extends State<SignIn> {
       backgroundColor: Colors.white,
       body: Form(
         key: loginkey,
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
+import 'package:pointup/screens/counter/pointscreditpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class CounterPage extends StatefulWidget {
@@ -12,50 +13,68 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
-  final CarouselController _controller = CarouselController();
-  final int _activePage = 0;
+  int currentPos = 0;
 
   void initstate() {
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NewGradientAppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(top: 7.0, left: 5, bottom: 5.0),
-          child: Row(
-            children: [
-              AppText(
-                text: "Hello ,MY WORLD  Fashion !",
-                color: Colors.white,
-                size: 14,
-                fw: FontWeight.bold,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: IconButton(
-                    onPressed: () {
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationView()));
-                    },
-                    icon: Stack(children: const [
-                      Icon(
-                        Icons.notifications_none_outlined,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppText(
+              text: "Hello ,MY WORLD  Fashion !",
+              color: Colors.white,
+              size: 14,
+              fw: FontWeight.bold,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 60, top: 5),
+              child: SizedBox(
+                width: 30,
+                height: 30,
+                child: Stack(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 10, top: 4),
+                      child: Icon(
+                        Icons.notifications_outlined,
                         color: Colors.white,
                         size: 20,
                       ),
-                      Positioned(
-                          left: 2,
-                          child: Icon(
-                            Icons.brightness_1,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, bottom: 10),
+                      child: SizedBox(
+                        width: 9,
+                        height: 9,
+                        child: Container(
+                          width: 10,
+                          height: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
                             color: Color(0xffF99F1E),
-                            size: 9.0,
-                          ))
-                    ])),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "2",
+                              // _counter.toString(),
+                              style: TextStyle(
+                                  fontSize: 8, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         gradient: const LinearGradient(
             begin: Alignment.centerLeft,
@@ -78,7 +97,9 @@ class _CounterPageState extends State<CounterPage> {
                 aspectRatio: 2.0,
                 viewportFraction: 1,
                 onPageChanged: (index, reason) {
-                  setState(() {});
+                  setState(() {
+                    currentPos = index;
+                  });
                 },
                 enlargeCenterPage: true,
               ),
@@ -116,32 +137,24 @@ class _CounterPageState extends State<CounterPage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(
-                      sliderList.length,
-                      (index) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: InkWell(
-                              onTap: () {
-                                _controller.animateToPage(index,
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeIn);
-                              },
-                              child: CircleAvatar(
-                                radius: 5,
-                                backgroundColor: _activePage == index
-                                    ? const Color(0xffF99F1E)
-                                    : const Color(0xffF4F6FF),
-                              ),
-                            ),
-                          )),
-                ),
-              ],
+              children: sliderList.map((url) {
+                int index = sliderList.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPos == index
+                        ? const Color(0xffF99F1E)
+                        : const Color(0xffF4F6FF),
+                  ),
+                );
+              }).toList(),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Container(
               padding: const EdgeInsets.all(15),
@@ -163,23 +176,42 @@ class _CounterPageState extends State<CounterPage> {
                       Row(
                         children: [
                           Expanded(
-                            child: Container(
-                              width: 158,
-                              height: 80,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [Color(0xff125DEF),Color(0xff22ECBB)],
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>PointsCreditPage()));
+                              },
+                              child: Container(
+                                width: 158,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      Color(0xff125DEF),
+                                      Color(0xff22ECBB)
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              alignment: Alignment.center,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  AppText(text: "Points Credit",size: 14,fw: FontWeight.w700,color: Colors.white,),
-                                  const SizedBox(width: 10,),
-                                  const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
-                                ],
+                                alignment: Alignment.center,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AppText(
+                                      text: "Points Credit",
+                                      size: 14,
+                                      fw: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -192,7 +224,10 @@ class _CounterPageState extends State<CounterPage> {
                               height: 80,
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
-                                  colors: [Color(0xffEF9712),Color(0xffE8EC22)],
+                                  colors: [
+                                    Color(0xffEF9712),
+                                    Color(0xffE8EC22)
+                                  ],
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -200,9 +235,20 @@ class _CounterPageState extends State<CounterPage> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  AppText(text: "Points Redeem",size: 14,fw: FontWeight.w700,color: Colors.white,),
-                                  const SizedBox(width: 10,),
-                                  const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                                  AppText(
+                                    text: "Points Redeem",
+                                    size: 14,
+                                    fw: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
                                 ],
                               ),
                             ),
@@ -219,7 +265,7 @@ class _CounterPageState extends State<CounterPage> {
                             height: 80,
                             decoration: BoxDecoration(
                               gradient: const LinearGradient(
-                                colors: [Color(0xffEF12D9),Color(0xffB722EC)],
+                                colors: [Color(0xffEF12D9), Color(0xffB722EC)],
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -227,9 +273,20 @@ class _CounterPageState extends State<CounterPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                AppText(text: "Order Redeem",size: 14,fw: FontWeight.w700,color: Colors.white,),
-                                const SizedBox(width: 10,),
-                                const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                                AppText(
+                                  text: "Order Redeem",
+                                  size: 14,
+                                  fw: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  size: 15,
+                                  color: Colors.white,
+                                ),
                               ],
                             ),
                           ),
@@ -243,7 +300,7 @@ class _CounterPageState extends State<CounterPage> {
                             height: 80,
                             decoration: BoxDecoration(
                               gradient: const LinearGradient(
-                                colors: [Color(0xff73BE14),Color(0xff11AE92)],
+                                colors: [Color(0xff73BE14), Color(0xff11AE92)],
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -251,9 +308,20 @@ class _CounterPageState extends State<CounterPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                AppText(text: "Transactions",size: 14,fw: FontWeight.w700,color: Colors.white,),
-                                const SizedBox(width: 10,),
-                                const Icon(Icons.arrow_forward,size: 15,color: Colors.white,),
+                                AppText(
+                                  text: "Transactions",
+                                  size: 14,
+                                  fw: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  size: 15,
+                                  color: Colors.white,
+                                ),
                               ],
                             ),
                           ),

@@ -168,7 +168,7 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
   }
 
   Widget _textFieldOTP({bool? first, last}) {
-    return Container(
+    return SizedBox(
       height: 60,
       child: AspectRatio(
         aspectRatio: 0.9,

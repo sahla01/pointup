@@ -1,4 +1,4 @@
-import 'package:delayed_display/delayed_display.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pointup/onboardscreen/onboardingscreen.dart';
@@ -13,22 +13,58 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late final AnimationController _controller;
+
   final Duration initialDelay = const Duration(seconds: 1);
+  late final AnimationController _logoController;
+  late final AnimationController _controller;
+  late final AnimationController _textController;
+  bool showRewardAnimation = false;
 
   @override
-
   void initState() {
-    Future.delayed(const Duration(seconds: 10), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const OnBoardingScreen()));
-    });
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _textController = AnimationController(
+      duration: initialDelay,
+      vsync: this,
+    );
+
+    _logoController = AnimationController(
+      duration: initialDelay,
+      vsync: this,
+    )
+      ..forward().whenComplete(
+            () {
+          setState(() {
+            showRewardAnimation = true;
+          });
+          _controller.forward().whenComplete(() {
+            _textController.forward().whenComplete(
+                  () {
+                Future.delayed(initialDelay, () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OnBoardingScreen(),
+                    ),
+                  );
+                });
+              },
+            );
+          });
+        },
+      );
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _logoController.dispose();
+    _textController.dispose();
     super.dispose();
   }
 
@@ -48,25 +84,29 @@ class _SplashScreenState extends State<SplashScreen>
         ),
         child: ListView(
           children: [
-            Lottie.asset(
-              'assets/splashscreen.json',
-              controller: _controller,
-              onLoaded: (composition) {
-                _controller
-                  ..duration = composition.duration
-                  ..forward();
-              },
-            ),
-            DelayedDisplay(
-              delay: Duration(seconds: initialDelay.inSeconds+1),
-              child: Image.asset(
-                "assets/images/pointuplogo.png",
-                height: 70,
-                width: 70,
+            SizedBox(
+              height: 250,
+              child: Visibility(
+                visible: showRewardAnimation,
+                child: Lottie.asset(
+                  'assets/splashscreen.json',
+                  controller: _controller,
+                ),
               ),
             ),
-            DelayedDisplay(
-              delay: Duration(seconds: initialDelay.inSeconds+2),
+            FadeTransition(
+              opacity: _logoController,
+              child: ScaleTransition(
+                scale: _logoController,
+                child: Image.asset(
+                  "assets/images/pointuplogo.png",
+                  height: 70,
+                  width: 70,
+                ),
+              ),
+            ),
+            FadeTransition(
+              opacity: _textController,
               child: Padding(
                 padding: const EdgeInsets.only(left: 90),
                 child: Image.asset(
@@ -76,9 +116,11 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
             ),
-            const SizedBox(height: 270,),
-            DelayedDisplay(
-              delay: Duration(seconds: initialDelay.inSeconds+2),
+            const SizedBox(
+              height: 270,
+            ),
+            FadeTransition(
+              opacity: _textController,
               child: Column(
                 children: [
                   AppText(
@@ -104,7 +146,7 @@ class _SplashScreenState extends State<SplashScreen>
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

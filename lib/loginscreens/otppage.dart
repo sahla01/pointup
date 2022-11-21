@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pointup/screens/counter/counterpage.dart';
+import 'package:pointup/screens/navbar/bottomnavbar.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OtpPage extends StatefulWidget {
@@ -145,12 +145,10 @@ class _OtpPageState extends State<OtpPage> {
                 ),
                 child: InkWell(
                   onTap: () {
-
                     Navigator.push(context,
                         MaterialPageRoute(
-                            builder: (context) => const CounterPage()));
-
-                  },
+                            builder: (context) => const BottomNavBar()));
+                    },
                   child: Center(
                       child: AppText(
                         text: 'Continue',
@@ -168,7 +166,7 @@ class _OtpPageState extends State<OtpPage> {
   }
 
   Widget _textFieldOTP({bool? first, last}) {
-    return Container(
+    return SizedBox(
       height: 60,
       child: AspectRatio(
         aspectRatio: 0.9,
