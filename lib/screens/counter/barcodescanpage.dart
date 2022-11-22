@@ -12,9 +12,6 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Barcode demo'),
-      ),
       body: Center(
         child: BarcodeWidget(
           barcode: Barcode.aztec(), // Barcode type and settings
