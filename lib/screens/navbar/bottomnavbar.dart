@@ -92,6 +92,7 @@
 //  }
 import 'package:flutter/material.dart';
 import 'package:pointup/screens/counter/counterpage.dart';
+import 'package:svg_icon/svg_icon.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -130,31 +131,31 @@ class _BottomNavBarState extends State<BottomNavBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,),
+            icon:SvgIcon("assets/icons/hom.svg"),
             label: 'Counter',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket_outlined),
+            icon: SvgIcon("assets/icons/orders.svg",),
             label: 'Order’s',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long_sharp),
+            icon: SvgIcon("assets/icons/receipt.svg"),
             label: 'Receipt Submit',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.airplane_ticket_sharp),
+            icon:SvgIcon("assets/icons/ticket.svg"),
             label: 'Tickets',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xffF99F1E),
-        unselectedItemColor: Color(0xffD9D9D9),
+        selectedItemColor: const Color(0xffF99F1E),
+        unselectedItemColor: const Color(0xffA3A3B8),
         selectedFontSize: 10,
         unselectedFontSize: 10,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
-        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
+        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
         onTap: _onItemTapped,
       ),
     );

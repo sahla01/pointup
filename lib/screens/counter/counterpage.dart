@@ -4,6 +4,7 @@ import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
 import 'package:pointup/screens/counter/pointscreditpage.dart';
 import 'package:pointup/widgets/app_text.dart';
+import 'package:svg_icon/svg_icon.dart';
 
 class CounterPage extends StatefulWidget {
   const CounterPage({Key? key}) : super(key: key);
@@ -22,60 +23,16 @@ class _CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NewGradientAppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            AppText(
+        title: AppText(
               text: "Hello ,MY WORLD  Fashion !",
               color: Colors.white,
               size: 14,
               fw: FontWeight.bold,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 60, top: 5),
-              child: SizedBox(
-                width: 30,
-                height: 30,
-                child: Stack(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 10, top: 4),
-                      child: Icon(
-                        Icons.notifications_outlined,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, bottom: 10),
-                      child: SizedBox(
-                        width: 9,
-                        height: 9,
-                        child: Container(
-                          width: 10,
-                          height: 10,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffF99F1E),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "2",
-                              // _counter.toString(),
-                              style: TextStyle(
-                                  fontSize: 8, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+           actions: <Widget>[
+              IconButton(onPressed: (){},
+                  icon: const SvgIcon("assets/icons/notifi.svg"))
+            ],
         gradient: const LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
@@ -178,7 +135,7 @@ class _CounterPageState extends State<CounterPage> {
                           Expanded(
                             child: InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>PointsCreditPage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>const PointsCreditPage()));
                               },
                               child: Container(
                                 width: 158,

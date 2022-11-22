@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/counter/barcodescanpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class PointsCreditPage extends StatefulWidget {
@@ -10,7 +9,7 @@ class PointsCreditPage extends StatefulWidget {
   State<PointsCreditPage> createState() => _PointsCreditPageState();
 }
 
-class _PointsCreditPageState extends State<PointsCreditPage> {
+class _PointsCreditPageState extends State<PointsCreditPage> with TickerProviderStateMixin {
 
   final TextEditingController mobileController= TextEditingController();
   final TextEditingController receiptController= TextEditingController();
@@ -19,124 +18,246 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
   final TextEditingController rewardsController= TextEditingController();
   final TextEditingController walletController= TextEditingController();
   final TextEditingController voucherController= TextEditingController();
+  late String scanresult;
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: NewGradientAppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 15,
-                color: Colors.white,
-              ),
-            );
-          },
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 70),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              AppText(
-                text: "Points Credit",
-                color: Colors.white,
-                size: 14,
-                fw: FontWeight.bold,
-              ),
-            ],
-          ),
-        ),
-        gradient: const LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Color.fromRGBO(25, 24, 77, 1),
-              Color.fromRGBO(25, 24, 100, 1),
-              Color.fromRGBO(28, 43, 174, 1)
-            ]),
-      ),
-      body: Form(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 30,top: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    AppText(text: "Scan Barcode",
-                      size: 14,
-                      fw: FontWeight.bold,
-                      color:Color(0xff333333),),
-                    SizedBox(width: 10,),
-                    InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BarcodeScanPage()));
-
-                      },
-                        child: Image.asset('assets/images/barcodee.png',))
-                  ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: NewGradientAppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  size: 15,
+                  color: Colors.white,
                 ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              );
+            },
+          ),
+          title: Center(
+            child: AppText(
+              text: "Points Credit",
+              color: Colors.white,
+              size: 14,
+              fw: FontWeight.bold,
+            ),
+          ),
+          gradient: const LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color.fromRGBO(25, 24, 77, 1),
+                Color.fromRGBO(25, 24, 100, 1),
+                Color.fromRGBO(28, 43, 174, 1)
+              ]),
+        ),
+        body: Form(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 30,top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10,left: 20,right: 10),
-                        child: AppText(text: "Mobile OR Member ID",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
-                        child: TextFormField(
-                            validator: (value) {
-                              if(value == null || value.isEmpty){
-                                return "Enter a valid mobile or member id";
-                              }
-                              return null;
-                            },
-                            cursorColor: const Color(0xff333333),
-                            controller:mobileController,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                              isDense: true,
-                              filled: true,
-                              fillColor: const Color(0xffF4F6FF),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
-                                  borderRadius: BorderRadius.circular(10)
-                              ),
-                            )
+                      AppText(text: "Scan Barcode",
+                        size: 14,
+                        fw: FontWeight.bold,
+                        color:const Color(0xff333333),),
+                      const SizedBox(width: 10,),
+                      InkWell(
+                        // onTap: () async {
+                        //   scanresult = await scanner.scan();
+                        //   setState(() {
+                        //
+                        //   });
+
+                        //},
+                        // onTap: (){
+                        //   Navigator.push(context, MaterialPageRoute(builder: (context)=>const BarcodeScanPage()));
+                        //
+                        // },
+                          child: Image.asset('assets/images/barcodee.png',))
+                    ],
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10,left: 20,right: 10),
+                          child: AppText(text: "Mobile OR Member ID",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
                         ),
-                      ),
-                      SizedBox(height: 20,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Row(
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
+                          child: TextFormField(
+                              validator: (value) {
+                                if(value == null || value.isEmpty){
+                                  return "Enter a valid mobile or member id";
+                                }
+                                return null;
+                              },
+                              cursorColor: const Color(0xff333333),
+                              controller:mobileController,
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                isDense: true,
+                                filled: true,
+                                fillColor: const Color(0xffF4F6FF),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                              )
+                          ),
+                        ),
+                        const SizedBox(height: 20,),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            AppText(text: "Receipt No ( Optional)",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
-                            SizedBox(width: 47,),
-                            AppText(text: "Bill Amount",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: AppText(text: "Receipt No ( Optional)",
+                                    size: 12,
+                                    fw: FontWeight.w600,
+                                    txtalign: TextAlign.start,
+                                    color: const Color(0xff333333),),
+                                )),
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: AppText(text: "Bill Amount",
+                                    size: 12,
+                                    txtalign: TextAlign.left,
+                                    fw: FontWeight.w600,
+                                    color: const Color(0xff333333),),
+                                )),
                           ],
                         ),
-                      ),
-                      Row(
-                        children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10.0, left: 20, right: 5,),
+                                child: TextFormField(
+                                    validator: (value) {
+                                      if(value == null || value.isEmpty){
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller:receiptController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                          borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: 'Enter Receipt No',
+                                    )
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child:  Padding(
+                                padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
+                                child: TextFormField(
+                                    validator: (value) {
+                                      if(value == null || value.isEmpty){
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller:billController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                          borderRadius: BorderRadius.circular(10)
+                                      ),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0.00',
+                                    ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: AppText(text: "Total Earnings",
+                                    txtalign: TextAlign.left,
+                                    size: 12,
+                                    fw: FontWeight.w600,
+                                    color: const Color(0xff333333),),
+                                )),
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: AppText(text: "Rewards Value Rs",
+                                    size: 12,
+                                    txtalign: TextAlign.left,
+                                    fw: FontWeight.w600,
+                                    color: const Color(0xff333333),),
+                                )),
+                          ],
+                        ),
+                        Row(children: [
                           Expanded(
-                            child: Padding(
+                            child:  Padding(
                               padding: const EdgeInsets.only(top: 10.0, left: 20, right: 5,),
                               child: TextFormField(
                                   validator: (value) {
@@ -146,7 +267,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                     return null;
                                   },
                                   cursorColor: const Color(0xff333333),
-                                  controller:receiptController,
+                                  controller:totalController,
                                   decoration: InputDecoration(
                                     contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
                                     isDense: true,
@@ -158,17 +279,15 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
                                         fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: 'Enter Receipt No',
+                                    hintText: '0',
                                   )
                               ),
                             ),
                           ),
-
-
                           Expanded(
                             child:  Padding(
                               padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
@@ -180,7 +299,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                     return null;
                                   },
                                   cursorColor: const Color(0xff333333),
-                                  controller:billController,
+                                  controller:rewardsController,
                                   decoration: InputDecoration(
                                     contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
                                     isDense: true,
@@ -197,189 +316,123 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                     hintStyle: const TextStyle(
                                         fontSize: 12, color: Color(0xffA1A2A8)),
                                     hintText: '0.00',
-                                  ),
+                                  )
+                              ),
+                            ),
+                          )
+                        ]),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: AppText(text: "Wallet Rewards",
+                                    size: 12,
+                                    txtalign: TextAlign.left,
+                                    fw: FontWeight.w600,
+                                    color: const Color(0xff333333),),
+                                )),
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: AppText(
+                                    text: "Points Voucher",
+                                    txtalign: TextAlign.left,
+                                    size: 12,fw: FontWeight.w600,
+                                    color: const Color(0xff333333),),
+                                )),
+                          ],
+                        ),
+                        Row(children: [
+                          Expanded(
+                            child:  Padding(
+                              padding: const EdgeInsets.only(top: 10.0, left: 20, right: 5,),
+                              child: TextFormField(
+                                  validator: (value) {
+                                    if(value == null || value.isEmpty){
+                                      return "Enter a valid shop id";
+                                    }
+                                    return null;
+                                  },
+                                  cursorColor: const Color(0xff333333),
+                                  controller:walletController,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    hintStyle: const TextStyle(
+                                        fontSize: 12, color: Color(0xffA1A2A8)),
+                                    hintText: '0',
+                                  )
                               ),
                             ),
                           ),
-                        ],
-                      ),
-
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Row(
+                          Expanded(
+                            child:  Padding(
+                              padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
+                              child: TextFormField(
+                                  validator: (value) {
+                                    if(value == null || value.isEmpty){
+                                      return "Enter a valid shop id";
+                                    }
+                                    return null;
+                                  },
+                                  cursorColor: const Color(0xff333333),
+                                  controller:voucherController,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    hintStyle: const TextStyle(
+                                        fontSize: 12, color: Color(0xffA1A2A8)),
+                                    hintText: '0',
+                                  )
+                              ),
+                            ),
+                          )
+                        ]),
+                      ],
+                    ),
+                    const SizedBox(height: 20,),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            AppText(text: "Total Earnings",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
-                            SizedBox(width: 90,),
-                            AppText(text: "Rewards Value Rs",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: AppText(text: "Point  Voucher (0) ",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
+                            ),
                           ],
                         ),
-                      ),
-                      Row(children: [
-                        Expanded(
-                          child:  Padding(
-                            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 5,),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if(value == null || value.isEmpty){
-                                    return "Enter a valid shop id";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff333333),
-                                controller:totalController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
-                                  hintText: '0',
-                                )
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child:  Padding(
-                            padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if(value == null || value.isEmpty){
-                                    return "Enter a valid shop id";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff333333),
-                                controller:rewardsController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
-                                  hintText: '0.00',
-                                )
-                            ),
-                          ),
-                        )
-                      ]),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            AppText(text: "Wallet Rewards",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
-                            SizedBox(width: 83,),
-                            AppText(text: "Points Voucher",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
-                          ],
-                        ),
-                      ),
-                      Row(children: [
-                        Expanded(
-                          child:  Padding(
-                            padding: const EdgeInsets.only(top: 10.0, left: 20, right: 5,),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if(value == null || value.isEmpty){
-                                    return "Enter a valid shop id";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff333333),
-                                controller:walletController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
-                                  hintText: '0',
-                                )
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child:  Padding(
-                            padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if(value == null || value.isEmpty){
-                                    return "Enter a valid shop id";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff333333),
-                                controller:voucherController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
-                                  hintText: '0',
-                                )
-                            ),
-                          ),
-                        )
-                      ]),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 220,),
-                        child: AppText(text: "Point  Voucher (0) ",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25,top: 150),
-                    child: Row(
+                      ],
+                    ),
+                    const SizedBox(height: 150,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                             onTap: (){
@@ -389,14 +442,14 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                 height: 52,
                                 width: 147,
                                 decoration: BoxDecoration(
-                                    color: Color(0xffEF2222),
+                                    color: const Color(0xffEF2222),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                                 child: Center(child: AppText(text: "Cancel", color: Colors.white,size: 12,fw: FontWeight.bold,)))),
-                        SizedBox(width: 15,),
+                        const SizedBox(width: 15,),
                         InkWell(
                             onTap: () {
-
+                              _showMyDialog();
                             },
                             child: Container(
                                 height: 52,
@@ -415,13 +468,158 @@ class _PointsCreditPageState extends State<PointsCreditPage> {
                                 child: Center(child: AppText(text: "Credit", color: Colors.white,size: 12,fw: FontWeight.bold,))))
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+              content: Container(
+                width: 250.0,
+                height: 180.0,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Color(0xffFFFFFF),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                        child: Column(
+                          children: [
+                            // Lottie.asset(
+                            //   'assets/confirm.json',
+                            //   width: 60,
+                            //   height: 60,
+                            //   controller: _controller,
+                            //   onLoaded: (composition) {
+                            //     _controller
+                            //       ..duration = composition.duration
+                            //       ..forward();
+                            //   },
+                            // ),
+                            AppText(
+                              text: 'Points Sucessfully Credited',
+                              size: 14,
+                              fw: FontWeight.w700,
+                              color: const Color(0xff19184D),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AppText(text:'Credited to        : ',
+                                  size: 12,
+                                  fw: FontWeight.normal,
+                                  color: const Color(0xff333333),
+                                ),
+                                AppText(
+                                  text: '     9948789898',
+                                  size: 12,
+                                  fw: FontWeight.w700,
+                                  color: const Color(0xff333333),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: AppText(text:'Points Credited :',
+                                    size: 12,
+                                    fw: FontWeight.normal,
+                                    color: const Color(0xff333333),
+                                  ),
+                                ),
+                                AppText(
+                                  text: '     600',
+                                  size: 12,
+                                  fw: FontWeight.w700,
+                                  color: const Color(0xff333333),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: AppText(text:'Points Value Rs :',
+                                    size: 12,
+                                    fw: FontWeight.normal,
+                                    color: const Color(0xff333333),
+                                  ),
+                                ),
+                                AppText(
+                                  text: '     300.00',
+                                  size: 12,
+                                  fw: FontWeight.w700,
+                                  color: const Color(0xff333333),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 20,),
+                            AppText(
+                              text: 'Thank you for shpopping! Visit again',
+                              size: 8,
+                              fw: FontWeight.normal,
+                              color: const Color(0xffA1A2A8),
+                            ),
+                            const SizedBox(height: 20,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(right: 30),
+                                      child: Icon(Icons.local_printshop_outlined,
+                                        color: Color(0xffF99F1E)),
+                                    )),
+                                Expanded(
+                                  child: AppText(
+                                    text: "Print",
+                                    size: 14,
+                                    txtalign: TextAlign.start,
+                                    fw: FontWeight.w700,
+                                    color: const Color(0xff19184D),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: AppText(
+                                      txtalign: TextAlign.end,
+                                      text: "OK",
+                                      size: 14,
+                                      fw: FontWeight.w700,
+                                      color: const Color(0xff19184D),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ]),
+              ));
+        });
   }
 }
