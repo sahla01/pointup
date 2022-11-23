@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:lottie/lottie.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/widgets/app_text.dart';
 
@@ -18,8 +21,42 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
   final TextEditingController rewardsController= TextEditingController();
   final TextEditingController walletController= TextEditingController();
   final TextEditingController voucherController= TextEditingController();
-  late String scanresult;
   late final AnimationController _controller;
+
+
+  Future<void> startBarcodeScanStream() async {
+    FlutterBarcodeScanner.getBarcodeStreamReceiver(
+        '#ff6666', 'Cancel', true, ScanMode.BARCODE)!
+        .listen((barcode) => print(barcode));
+  }
+  // Future<void> scanQR() async {
+  //   String barcodeScanRes;
+  //   try {
+  //     barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+  //         '#ff6666', 'Cancel', true, ScanMode.QR);
+  //     print(barcodeScanRes);
+  //   } on PlatformException {
+  //     barcodeScanRes = 'Failed to get platform version.';
+  //   }
+  //   if (!mounted) return;
+  //
+  //   setState(() {
+  //   });
+  // }
+  Future<void> scanBarcodeNormal() async {
+    String barcodeScanRes;
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    if (!mounted) return;
+    setState(() {
+    });
+  }
 
   @override
   void initState() {
@@ -82,19 +119,9 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                         fw: FontWeight.bold,
                         color:const Color(0xff333333),),
                       const SizedBox(width: 10,),
-                      InkWell(
-                        // onTap: () async {
-                        //   scanresult = await scanner.scan();
-                        //   setState(() {
-                        //
-                        //   });
-
-                        //},
-                        // onTap: (){
-                        //   Navigator.push(context, MaterialPageRoute(builder: (context)=>const BarcodeScanPage()));
-                        //
-                        // },
-                          child: Image.asset('assets/images/barcodee.png',))
+                          InkWell(
+                            onTap: ()=> scanBarcodeNormal(),
+                              child: Image.asset('assets/images/barcodee.png',)),
                     ],
                   ),
                 ),
@@ -484,12 +511,12 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
         builder: (BuildContext context) {
           return AlertDialog(
               content: Container(
-                width: 250.0,
-                height: 180.0,
+                width: 230.0,
+                height: 220.0,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -497,25 +524,28 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                       Expanded(
                         child: Column(
                           children: [
-                            // Lottie.asset(
-                            //   'assets/confirm.json',
-                            //   width: 60,
-                            //   height: 60,
-                            //   controller: _controller,
-                            //   onLoaded: (composition) {
-                            //     _controller
-                            //       ..duration = composition.duration
-                            //       ..forward();
-                            //   },
-                            // ),
-                            AppText(
-                              text: 'Points Sucessfully Credited',
-                              size: 14,
-                              fw: FontWeight.w700,
-                              color: const Color(0xff19184D),
+                            Lottie.asset(
+                              'assets/pointsucess.json',
+                              width: 60,
+                              height: 60,
+                              controller: _controller,
+                              onLoaded: (composition) {
+                                _controller
+                                  ..duration = composition.duration
+                                  ..forward();
+                              },
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: AppText(
+                                text: 'Points Sucessfully Credited',
+                                size: 14,
+                                fw: FontWeight.w700,
+                                color: const Color(0xff19184D),
+                              ),
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -538,7 +568,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 40),
+                                  padding: const EdgeInsets.only(left: 32),
                                   child: AppText(text:'Points Credited :',
                                     size: 12,
                                     fw: FontWeight.normal,
@@ -558,7 +588,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 40),
+                                  padding: const EdgeInsets.only(left: 32),
                                   child: AppText(text:'Points Value Rs :',
                                     size: 12,
                                     fw: FontWeight.normal,
@@ -580,21 +610,22 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               fw: FontWeight.normal,
                               color: const Color(0xffA1A2A8),
                             ),
-                            const SizedBox(height: 20,),
+                            const SizedBox(height: 10,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 const Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.only(right: 30),
+                                      padding: EdgeInsets.only(right: 80),
                                       child: Icon(Icons.local_printshop_outlined,
                                         color: Color(0xffF99F1E)),
                                     )),
-                                Expanded(
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 140),
                                   child: AppText(
                                     text: "Print",
                                     size: 14,
-                                    txtalign: TextAlign.start,
+                                    txtalign: TextAlign.left,
                                     fw: FontWeight.w700,
                                     color: const Color(0xff19184D),
                                   ),
