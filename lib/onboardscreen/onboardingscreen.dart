@@ -20,15 +20,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     // TODO: implement initState
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
-      if(_activePage < 2){
+      if (_activePage < 2) {
         _activePage++;
-      }else{
+      } else {
         _activePage = 0;
       }
       _pageViewController.animateToPage(
-          _activePage,
-          duration: const Duration(milliseconds: 350),
-          curve: Curves.easeIn,
+        _activePage,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeIn,
       );
     });
   }
@@ -45,9 +45,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          PageView.builder(
+          Expanded(
+            flex: 3,
+            child: PageView.builder(
               controller: _pageViewController,
               onPageChanged: (int index) {
                 setState(() {
@@ -78,10 +81,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         height: 10,
                       ),
                       AppText(
-                        text:
-                            'Boost your customer engagement and grow your\n '
-                                '  business with amazing customer loyalty rewards\n'
-                                'management system ',
+                        text: 'Boost your customer engagement and grow your\n '
+                            '  business with amazing customer loyalty rewards\n'
+                            'management system ',
                         size: 12,
                         height: 1.4,
                         color: const Color(0xff19184D),
@@ -89,64 +91,72 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ],
                   ),
                 );
-              }),
-          Positioned(
-            bottom: 270,
-            left: 0,
-            right: 0,
-            height: 40,
-            child: Container(
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List<Widget>.generate(
-                    imgList.length,
-                    (index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: InkWell(
-                            onTap: () {
-                              _pageViewController.animateToPage(index,
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeIn);
-                            },
-                            child: CircleAvatar(
-                              radius: 5,
-                              backgroundColor: _activePage == index
-                                  ? const Color(0xffF99F1E)
-                                  : const Color(0xffF4F6FF),
-                            ),
-                          ),
-                        )),
-              ),
+              },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 610),
-            child: Container(
-              height: 48,
-              margin: const EdgeInsets.all(20),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color.fromRGBO(25, 24, 77, 1),
-                      Color.fromRGBO(25, 24, 77, 1),
-                      Color.fromRGBO(28, 43, 174, 1)
-                    ]),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignIn()));
-
-                },
-                child: Center(child: AppText(text: 'Get Started',color: Colors.white,size: 12,fw: FontWeight.w700,)),
-
-              ),
+          Expanded(
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List<Widget>.generate(
+                        imgList.length,
+                        (index) => Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: InkWell(
+                                onTap: () {
+                                  _pageViewController.animateToPage(index,
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.easeIn);
+                                },
+                                child: CircleAvatar(
+                                  radius: 5,
+                                  backgroundColor: _activePage == index
+                                      ? const Color(0xffF99F1E)
+                                      : const Color(0xffF4F6FF),
+                                ),
+                              ),
+                            )),
+                  ),
+                ),
+                Container(
+                  height: 48,
+                  margin: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          Color.fromRGBO(25, 24, 77, 1),
+                          Color.fromRGBO(25, 24, 77, 1),
+                          Color.fromRGBO(28, 43, 174, 1)
+                        ]),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignIn()));
+                    },
+                    child: Center(
+                        child: AppText(
+                      text: 'Get Started',
+                      color: Colors.white,
+                      size: 12,
+                      fw: FontWeight.w700,
+                    )),
+                  ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
