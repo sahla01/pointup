@@ -199,102 +199,94 @@ class _ViewOrdersState extends State<ViewOrders> {
                       children: [
                         Expanded(
                           flex: 2,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 1.5,
-                                child: Row(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 1.5,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                                  children: [
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: Container(
-                                          height: 24,
-                                          width: 24,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(3),
-                                              color: const Color(0xffF99F1E)),
-                                          // padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                                          child: Center(
-                                              child: AppText(
-                                                text: "1",
-                                                size: 10,
-                                                color: const Color(0xffFFFFFF),
-                                                fw: FontWeight.w600,
-                                              ))),
-                                    ),
-                                    AppText(
-                                      text: "Delete",
-                                      size: 10,
-                                      fw: FontWeight.w600,
-                                      color: const Color(0xff333333),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(right: 30),
-                                        child: Container(
-                                            height: 24,
-                                            width: 24,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(3),
-                                                color: const Color(0xffF99F1E)),
-                                            padding:
-                                            const EdgeInsets.only(bottom: 10),
-                                            child: const Icon(
-                                              Icons.minimize,
-                                              color: Color(0xffFFFFFF),
-                                              size: 14,
-                                            )),
-                                      ),
-                                    ),
-                                    AppText(
-                                      text: "Add",
-                                      size: 10,
-                                      fw: FontWeight.w600,
-                                      color: const Color(0xff333333),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(right: 30),
-                                        child: Container(
-                                            height: 24,
-                                            width: 24,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(3),
-                                                color: const Color(0xffF99F1E)),
-                                            child: const Icon(
-                                              Icons.add,
-                                              color: Color(0xffFFFFFF),
-                                              size: 14,
-                                            )),
-                                      ),
-                                    ),
-                                  ],
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Container(
+                                      height: 24,
+                                      width: 24,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(3),
+                                          color: const Color(0xffF99F1E)),
+                                      // padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      child: Center(
+                                          child: AppText(
+                                            text: "1",
+                                            size: 10,
+                                            color: const Color(0xffFFFFFF),
+                                            fw: FontWeight.w600,
+                                          ))),
                                 ),
-                              ),
-                            ],
+                                AppText(
+                                  text: "Delete",
+                                  size: 10,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 30),
+                                    child: Container(
+                                        height: 24,
+                                        width: 24,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(3),
+                                            color: const Color(0xffF99F1E)),
+                                        padding:
+                                        const EdgeInsets.only(bottom: 10),
+                                        child: const Icon(
+                                          Icons.minimize,
+                                          color: Color(0xffFFFFFF),
+                                          size: 14,
+                                        )),
+                                  ),
+                                ),
+                                AppText(
+                                  text: "Add",
+                                  size: 10,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 30),
+                                    child: Container(
+                                        height: 24,
+                                        width: 24,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(3),
+                                            color: const Color(0xffF99F1E)),
+                                        child: const Icon(
+                                          Icons.add,
+                                          color: Color(0xffFFFFFF),
+                                          size: 14,
+                                        )),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Expanded(
                           flex: 1,
-                          child: Row(
-                            children: [
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    AppText(text: "Shop Trail",size: 10,color: Color(0xff333333),),
-                                    SizedBox(width: 30,),
-                                    AppText(text: "Shop Trail",size: 10,color: Color(0xff333333),)
-                                  ],
-                                ),
-                              ),
-                            ],
+                          child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                AppText(text: "Shop Trail",size: 10,color: Color(0xff333333),),
+                                SizedBox(width: 30,),
+                                AppText(text: "Shop Trail",size: 10,color: Color(0xff333333),)
+                              ],
+                            ),
                           ),
                         )
                       ],
