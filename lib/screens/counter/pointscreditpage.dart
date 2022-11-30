@@ -92,7 +92,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
           title: Padding(
             padding: const EdgeInsets.only(left: 70,right: 70),
             child: AppText(
-              txtalign: TextAlign.center,
+              txtalign: TextAlign.left,
               text: "Points Credit",
               color: Colors.white,
               size: 14,
