@@ -101,7 +101,7 @@ class _PointsRedeemPageState extends State<PointsRedeemPage> with TickerProvider
                       const SizedBox(width: 10,),
                       InkWell(
                           onTap: ()=> scanBarcodeNormal(),
-                          child: Image.asset('assets/images/barcodee.png',)),
+                          child: Image.asset('assets/images/Barcod.png',)),
                     ],
                   ),
                 ),
@@ -194,9 +194,10 @@ class _PointsRedeemPageState extends State<PointsRedeemPage> with TickerProvider
                           ),
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const RedeemSecondPage()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>RedeemSecondPage()));
+                              // Navigator.push(context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const RedeemSecondPage()));
                             },
                             child: Center(
                                 child: AppText(

@@ -116,7 +116,7 @@ class _SignInState extends State<SignIn> {
                                   return null;
                                 },
                                 controller: idController,
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(
                                       vertical: 13, horizontal: 13),
@@ -167,7 +167,7 @@ class _SignInState extends State<SignIn> {
                                   }
                                   return null;
                                 },
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 controller: userController,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(
@@ -215,7 +215,7 @@ class _SignInState extends State<SignIn> {
                                   }
                                   return null;
                                 },
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 controller: passwordController,
                                 obscureText: visibility,
                                 obscuringCharacter: "*",
@@ -253,9 +253,9 @@ class _SignInState extends State<SignIn> {
                                       },
                                       child: visibility == true
                                           ? const Icon(Icons.visibility_off_outlined,
-                                              color: Color(0xff19184D))
+                                              color: Color(0xff351070))
                                           : const Icon(Icons.visibility,
-                                              color: Color(0xff19184D))),
+                                              color: Color(0xff351070))),
                                 ),
                               )),
                           const SizedBox(
@@ -309,7 +309,7 @@ class _SignInState extends State<SignIn> {
                                     text: 'Forgot Password ?',
                                     size: 12,
                                     fw: FontWeight.w700,
-                                    color: const Color(0xff19184D),
+                                    color: const Color(0xff351070),
                                   ))
                             ],
                           ),

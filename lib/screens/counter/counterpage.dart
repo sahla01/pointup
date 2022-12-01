@@ -5,6 +5,7 @@ import 'package:pointup/models/models.dart';
 import 'package:pointup/screens/counter/orderredeempage.dart';
 import 'package:pointup/screens/counter/pointscreditpage.dart';
 import 'package:pointup/screens/counter/pointsredeempage.dart';
+import 'package:pointup/screens/counter/transactionpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -33,8 +34,9 @@ class _CounterPageState extends State<CounterPage> {
           fw: FontWeight.bold,
         ),
         actions: <Widget>[
-          IconButton(
-              onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
+          Image.asset("assets/images/noti.png"),
+          // IconButton(
+          //     onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
         ],
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
@@ -263,34 +265,39 @@ class _CounterPageState extends State<CounterPage> {
                           width: 15,
                         ),
                         Expanded(
-                          child: Container(
-                            width: 158,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xff73BE14), Color(0xff11AE92)],
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionPage()));
+                            },
+                            child: Container(
+                              width: 158,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xff73BE14), Color(0xff11AE92)],
+                                ),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            alignment: Alignment.center,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  text: "Transactions",
-                                  size: 14,
-                                  fw: FontWeight.w700,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward,
-                                  size: 15,
-                                  color: Colors.white,
-                                ),
-                              ],
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AppText(
+                                    text: "Transactions",
+                                    size: 14,
+                                    fw: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         )

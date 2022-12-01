@@ -118,7 +118,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                       const SizedBox(width: 10,),
                           InkWell(
                             onTap: ()=> scanBarcodeNormal(),
-                              child: Image.asset('assets/images/barcodee.png',)),
+                              child: Image.asset('assets/images/Barcod.png',)),
                     ],
                   ),
                 ),
@@ -150,11 +150,11 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                 filled: true,
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
+                                  borderSide: const BorderSide(width: 0,color: Color(0xff330F6C)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 0,color: Color(0xff19184D)),
+                                    borderSide: const BorderSide(width: 0,color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                               )
@@ -517,25 +517,27 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                       Expanded(
                         child: Column(
                           children: [
-                            Lottie.asset(
-                              'assets/pointsucess.json',
-                              width: 60,
-                              height: 60,
-                              controller: _controller,
-                              onLoaded: (composition) {
-                                _controller
-                                  ..duration = composition.duration
-                                  ..forward();
-                              },
+                            Image.asset("assets/images/sucessfull.png",width: 52,height: 52,
                             ),
+                            // Lottie.asset(
+                            //   'assets/pointsucess.json',
+                            //   width: 60,
+                            //   height: 60,
+                            //   controller: _controller,
+                            //   onLoaded: (composition) {
+                            //     _controller
+                            //       ..duration = composition.duration
+                            //       ..forward();
+                            //   },
+                            // ),
                             AppText(
                               text: 'Points Sucessfully Credited',
                               size: 14,
                               fw: FontWeight.w700,
-                              color: const Color(0xff19184D),
+                              color: const Color(0xff351070),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 20,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -616,7 +618,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                     size: 14,
                                     txtalign: TextAlign.left,
                                     fw: FontWeight.w700,
-                                    color: const Color(0xff19184D),
+                                    color: const Color(0xffF99F1E),
                                   ),
                                 ),
                                 Expanded(
@@ -629,7 +631,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       text: "OK",
                                       size: 14,
                                       fw: FontWeight.w700,
-                                      color: const Color(0xff19184D),
+                                      color: const Color(0xff351070),
                                     ),
                                   ),
                                 )

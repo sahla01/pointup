@@ -126,7 +126,7 @@ class _OtpPageState extends State<OtpPage> {
                         text: "Time Out: 04:59",
                         size: 10,
                         fw: FontWeight.w600,
-                        color: const Color(0xff19184D),
+                        color: const Color(0xff351070),
                       ),
                     ),
                   )

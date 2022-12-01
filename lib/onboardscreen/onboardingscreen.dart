@@ -59,6 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               },
               itemCount: imgList.length,
               itemBuilder: (BuildContext context, int index) {
+                var ui;
                 return Padding(
                   padding: const EdgeInsets.only(top: 110),
                   child: Column(
@@ -71,10 +72,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+
                       AppText(
                         text: contants[index],
                         size: 24,
-                        color: const Color(0xff19184D),
+                        color: const Color(0xff530393),
                         fw: FontWeight.bold,
                       ),
                       const SizedBox(
