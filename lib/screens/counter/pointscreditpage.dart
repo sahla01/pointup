@@ -4,6 +4,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:lottie/lottie.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/widgets/app_text.dart';
+import 'package:svg_icon/svg_icon.dart';
 
 class PointsCreditPage extends StatefulWidget {
   const PointsCreditPage({Key? key}) : super(key: key);
@@ -88,8 +89,10 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
               );
             },
           ),
-          title: Center(
+          title: Padding(
+            padding: const EdgeInsets.only(left: 70,right: 70),
             child: AppText(
+              txtalign: TextAlign.left,
               text: "Points Credit",
               color: Colors.white,
               size: 14,
@@ -97,13 +100,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
             ),
           ),
           gradient: const LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color.fromRGBO(25, 24, 77, 1),
-                Color.fromRGBO(25, 24, 100, 1),
-                Color.fromRGBO(28, 43, 174, 1)
-              ]),
+              colors: [Color(0xff19184D), Color(0xff530393)]),
         ),
         body: Form(
           child: SingleChildScrollView(
@@ -455,6 +452,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                             ),
                           ],
                         ),
+
                       ],
                     ),
                     const SizedBox(height: 150,),
@@ -463,6 +461,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                       children: [
                         InkWell(
                             onTap: (){
+                              Navigator.of(context).pop();
 
                             },
                             child: Container(
@@ -483,13 +482,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                 width: 147,
                                 decoration: BoxDecoration(
                                     gradient: const LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color.fromRGBO(25, 24, 77, 1),
-                                          Color.fromRGBO(25, 24, 77, 1),
-                                          Color.fromRGBO(28, 43, 174, 1)
-                                        ]),
+                                        colors: [Color(0xff19184D), Color(0xff530393)]),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                                 child: Center(child: AppText(text: "Credit", color: Colors.white,size: 12,fw: FontWeight.bold,))))
@@ -535,14 +528,11 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                   ..forward();
                               },
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: AppText(
-                                text: 'Points Sucessfully Credited',
-                                size: 14,
-                                fw: FontWeight.w700,
-                                color: const Color(0xff19184D),
-                              ),
+                            AppText(
+                              text: 'Points Sucessfully Credited',
+                              size: 14,
+                              fw: FontWeight.w700,
+                              color: const Color(0xff19184D),
                             ),
                             const SizedBox(
                               height: 10,
@@ -550,7 +540,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                AppText(text:'Credited to        : ',
+                                AppText(text:'Credited to         : ',
                                   size: 12,
                                   fw: FontWeight.normal,
                                   color: const Color(0xff333333),
@@ -568,7 +558,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 32),
+                                  padding: const EdgeInsets.only(left: 30),
                                   child: AppText(text:'Points Credited :',
                                     size: 12,
                                     fw: FontWeight.normal,
@@ -588,7 +578,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 32),
+                                  padding: const EdgeInsets.only(left: 30),
                                   child: AppText(text:'Points Value Rs :',
                                     size: 12,
                                     fw: FontWeight.normal,
@@ -616,9 +606,8 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               children: [
                                 const Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.only(right: 80),
-                                      child: Icon(Icons.local_printshop_outlined,
-                                        color: Color(0xffF99F1E)),
+                                      padding: EdgeInsets.only(right: 10),
+                                      child: SvgIcon("assets/icons/print.svg",color: Color(0xffF99F1E),),
                                     )),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 140),

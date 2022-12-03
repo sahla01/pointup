@@ -60,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               itemCount: imgList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.only(top: 90),
+                  padding: const EdgeInsets.only(top: 110),
                   child: Column(
                     children: [
                       Image.asset(
@@ -103,39 +103,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List<Widget>.generate(
                         imgList.length,
-                        (index) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: InkWell(
-                                onTap: () {
-                                  _pageViewController.animateToPage(index,
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      curve: Curves.easeIn);
-                                },
-                                child: CircleAvatar(
-                                  radius: 5,
-                                  backgroundColor: _activePage == index
-                                      ? const Color(0xffF99F1E)
-                                      : const Color(0xffF4F6FF),
-                                ),
-                              ),
-                            )),
+                            (index) => Padding(
+                          padding:
+                          const EdgeInsets.symmetric(horizontal: 8),
+                          child: InkWell(
+                            onTap: () {
+                              _pageViewController.animateToPage(index,
+                                  duration:
+                                  const Duration(milliseconds: 300),
+                                  curve: Curves.easeIn);
+                            },
+                            child: CircleAvatar(
+                              radius: 5,
+                              backgroundColor: _activePage == index
+                                  ? const Color(0xffF99F1E)
+                                  : const Color(0xffF4F6FF),
+                            ),
+                          ),
+                        )),
                   ),
                 ),
+                const SizedBox(height: 50,),
                 Container(
                   height: 48,
                   margin: const EdgeInsets.all(20),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [
-                          Color.fromRGBO(25, 24, 77, 1),
-                          Color.fromRGBO(25, 24, 77, 1),
-                          Color.fromRGBO(28, 43, 174, 1)
-                        ]),
+                        colors: [Color(0xff19184D), Color(0xff530393)]),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: InkWell(
@@ -147,11 +142,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     },
                     child: Center(
                         child: AppText(
-                      text: 'Get Started',
-                      color: Colors.white,
-                      size: 12,
-                      fw: FontWeight.w700,
-                    )),
+                          text: 'Get Started',
+                          color: Colors.white,
+                          size: 12,
+                          fw: FontWeight.w700,
+                        )),
                   ),
                 ),
               ],

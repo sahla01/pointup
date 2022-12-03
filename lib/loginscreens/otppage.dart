@@ -142,13 +142,7 @@ class _OtpPageState extends State<OtpPage> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color.fromRGBO(25, 24, 77, 1),
-                        Color.fromRGBO(25, 24, 77, 1),
-                        Color.fromRGBO(28, 43, 174, 1)
-                      ]),
+                      colors: [Color(0xff19184D), Color(0xff530393)]),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: InkWell(
