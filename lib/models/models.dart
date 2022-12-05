@@ -31,6 +31,41 @@ final List<String> ptsamount= [
   '4560',
   '450',
 ];
+final List<String> redeemitem= [
+  'PUCKA',
+  'NIKE - T SHIRT',
+  'PUCKA',
+  'NIKE - T SHIRT',
+  'PUCKA',
+  'NIKE - T SHIRT',
+  'PUCKA',
+  'NIKE - T SHIRT',
+];
+final List<String> redeemname= [
+  'Men’s Sports Shoe',
+  'Mens Polo',
+  'Men’s Sports Shoe',
+  'Mens Polo',
+  'Men’s Sports Shoe',
+  'Mens Polo',
+  'Men’s Sports Shoe',
+  'Mens Polo',
+];
+final List<String> redeemqty= [
+  '1',
+  '2',
+  '1',
+  '2',
+  '1',
+  '2',
+  '1',
+  '2',
+];
+final List<String> orderdetails= [
+  'assets/images/shoe.png',
+
+];
+
 
 
 

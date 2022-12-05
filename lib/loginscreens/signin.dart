@@ -16,6 +16,14 @@ class _SignInState extends State<SignIn> {
   final TextEditingController idController = TextEditingController();
   final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   var loginkey = GlobalKey<FormState>();
   var visibility = true;
   @override
@@ -305,12 +313,8 @@ class _SignInState extends State<SignIn> {
                                             builder: (context) =>
                                                 const ForgotPasswordPage()));
                                   },
-                                  child: AppText(
-                                    text: 'Forgot Password ?',
-                                    size: 12,
-                                    fw: FontWeight.w700,
-                                    color: const Color(0xff351070),
-                                  ))
+                                child: Text("Forgot Password ?",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700,
+                                    foreground: Paint()..shader = linearGradient),),),
                             ],
                           ),
                           const SizedBox(height: 50,),

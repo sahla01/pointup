@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/screens/counter/pointsredeempage.dart';
 import 'package:pointup/widgets/app_text.dart';
@@ -22,6 +21,13 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
   final TextEditingController totalvalueController = TextEditingController();
   final TextEditingController balanceController = TextEditingController();
   late final AnimationController _controller;
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   @override
   void initState() {
     super.initState();
@@ -53,7 +59,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
             },
           ),
           title: Padding(
-            padding: const EdgeInsets.only(left: 70,right: 70),
+            padding: const EdgeInsets.only(left: 70, right: 70),
             child: AppText(
               txtalign: TextAlign.left,
               text: "Points Redeem",
@@ -73,7 +79,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                 Container(
                   margin: const EdgeInsets.all(10.0),
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.09,
+                  height: MediaQuery.of(context).size.height * 0.07,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: const Color(0xffDADADA))),
@@ -88,12 +94,17 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
-                                  child: Image.asset("assets/images/wallet.png"),
+                                  child:
+                                      Image.asset("assets/images/wallet.png"),
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(
+                                  width: 10,
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 10),
-                                  child: AppText(text: "2550",size: 12,fw: FontWeight.bold,color: const Color(0xff351070),),
+                                  child: Text("2550",style: TextStyle(  fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                    foreground: Paint()..shader = linearGradient),),
                                 ),
                               ],
                             ),
@@ -103,13 +114,22 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5,),
-                                  child: Image.asset("assets/images/coupon.png"),
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                  ),
+                                  child:
+                                      Image.asset("assets/images/coupon.png"),
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(
+                                  width: 10,
+                                ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10,),
-                                  child: AppText(text: "300",size: 12,fw: FontWeight.bold,color: const Color(0xff351070),),
+                                  padding: const EdgeInsets.only(
+                                    top: 10,
+                                  ),
+                                  child:Text("300",style: TextStyle(  fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      foreground: Paint()..shader = linearGradient),),
                                 ),
                               ],
                             ),
@@ -119,34 +139,57 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5,),
-                                  child: AppText(text: "Rs.    ",size: 12,fw: FontWeight.bold,color: const Color(0xff351070),),
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                  ),
+                                  child: AppText(
+                                    text: "Rs.    ",
+                                    size: 12,
+                                    fw: FontWeight.bold,
+                                    color: const Color(0xff351070),
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
-                                  child: AppText(text: "1425.00",size: 12,fw: FontWeight.bold,color: const Color(0xff351070),),
+                                  child: Text("1425.00",style: TextStyle(  fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                      foreground: Paint()..shader = linearGradient),),
                                 ),
                               ],
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 4,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
-                            child:  AppText(text: "Wallet Points",size: 10,fw: FontWeight.normal,color: const Color(0xff333333),),
+                            child: AppText(
+                              text: "Wallet Points",
+                              size: 10,
+                              fw: FontWeight.normal,
+                              color: const Color(0xff333333),
+                            ),
                           ),
                           Expanded(
-                            child:  AppText(text: "Voucher’s Points",size: 10,fw: FontWeight.normal,color: const Color(0xff333333),),
+                            child: AppText(
+                              text: "Voucher’s Points",
+                              size: 10,
+                              fw: FontWeight.normal,
+                              color: const Color(0xff333333),
+                            ),
                           ),
                           Expanded(
-                            child:  AppText(text: "Total Points Value",size: 10,fw: FontWeight.normal,color: const Color(0xff333333),),
+                            child: AppText(
+                              text: "Total Points Value",
+                              size: 10,
+                              fw: FontWeight.normal,
+                              color: const Color(0xff333333),
+                            ),
                           ),
-
-
-
                         ],
                       ),
                     ],
@@ -212,12 +255,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                   fillColor: const Color(0xffF4F6FF),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xffDADADA)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   hintStyle: const TextStyle(
@@ -250,12 +293,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
+                                      width: 1, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -321,12 +364,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
+                                      width: 1, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -358,12 +401,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
+                                      width: 1, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -402,8 +445,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                         )),
                       ],
                     ),
-                    Row(
-                        children: [
+                    Row(children: [
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(
@@ -428,12 +470,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
+                                      width: 1, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -465,12 +507,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
+                                      width: 1, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
+                                        width: 1, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -520,124 +562,97 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             color: const Color(0xff333333),
                           ),
                         ),
-
                       ],
                     ),
-                    Row(
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 20,
-                                right: 5,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: vouchervalueController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 1, color: Color(0xff351070)),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
-                                  )),
+                    Row(children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 10.0,
+                            left: 20,
+                            right: 5,
+                          ),
+                          child: TextFormField(
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Enter a valid shop id";
+                                }
+                                return null;
+                              },
+                              cursorColor: const Color(0xff333333),
+                              controller: vouchervalueController,
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 13, horizontal: 13),
+                                isDense: true,
+                                filled: true,
+                                fillColor: const Color(0xffF4F6FF),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      width: 1, color: Color(0xffDADADA)),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        width: 1, color: Color(0xff330F6C)),
+                                    borderRadius: BorderRadius.circular(10)),
+                                hintStyle: const TextStyle(
+                                    fontSize: 12, color: Color(0xffA1A2A8)),
+                                hintText: '0.00',
+                              )),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 10.0,
+                            left: 5,
+                            right: 10,
+                          ),
+                          child:Container(
+                            height: 47,
+                            width: 75,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: const LinearGradient(colors: [
+                                Color(0xff125DEF),
+                                Color(0xff22ECBB)
+                              ])
+                            ),
+                            child: Center(child: AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF))),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 10.0,
+                            right: 20,
+                          ),
+                          child: Container(
+                            height: 47,
+                            width: 75,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                gradient: const LinearGradient(colors: [
+                                  Color(0xff125DEF),
+                                  Color(0xff22ECBB)
+                                ])
+                            ),
+                            child: Column(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 40,top: 5),
+                                  child: Icon(Icons.visibility,size: 14,color: Colors.white,),
+                                ),
+                                AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF)),
+                              ],
                             ),
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 5,
-                                right: 10,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: totalvalueController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 1, color: Color(0xff351070)),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
-                                  )),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                right: 20,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: totalvalueController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 1, color: Color(0xff351070)),
-                                        borderRadius: BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
-                                  )),
-                            ),
-                          )
-
-                        ]),
+                        ),
+                      )
+                    ]),
                   ],
                 ),
                 const SizedBox(
@@ -696,8 +711,10 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             height: 52,
                             width: 147,
                             decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    colors: [Color(0xff19184D), Color(0xff530393)]),
+                                gradient: const LinearGradient(colors: [
+                                  Color(0xff19184D),
+                                  Color(0xff530393)
+                                ]),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Center(
                                 child: AppText(
@@ -736,7 +753,10 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                   Expanded(
                     child: Column(
                       children: [
-                        Image.asset("assets/images/sucessfull.png",width: 52,height: 52,
+                        Image.asset(
+                          "assets/images/sucessfull.png",
+                          width: 52,
+                          height: 52,
                         ),
                         // Lottie.asset(
                         //   'assets/pointsucess.json',
@@ -749,11 +769,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                         //       ..forward();
                         //   },
                         // ),
-                        AppText(
-                          text: 'Points Sucessfully Redeemed!',
-                          size: 14,
-                          fw: FontWeight.w700,
-                          color: const Color(0xff351070),
+                        Text(
+                          "Points Sucessfully Redeemed!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                              foreground: Paint()..shader = linearGradient),
                         ),
                         const SizedBox(
                           height: 20,
@@ -899,12 +920,13 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                           builder: (context) =>
                                               const PointsRedeemPage()));
                                 },
-                                child: AppText(
-                                  txtalign: TextAlign.end,
-                                  text: "OK",
-                                  size: 14,
-                                  fw: FontWeight.w700,
-                                  color: const Color(0xff351070),
+                                child: Text(
+                                  "OK",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14,
+                                      foreground: Paint()
+                                        ..shader = linearGradient),
                                 ),
                               ),
                             )

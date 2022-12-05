@@ -12,6 +12,15 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
+
   final PageController _pageViewController = PageController(initialPage: 0);
   late Timer _timer;
   int _activePage = 0;
@@ -59,7 +68,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               },
               itemCount: imgList.length,
               itemBuilder: (BuildContext context, int index) {
-                var ui;
                 return Padding(
                   padding: const EdgeInsets.only(top: 110),
                   child: Column(
@@ -72,13 +80,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+                      Text(contants[index],style: TextStyle(fontWeight: FontWeight.w800,
+                      fontSize: 24,foreground: Paint()..shader = linearGradient),),
 
-                      AppText(
-                        text: contants[index],
-                        size: 24,
-                        color: const Color(0xff530393),
-                        fw: FontWeight.bold,
-                      ),
+                      // AppText(
+                      //   text: contants[index],
+                      //   size: 24,
+                      //   color: const Color(0xff530393),
+                      //   fw: FontWeight.bold,
+                      // ),
                       const SizedBox(
                         height: 10,
                       ),

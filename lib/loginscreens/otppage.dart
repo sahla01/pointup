@@ -11,6 +11,12 @@ class OtpPage extends StatefulWidget {
 }
 
 class _OtpPageState extends State<OtpPage> {
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -54,7 +60,7 @@ class _OtpPageState extends State<OtpPage> {
                     ),
                     const Text(
                       ' Verify your mobile number with verification code\n'
-                          'has sent to the number 997*******786',
+                      'has sent to the number 997*******786',
                       style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.normal,
@@ -65,7 +71,9 @@ class _OtpPageState extends State<OtpPage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 30,),
+              const SizedBox(
+                height: 30,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Row(
@@ -121,21 +129,21 @@ class _OtpPageState extends State<OtpPage> {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(right: 50),
-                      child: AppText(
-                        txtalign: TextAlign.right,
-                        text: "Time Out: 04:59",
-                        size: 10,
-                        fw: FontWeight.w600,
-                        color: const Color(0xff351070),
+                      child: Text(
+                        "Time Out: 04:59",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            foreground: Paint()..shader = linearGradient),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
-
-
-              const SizedBox(height: 70,),
-
+              const SizedBox(
+                height: 70,
+              ),
               Container(
                 height: 48,
                 margin: const EdgeInsets.all(20),
@@ -147,17 +155,18 @@ class _OtpPageState extends State<OtpPage> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
+                    Navigator.push(
+                        context,
                         MaterialPageRoute(
                             builder: (context) => const BottomNavBar()));
-                    },
+                  },
                   child: Center(
                       child: AppText(
-                        text: 'Continue',
-                        color: Colors.white,
-                        size: 12,
-                        fw: FontWeight.w700,
-                      )),
+                    text: 'Continue',
+                    color: Colors.white,
+                    size: 12,
+                    fw: FontWeight.w700,
+                  )),
                 ),
               )
             ],
@@ -195,10 +204,12 @@ class _OtpPageState extends State<OtpPage> {
             isDense: true,
             counter: const Offstage(),
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Color(0xffDADADA)),
+                borderSide:
+                    const BorderSide(width: 1, color: Color(0xffDADADA)),
                 borderRadius: BorderRadius.circular(4)),
             focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Color(0xffDADADA)),
+                borderSide:
+                    const BorderSide(width: 1, color: Color(0xffDADADA)),
                 borderRadius: BorderRadius.circular(4)),
           ),
         ),
@@ -206,4 +217,3 @@ class _OtpPageState extends State<OtpPage> {
     );
   }
 }
-

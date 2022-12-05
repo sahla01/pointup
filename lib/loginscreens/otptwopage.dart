@@ -11,6 +11,12 @@ class OtpTwoPage extends StatefulWidget {
 }
 
 class _OtpTwoPageState extends State<OtpTwoPage> {
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -121,12 +127,13 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(right: 50),
-                      child: AppText(
-                        txtalign: TextAlign.right,
-                        text: "Time Out: 04:59",
-                        size: 10,
-                        fw: FontWeight.w600,
-                        color: const Color(0xff351070),
+                      child: Text(
+                        "Time Out: 04:59",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            foreground: Paint()..shader = linearGradient),
                       ),
                     ),
                   )

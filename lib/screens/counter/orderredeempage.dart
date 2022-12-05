@@ -90,7 +90,7 @@ class _OrderRedeemPageState extends State<OrderRedeemPage> with TickerProviderSt
                           const SizedBox(width: 10,),
                           InkWell(
                               onTap: ()=> scanBarcodeNormal(),
-                              child: Image.asset('assets/images/barcodee.png',)),
+                              child: Image.asset('assets/images/Barcod.png',)),
                         ],
                       ),
                     ),

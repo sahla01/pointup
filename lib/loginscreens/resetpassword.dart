@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 import 'package:pointup/loginscreens/signin.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
@@ -12,11 +11,16 @@ class ResetPassword extends StatefulWidget {
   State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword>
-    with TickerProviderStateMixin {
+class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateMixin {
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmpasswordController =
-      TextEditingController();
+  final TextEditingController confirmpasswordController = TextEditingController();
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   var loginkey = GlobalKey<FormState>();
 
   var visibility = true;
@@ -287,12 +291,8 @@ class _ResetPasswordState extends State<ResetPassword>
                         //     });
                         //   },
                         // ),
-                        AppText(
-                          text: 'Reset Done!',
-                          size: 14,
-                          fw: FontWeight.w700,
-                          color: const Color(0xff351070),
-                        ),
+                        Text("Reset Done!",style: TextStyle(fontWeight: FontWeight.w700,
+                            fontSize: 14,foreground: Paint()..shader = linearGradient),),
                         const SizedBox(
                           height: 20,
                         ),
