@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/receiptsubmit/receiptapprovel.dart';
-import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class TicketHistoryOpen extends StatefulWidget {
@@ -130,15 +128,15 @@ class _TicketHistoryOpenState extends State<TicketHistoryOpen> {
                                   const SizedBox(
                                     height: 3.0,
                                   ),
-                                 AppText(text: "Open",size:12 ,fw: FontWeight.bold,color: Color(0xff39AE58),),
+                                 AppText(text: "Open",size:12 ,fw: FontWeight.bold,color: const Color(0xff39AE58),),
                                   const SizedBox(
                                     height: 3.0,
                                   ),
                                  Row(
                                    children: [
-                                     AppText(text: "13/04/2022,",size: 10,color: Color(0xffA1A2A8),),
-                                     SizedBox(width: 3,),
-                                     AppText(text: "03:46 PM",size: 10,color: Color(0xffA1A2A8),),
+                                     AppText(text: "13/04/2022,",size: 10,color: const Color(0xffA1A2A8),),
+                                     const SizedBox(width: 3,),
+                                     AppText(text: "03:46 PM",size: 10,color: const Color(0xffA1A2A8),),
 
                                    ],
                                  )
@@ -153,7 +151,7 @@ class _TicketHistoryOpenState extends State<TicketHistoryOpen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15),
-                            child: AppText(text: "Message",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
+                            child: AppText(text: "Message",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
                           ),
                         ],
                       ),

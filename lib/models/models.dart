@@ -1,13 +1,13 @@
 final List<String> imgList = [
-  'assets/images/customer_loyalty_online_3 1.png',
-  'assets/images/6543 1.png',
-  'assets/images/digitalpr_2 1.png',
+  'assets/images/welcome.png',
+  'assets/images/retention.png',
+  'assets/images/customer.png',
 ];
 
 final List<String> contants = [
   'Welcome to LRMS',
-  'Customer Retention',
-  'Engage With Customers',
+  'Retain Customer’s',
+  'Customer Engagement',
 ];
 final List<String> sliderList= [
   'assets/images/slider1.png',

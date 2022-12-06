@@ -53,42 +53,63 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            flex: 3,
-            child: PageView.builder(
-              controller: _pageViewController,
-              onPageChanged: (int index) {
-                setState(() {
-                  _activePage = index;
-                });
-              },
-              itemCount: imgList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 110),
-                  child: Column(
+      // backgroundColor: Colors.white,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+              end: Alignment.topRight,
+            colors: [
+              Color(0xff19184D), Color(0xff530393)
+            ]
+          )
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const SizedBox(height: 10,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 70),
+                  child: Image.asset(
+                    "assets/images/pointuplogo.png",
+                    height: 26.93,
+                    width: 113.8,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30,),
+            Expanded(
+              flex: 2,
+              child: PageView.builder(
+                controller: _pageViewController,
+                onPageChanged: (int index) {
+                  setState(() {
+                    _activePage = index;
+                  });
+                },
+                itemCount: imgList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
                     children: [
                       Image.asset(
                         imgList[index],
-                        height: 243,
+                        height: 275.34,
                         width: 347,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(contants[index],style: TextStyle(fontWeight: FontWeight.w800,
-                      fontSize: 24,foreground: Paint()..shader = linearGradient),),
-
-                      // AppText(
-                      //   text: contants[index],
-                      //   size: 24,
-                      //   color: const Color(0xff530393),
-                      //   fw: FontWeight.bold,
-                      // ),
+                      Text(
+                        contants[index],
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 24,
+                            color: Color(0xffFFFFFF)
+                      ),),
                       const SizedBox(
                         height: 10,
                       ),
@@ -98,20 +119,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             'management system ',
                         size: 12,
                         height: 1.4,
-                        color: const Color(0xff19184D),
+                        color: const Color(0xffFFFFFF),
                       ),
                     ],
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-          Expanded(
-            child: Column(
-              children: [
-                Container(
-                  color: Colors.white,
-                  child: Row(
+            Expanded(
+              child: Column(
+                children: [
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List<Widget>.generate(
                         imgList.length,
@@ -134,37 +152,38 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         )),
                   ),
-                ),
-                const SizedBox(height: 50,),
-                Container(
-                  height: 48,
-                  margin: const EdgeInsets.all(20),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        colors: [Color(0xff19184D), Color(0xff530393)]),
-                    borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 60,),
+                  Container(
+                    height: 48,
+                    margin: const EdgeInsets.all(20),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1,color: const Color(0xffFFFFFF)),
+                      // gradient: const LinearGradient(
+                      //     colors: [Color(0xff19184D), Color(0xff530393)]),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignIn()));
+                      },
+                      child: Center(
+                          child: AppText(
+                            text: 'Get Started',
+                            color: Colors.white,
+                            size: 12,
+                            fw: FontWeight.w700,
+                          )),
+                    ),
                   ),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignIn()));
-                    },
-                    child: Center(
-                        child: AppText(
-                          text: 'Get Started',
-                          color: Colors.white,
-                          size: 12,
-                          fw: FontWeight.w700,
-                        )),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

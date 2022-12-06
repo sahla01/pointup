@@ -499,8 +499,6 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           padding: const EdgeInsets.only(
                                               top: 10.0, left: 10.0, right: 10.0),
                                           child: TextFormField(
-                                            validator: (value) {
-                                            },
                                             cursorColor: const Color(0xff351070),
                                             controller: attachController,
                                             decoration: InputDecoration(

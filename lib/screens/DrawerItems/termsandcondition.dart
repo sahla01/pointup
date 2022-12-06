@@ -42,13 +42,14 @@ class TermsAndCondition extends StatelessWidget {
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        width:double.infinity ,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 80,
+              const SizedBox(
+                height: 20,
               ),
               Text(
                 "Terms & Conditions",
@@ -57,60 +58,45 @@ class TermsAndCondition extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     foreground: Paint()..shader = linearGradient),
               ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20,right: 20,top: 15),
+                child: Text(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ",
+                  textAlign: TextAlign.justify,
+                  maxLines: 17,
+                  style: TextStyle(
+                      height: 1.3,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xffA1A2A8)),),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20,right: 20,top: 15),
+                child: Text(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ",
+                  textAlign: TextAlign.justify,
+                  maxLines: 17,
+                  style: TextStyle(
+                      height: 1.3,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xffA1A2A8)),),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20,right: 20,top: 15),
+                child: Text(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae.Lorem ",
+                  textAlign: TextAlign.justify,
+                  maxLines: 17,
+                  style: TextStyle(
+                      height: 1.3,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xffA1A2A8)),),
+              ),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              AppText(
-                text: "Lorem ipsum dolor sit amet,consectetur adipiscing \n"
-                    "elit. Integer   blandit  donec  turpis  mauris  neque.\n"
-                    "Purus nulla a arcu fringilla. Blandit faucibus vivamus \n est amet in eros. "
-                    "Massa sit consectetur eros, feugiat\n vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                    "Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. "
-                    "Blandit faucibus vivamus est amet in eros. Massa sit consectetur eros, feugiat vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                    "Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla."
-                    " Blandit faucibus vivamus est amet in eros."
-                    " Massa sit consectetur eros, feugiat vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                    "Integer blandit donec turpis mauris neque. Purus nulla a arcu fringilla. "
-                    "Blandit faucibus vivamus est amet in eros."
-                    " Massa sit consectetur eros, feugiat vitae.Lorem ",
-                size: 12,
-                fw: FontWeight.w600,
-                color: Color(0xffA1A2A8),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              AppText(
-                text:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                    "Integer blandit donec turpis mauris neque. "
-                    "Purus nulla a arcu fringilla. "
-                    "Blandit faucibus vivamus est amet in eros."
-                    " Massa sit consectetur eros, feugiat vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    " Integer blandit donec turpis mauris neque."
-                    " Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. "
-                    "Massa sit consectetur eros, feugiat vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                    "Integer blandit donec turpis mauris neque. "
-                    "Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. "
-                    "Massa sit consectetur eros, feugiat vitae."
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                    " Integer blandit donec turpis mauris neque. "
-                    "Purus nulla a arcu fringilla. Blandit faucibus vivamus est amet in eros. "
-                    "Massa sit consectetur eros, feugiat vitae.Lorem",
-                size: 12,
-                fw: FontWeight.w600,
-                color: Color(0xffA1A2A8),
-              ),
-            ],
-          )
-        ],
+        ),
       ),
     );
   }

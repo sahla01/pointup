@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
+import 'package:pointup/screens/DrawerItems/contactus.dart';
 import 'package:pointup/screens/DrawerItems/privacyandpolicy.dart';
 import 'package:pointup/screens/DrawerItems/termsandcondition.dart';
 import 'package:pointup/screens/counter/orderredeempage.dart';
@@ -476,7 +477,9 @@ class _CounterPageState extends State<CounterPage> {
                     size: 16,
                     color: Color(0xff19184D),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactUs()));
+                  },
                 ),
                 ListTile(
                   leading: const SvgIcon(

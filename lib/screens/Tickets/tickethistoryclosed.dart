@@ -128,15 +128,15 @@ class _TicketHistoryClosedState extends State<TicketHistoryClosed> {
                                   const SizedBox(
                                     height: 3.0,
                                   ),
-                                  AppText(text: "Closed",size:12 ,fw: FontWeight.bold,color: Color(0xffEF2253),),
+                                  AppText(text: "Closed",size:12 ,fw: FontWeight.bold,color: const Color(0xffEF2253),),
                                   const SizedBox(
                                     height: 3.0,
                                   ),
                                   Row(
                                     children: [
-                                      AppText(text: "13/04/2022,",size: 10,color: Color(0xffA1A2A8),),
-                                      SizedBox(width: 3,),
-                                      AppText(text: "03:46 PM",size: 10,color: Color(0xffA1A2A8),),
+                                      AppText(text: "13/04/2022,",size: 10,color: const Color(0xffA1A2A8),),
+                                      const SizedBox(width: 3,),
+                                      AppText(text: "03:46 PM",size: 10,color: const Color(0xffA1A2A8),),
 
                                     ],
                                   )
@@ -151,7 +151,7 @@ class _TicketHistoryClosedState extends State<TicketHistoryClosed> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15),
-                            child: AppText(text: "Message",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
+                            child: AppText(text: "Message",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
                           ),
                         ],
                       ),
@@ -257,7 +257,7 @@ class _TicketHistoryClosedState extends State<TicketHistoryClosed> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15),
-                            child: AppText(text: "Pointupp Comment’s",size: 12,fw: FontWeight.w600,color: Color(0xff333333),),
+                            child: AppText(text: "Pointupp Comment’s",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
                           ),
                         ],
                       ),
