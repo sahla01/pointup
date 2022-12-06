@@ -16,6 +16,14 @@ class _SignInState extends State<SignIn> {
   final TextEditingController idController = TextEditingController();
   final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   var loginkey = GlobalKey<FormState>();
   var visibility = true;
   @override
@@ -116,7 +124,7 @@ class _SignInState extends State<SignIn> {
                                   return null;
                                 },
                                 controller: idController,
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(
                                       vertical: 13, horizontal: 13),
@@ -167,7 +175,7 @@ class _SignInState extends State<SignIn> {
                                   }
                                   return null;
                                 },
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 controller: userController,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.symmetric(
@@ -215,7 +223,7 @@ class _SignInState extends State<SignIn> {
                                   }
                                   return null;
                                 },
-                                cursorColor: const Color(0xff19184D),
+                                cursorColor: const Color(0xff351070),
                                 controller: passwordController,
                                 obscureText: visibility,
                                 obscuringCharacter: "*",
@@ -253,9 +261,9 @@ class _SignInState extends State<SignIn> {
                                       },
                                       child: visibility == true
                                           ? const Icon(Icons.visibility_off_outlined,
-                                              color: Color(0xff19184D))
+                                              color: Color(0xff351070))
                                           : const Icon(Icons.visibility,
-                                              color: Color(0xff19184D))),
+                                              color: Color(0xff351070))),
                                 ),
                               )),
                           const SizedBox(
@@ -305,12 +313,8 @@ class _SignInState extends State<SignIn> {
                                             builder: (context) =>
                                                 const ForgotPasswordPage()));
                                   },
-                                  child: AppText(
-                                    text: 'Forgot Password ?',
-                                    size: 12,
-                                    fw: FontWeight.w700,
-                                    color: const Color(0xff19184D),
-                                  ))
+                                child: Text("Forgot Password ?",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700,
+                                    foreground: Paint()..shader = linearGradient),),),
                             ],
                           ),
                           const SizedBox(height: 50,),

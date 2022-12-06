@@ -2,9 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
+import 'package:pointup/screens/DrawerItems/privacyandpolicy.dart';
+import 'package:pointup/screens/DrawerItems/termsandcondition.dart';
 import 'package:pointup/screens/counter/orderredeempage.dart';
 import 'package:pointup/screens/counter/pointscreditpage.dart';
 import 'package:pointup/screens/counter/pointsredeempage.dart';
+import 'package:pointup/screens/counter/transactionpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -33,8 +36,9 @@ class _CounterPageState extends State<CounterPage> {
           fw: FontWeight.bold,
         ),
         actions: <Widget>[
-          IconButton(
-              onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
+          Image.asset("assets/images/noti.png"),
+          // IconButton(
+          //     onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
         ],
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
@@ -263,34 +267,39 @@ class _CounterPageState extends State<CounterPage> {
                           width: 15,
                         ),
                         Expanded(
-                          child: Container(
-                            width: 158,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xff73BE14), Color(0xff11AE92)],
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionPage()));
+                            },
+                            child: Container(
+                              width: 158,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xff73BE14), Color(0xff11AE92)],
+                                ),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            alignment: Alignment.center,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  text: "Transactions",
-                                  size: 14,
-                                  fw: FontWeight.w700,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                const Icon(
-                                  Icons.arrow_forward,
-                                  size: 15,
-                                  color: Colors.white,
-                                ),
-                              ],
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AppText(
+                                    text: "Transactions",
+                                    size: 14,
+                                    fw: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         )
@@ -308,209 +317,238 @@ class _CounterPageState extends State<CounterPage> {
 
   _customDrwer() {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
-          const DrawerHeader(
-            padding: EdgeInsets.symmetric(
-              vertical: 16,
+           const Expanded(
+            flex: 1,
+            child: DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xff19184D), Color(0xff530393)]),
+                image: DecorationImage(
+                    image: AssetImage(
+                      "assets/images/logos.png",
+                    ),
+                    alignment: Alignment.center),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 250, right: 260),
+                child: Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  size: 20,
+                  color: Color(0xffFFFFFF),
+                ),
+              ),
             ),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/Group.png",
+          ),
+          Expanded(
+            flex: 2,
+            child: ListView(
+              padding: const EdgeInsets.only(left: 20,right: 20,bottom: 20,),
+              children: [
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/qrcode.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
                   ),
-                  alignment: Alignment(0.0, 1)),
-              color: Color(0xffF4F6FF),
+                  title: const Text(
+                    'My Shop QR Code',
+                    style: TextStyle(
+                      color: Color(0xff19184D),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/user.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'User Information',
+                    style: TextStyle(
+                      color: Color(0xff19184D),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                   leading: const SvgIcon(
+                    "assets/icons/passwordlock.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                        'Change Password',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xff19184D),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/report.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'Reports',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xff19184D),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/review.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'Customer Review & Rating',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xff19184D),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/contact.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'Contact Us',
+                    style: TextStyle(
+                      color: Color(0xff19184D),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/termsconditions.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'Terms & Conditions',
+                    style: TextStyle(
+                      color: Color(0xff19184D),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsAndCondition()));
+                  },
+                ),
+                ListTile(
+                  leading: const SvgIcon(
+                    "assets/icons/policy.svg",
+                    color: Color(0xff19184D),
+                    height: 16,
+                    width: 16,
+                  ),
+                  title: const Text(
+                    'Privacy & Policy',
+                    style: TextStyle(
+                      color: Color(0xff19184D),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Color(0xff19184D),
+                  ),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyAndPolicy()));
+
+                  },
+                ),
+                Padding(
+                 padding: const EdgeInsets.all(15.0),
+                 child: Container(
+                   height: 42,
+                   width: 240,
+                   decoration: BoxDecoration(
+                     gradient: const LinearGradient(
+                         colors: [Color(0xff19184D), Color(0xff530393)]),
+                     borderRadius: BorderRadius.circular(10),
+                   ),
+                   child: Center(child: AppText(text: "Sign Out",size: 12,fw: FontWeight.bold,color: Colors.white,)),
+                 ),
+               ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppText(text: "Version :1.4 (1.0)",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,)
+                  ],
+                )
+
+              ],
             ),
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 250, right: 260),
-              child: Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 20,
-                color: Color(0xff333333),
-              ),
-            ),
-            // child: Padding(
-            //   padding: EdgeInsets.only(top: 110,),
-            //   child: Center(child: Text('MY WORLD Fashion',style: TextStyle(color: Color(0xff19184D),fontWeight: FontWeight.w800),)),
-            // ),
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/user.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'User Info',
-              style: TextStyle(
-                color: Color(0xff19184D),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/passwordlock.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Change Password',
-              style: TextStyle(
-                fontSize: 12,
-                color: Color(0xff19184D),
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/report.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Reports',
-              style: TextStyle(
-                fontSize: 12,
-                color: Color(0xff19184D),
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/review.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Customer Review & Rating',
-              style: TextStyle(
-                fontSize: 12,
-                color: Color(0xff19184D),
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/contact.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Contact Us',
-              style: TextStyle(
-                color: Color(0xff19184D),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/termsconditions.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Terms & Conditions',
-              style: TextStyle(
-                color: Color(0xff19184D),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/policy.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Privacy & Policy',
-              style: TextStyle(
-                color: Color(0xff19184D),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const SvgIcon(
-              "assets/icons/logout.svg",
-              color: Color(0xff19184D),
-              height: 16,
-              width: 16,
-            ),
-            title: const Text(
-              'Logout',
-              style: TextStyle(
-                color: Color(0xff19184D),
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Color(0xff19184D),
-            ),
-            onTap: () {},
           ),
         ],
       ),

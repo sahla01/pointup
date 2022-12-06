@@ -91,7 +91,10 @@
 //    }
 //  }
 import 'package:flutter/material.dart';
+import 'package:pointup/screens/Tickets/ticketspage.dart';
 import 'package:pointup/screens/counter/counterpage.dart';
+import 'package:pointup/screens/orders/orderspage.dart';
+import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
 import 'package:svg_icon/svg_icon.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -105,15 +108,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     CounterPage(),
-    Text(
-      'Order’s',
-    ),
-    Text(
-      'Receipt Submit',
-    ),
-    Text(
-      'Tickets',
-    ),
+    OrdersPage(),
+    ReceiptSubmitPage(),
+    TicketsPage(),
+
   ];
 
   void _onItemTapped(int index) {

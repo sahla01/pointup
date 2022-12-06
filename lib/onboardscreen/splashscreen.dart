@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: const LinearGradient(
+          gradient:  LinearGradient(
               colors: [Color(0xff19184D), Color(0xff530393)]),
         ),
         child: ListView(

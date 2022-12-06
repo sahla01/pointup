@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 import 'package:pointup/loginscreens/signin.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
@@ -12,28 +11,19 @@ class ResetPassword extends StatefulWidget {
   State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword>
-    with TickerProviderStateMixin {
+class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateMixin {
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmpasswordController =
-      TextEditingController();
+  final TextEditingController confirmpasswordController = TextEditingController();
+
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
+
   var loginkey = GlobalKey<FormState>();
 
   var visibility = true;
-
-  late final AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +105,7 @@ class _ResetPasswordState extends State<ResetPassword>
                               }
                               return null;
                             },
-                            cursorColor: const Color(0xff19184D),
+                            cursorColor: const Color(0xff351070),
                             controller: passwordController,
                             obscureText: visibility,
                             obscuringCharacter: "*",
@@ -146,7 +136,7 @@ class _ResetPasswordState extends State<ResetPassword>
                                 ),
                                 suffixIcon: const Icon(
                                     Icons.visibility_outlined,
-                                    color: Color(0xff19184D))),
+                                    color: Color(0xff351070))),
                           ),
                         ),
                         Padding(
@@ -171,7 +161,7 @@ class _ResetPasswordState extends State<ResetPassword>
                                 }
                                 return null;
                               },
-                              cursorColor: const Color(0xff19184D),
+                              cursorColor: const Color(0xff351070),
                               controller: confirmpasswordController,
                               obscureText: visibility,
                               obscuringCharacter: "*",
@@ -213,9 +203,9 @@ class _ResetPasswordState extends State<ResetPassword>
                                     child: visibility == true
                                         ? const Icon(
                                             Icons.visibility_off_outlined,
-                                            color: Color(0xff19184D))
+                                            color: Color(0xff351070))
                                         : const Icon(Icons.visibility,
-                                            color: Color(0xff19184D))),
+                                            color: Color(0xff351070))),
                               ),
                             )),
                         Padding(
@@ -256,6 +246,12 @@ class _ResetPasswordState extends State<ResetPassword>
   }
 
   Future<void> _showMyDialog() async {
+    Future.delayed(const Duration(seconds: 2), () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SignIn()));
+          });
     return showDialog<void>(
         context: context,
         barrierDismissible: false, // user must tap button!
@@ -275,29 +271,28 @@ class _ResetPasswordState extends State<ResetPassword>
                   Expanded(
                     child: Column(
                       children: [
-                        Lottie.asset(
-                          'assets/confirm.json',
-                          width: 60,
-                          height: 60,
-                          controller: _controller,
-                          onLoaded: (composition) {
-                            _controller
-                              ..duration = composition.duration
-                              ..forward();
-                            Future.delayed(const Duration(seconds: 2), () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const SignIn()));
-                            });
-                          },
+                        Image.asset("assets/images/sucessfull.png",width: 52,height: 52,
                         ),
-                        AppText(
-                          text: 'Reset Done!',
-                          size: 14,
-                          fw: FontWeight.w700,
-                          color: const Color(0xff19184D),
-                        ),
+                        // SvgIcon("assets/icons/sucess.svg",width: 52,height: 52,),
+                        // Lottie.asset(
+                        //   'assets/confirm.json',
+                        //   width: 60,
+                        //   height: 60,
+                        //   controller: _controller,
+                        //   onLoaded: (composition) {
+                        //     _controller
+                        //       ..duration = composition.duration
+                        //       ..forward();
+                        //     Future.delayed(const Duration(seconds: 2), () {
+                        //       Navigator.pushReplacement(
+                        //           context,
+                        //           MaterialPageRoute(
+                        //               builder: (context) => const SignIn()));
+                        //     });
+                        //   },
+                        // ),
+                        Text("Reset Done!",style: TextStyle(fontWeight: FontWeight.w700,
+                            fontSize: 14,foreground: Paint()..shader = linearGradient),),
                         const SizedBox(
                           height: 20,
                         ),

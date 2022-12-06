@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
-class PointsCreditPage extends StatefulWidget {
-  const PointsCreditPage({Key? key}) : super(key: key);
+class ReceiptApproval extends StatefulWidget {
+  const ReceiptApproval({Key? key}) : super(key: key);
 
   @override
-  State<PointsCreditPage> createState() => _PointsCreditPageState();
+  State<ReceiptApproval> createState() => _ReceiptApprovalState();
 }
 
-class _PointsCreditPageState extends State<PointsCreditPage> with TickerProviderStateMixin {
+class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderStateMixin {
 
   final TextEditingController mobileController= TextEditingController();
   final TextEditingController receiptController= TextEditingController();
@@ -28,40 +27,6 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
   ).createShader(
     const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
   );
-
-  Future<void> startBarcodeScanStream() async {
-    FlutterBarcodeScanner.getBarcodeStreamReceiver(
-        '#ff6666', 'Cancel', true, ScanMode.BARCODE)!
-        .listen((barcode) => print(barcode));
-  }
-  // Future<void> scanQR() async {
-  //   String barcodeScanRes;
-  //   try {
-  //     barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-  //         '#ff6666', 'Cancel', true, ScanMode.QR);
-  //     print(barcodeScanRes);
-  //   } on PlatformException {
-  //     barcodeScanRes = 'Failed to get platform version.';
-  //   }
-  //   if (!mounted) return;
-  //
-  //   setState(() {
-  //   });
-  // }
-  Future<void> scanBarcodeNormal() async {
-    String barcodeScanRes;
-    try {
-      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-      print(barcodeScanRes);
-    } on PlatformException {
-      barcodeScanRes = 'Failed to get platform version.';
-    }
-
-    if (!mounted) return;
-    setState(() {
-    });
-  }
 
   @override
   void initState() {
@@ -97,7 +62,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
             padding: const EdgeInsets.only(left: 70,right: 70),
             child: AppText(
               txtalign: TextAlign.left,
-              text: "Points Credit",
+              text: "Receipt Approval",
               color: Colors.white,
               size: 14,
               fw: FontWeight.bold,
@@ -110,22 +75,6 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 30,top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      AppText(text: "Scan Barcode",
-                        size: 14,
-                        fw: FontWeight.bold,
-                        color:const Color(0xff333333),),
-                      const SizedBox(width: 10,),
-                          InkWell(
-                            onTap: ()=> scanBarcodeNormal(),
-                              child: Image.asset('assets/images/Barcod.png',)),
-                    ],
-                  ),
-                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -134,44 +83,17 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 10,left: 20,right: 10),
-                          child: AppText(text: "Mobile OR Member ID",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
+                          padding: const EdgeInsets.only(top: 30,left: 20,right: 10),
+                          child: AppText(text: "Credit Points",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
-                          child: TextFormField(
-                              validator: (value) {
-                                if(value == null || value.isEmpty){
-                                  return "Enter a valid mobile or member id";
-                                }
-                                return null;
-                              },
-                              cursorColor: const Color(0xff333333),
-                              controller:mobileController,
-                              decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                isDense: true,
-                                filled: true,
-                                fillColor: const Color(0xffF4F6FF),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 0,color: Color(0xff330F6C)),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 0,color: Color(0xff330F6C)),
-                                    borderRadius: BorderRadius.circular(10)
-                                ),
-                              )
-                          ),
-                        ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(height: 30,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 20),
-                                  child: AppText(text: "Receipt No ( Optional)",
+                                  child: AppText(text: "Receipt No",
                                     size: 12,
                                     fw: FontWeight.w600,
                                     txtalign: TextAlign.start,
@@ -212,12 +134,12 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                          borderRadius: BorderRadius.circular(10),
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                       hintStyle: const TextStyle(
                                           fontSize: 12, color: Color(0xffA1A2A8)),
-                                      hintText: 'Enter Receipt No',
+                                      hintText: '1023456',
                                     )
                                 ),
                               ),
@@ -226,37 +148,36 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                               child:  Padding(
                                 padding: const EdgeInsets.only(top: 10.0, left: 5, right: 20,),
                                 child: TextFormField(
-                                    validator: (value) {
-                                      if(value == null || value.isEmpty){
-                                        return "Enter a valid shop id";
-                                      }
-                                      return null;
-                                    },
-                                    cursorColor: const Color(0xff333333),
-                                    controller:billController,
-                                    decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                                      isDense: true,
-                                      filled: true,
-                                      fillColor: const Color(0xffF4F6FF),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                                          borderRadius: BorderRadius.circular(10)
-                                      ),
-                                      hintStyle: const TextStyle(
-                                          fontSize: 12, color: Color(0xffA1A2A8)),
-                                      hintText: '0.00',
+                                  validator: (value) {
+                                    if(value == null || value.isEmpty){
+                                      return "Enter a valid shop id";
+                                    }
+                                    return null;
+                                  },
+                                  cursorColor: const Color(0xff333333),
+                                  controller:billController,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    hintStyle: const TextStyle(
+                                        fontSize: 12, color: Color(0xffA1A2A8)),
+                                    hintText: '3500.00',
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
-
                         const SizedBox(
                           height: 20,
                         ),
@@ -306,12 +227,12 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
                                         fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0',
+                                    hintText: '400',
                                   )
                               ),
                             ),
@@ -338,12 +259,12 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
                                         fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
+                                    hintText: '200.00',
                                   )
                               ),
                             ),
@@ -398,12 +319,12 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
                                         fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0',
+                                    hintText: '400',
                                   )
                               ),
                             ),
@@ -430,7 +351,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
@@ -459,20 +380,20 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
 
                       ],
                     ),
-                    const SizedBox(height: 150,),
+                    const SizedBox(height: 230,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                             onTap: (){
-                              Navigator.of(context).pop();
+                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const ReceiptSubmitPage()));
 
                             },
                             child: Container(
                                 height: 52,
                                 width: 147,
                                 decoration: BoxDecoration(
-                                    color: const Color(0xffEF2222),
+                                    color: const Color(0xffEF2253),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                                 child: Center(child: AppText(text: "Cancel", color: Colors.white,size: 12,fw: FontWeight.bold,)))),
@@ -489,7 +410,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                         colors: [Color(0xff19184D), Color(0xff530393)]),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
-                                child: Center(child: AppText(text: "Credit", color: Colors.white,size: 12,fw: FontWeight.bold,))))
+                                child: Center(child: AppText(text: "Approve", color: Colors.white,size: 12,fw: FontWeight.bold,))))
                       ],
                     ),
                   ],
@@ -523,18 +444,6 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                           children: [
                             Image.asset("assets/images/sucessfull.png",width: 52,height: 52,
                             ),
-                            // Lottie.asset(
-                            //   'assets/pointsucess.json',
-                            //   width: 60,
-                            //   height: 60,
-                            //   controller: _controller,
-                            //   onLoaded: (composition) {
-                            //     _controller
-                            //       ..duration = composition.duration
-                            //       ..forward();
-                            //   },
-                            // ),
-
                             Text("Points Sucessfully Credited",style: TextStyle(fontWeight: FontWeight.w700,
                                 fontSize: 14,foreground: Paint()..shader = linearGradient),),
                             const SizedBox(
@@ -549,7 +458,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                   color: const Color(0xff333333),
                                 ),
                                 AppText(
-                                  text: '     9948789898',
+                                  text: '    2356787697',
                                   size: 12,
                                   fw: FontWeight.w700,
                                   color: const Color(0xff333333),
@@ -569,7 +478,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                   ),
                                 ),
                                 AppText(
-                                  text: '     600',
+                                  text: '     200',
                                   size: 12,
                                   fw: FontWeight.w700,
                                   color: const Color(0xff333333),
@@ -589,7 +498,7 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                   ),
                                 ),
                                 AppText(
-                                  text: '     300.00',
+                                  text: '     200.00',
                                   size: 12,
                                   fw: FontWeight.w700,
                                   color: const Color(0xff333333),
@@ -612,31 +521,20 @@ class _PointsCreditPageState extends State<PointsCreditPage> with TickerProvider
                                       padding: EdgeInsets.only(right: 10),
                                       child: SvgIcon("assets/icons/print.svg",color: Color(0xffF99F1E),),
                                     )),
+
                                 Padding(
                                   padding: const EdgeInsets.only(right: 140),
-                                  child: AppText(
-                                    text: "Print",
-                                    size: 14,
-                                    txtalign: TextAlign.left,
-                                    fw: FontWeight.w700,
-                                    color: const Color(0xffF99F1E),
-                                  ),
+                                  child: Text("Print",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700,foreground: Paint()..shader=linearGradient),),
                                 ),
                                 Expanded(
                                   child: InkWell(
                                     onTap: (){
-                                      Navigator.of(context).pop();
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const ReceiptSubmitPage()));
                                     },
                                     child:Text("OK",style: TextStyle(  fontWeight: FontWeight.w700,
                                         fontSize: 14,
-                                        foreground: Paint()..shader = linearGradient),),
-                                    // child: AppText(
-                                    //   txtalign: TextAlign.end,
-                                    //   text: "OK",
-                                    //   size: 14,
-                                    //   fw: FontWeight.w700,
-                                    //   color: const Color(0xff351070),
-                                    //  ),
+                                        foreground: Paint()..shader = linearGradient
+                                    ),),
                                   ),
                                 )
                               ],
