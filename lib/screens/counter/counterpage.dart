@@ -2,9 +2,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
+import 'package:pointup/screens/DrawerItems/changepassword/changepassword.dart';
 import 'package:pointup/screens/DrawerItems/contactus.dart';
+import 'package:pointup/screens/DrawerItems/customerreviewandrating.dart';
 import 'package:pointup/screens/DrawerItems/privacyandpolicy.dart';
+import 'package:pointup/screens/DrawerItems/reports.dart';
 import 'package:pointup/screens/DrawerItems/termsandcondition.dart';
+import 'package:pointup/screens/DrawerItems/userinfo.dart';
 import 'package:pointup/screens/counter/orderredeempage.dart';
 import 'package:pointup/screens/counter/pointscreditpage.dart';
 import 'package:pointup/screens/counter/pointsredeempage.dart';
@@ -389,7 +393,9 @@ class _CounterPageState extends State<CounterPage> {
                     size: 16,
                     color: Color(0xff19184D),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const UserInformation()));
+                  },
                 ),
                 ListTile(
                    leading: const SvgIcon(
@@ -411,7 +417,10 @@ class _CounterPageState extends State<CounterPage> {
                     size: 16,
                     color: Color(0xff19184D),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChangePassword(
+                    )));
+                  },
                 ),
                 ListTile(
                   leading: const SvgIcon(
@@ -433,7 +442,9 @@ class _CounterPageState extends State<CounterPage> {
                     size: 16,
                     color: Color(0xff19184D),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const ReportsPage()));
+                  },
                 ),
                 ListTile(
                   leading: const SvgIcon(
@@ -455,7 +466,9 @@ class _CounterPageState extends State<CounterPage> {
                     size: 16,
                     color: Color(0xff19184D),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const CustomerReviewAndRating()));
+                  },
                 ),
                 ListTile(
                   leading: const SvgIcon(

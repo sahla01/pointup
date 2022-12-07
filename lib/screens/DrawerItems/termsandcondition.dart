@@ -42,7 +42,7 @@ class TermsAndCondition extends StatelessWidget {
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
       ),
-      body: Container(
+      body: SizedBox(
         width:double.infinity ,
         child: SingleChildScrollView(
           child: Column(

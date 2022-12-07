@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/screens/counter/counterpage.dart';
 import 'package:pointup/screens/navbar/bottomnavbar.dart';
 import 'package:pointup/widgets/app_text.dart';
 

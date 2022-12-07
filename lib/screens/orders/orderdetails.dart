@@ -71,7 +71,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.71,
                   child: ListView.builder(
                       padding: const EdgeInsets.all(8),

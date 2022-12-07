@@ -46,7 +46,7 @@ class TransactionCredit extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.38,
               child: ListView.builder(
                   padding: const EdgeInsets.only(left: 10,right: 10),

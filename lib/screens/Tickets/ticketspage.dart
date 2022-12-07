@@ -182,11 +182,11 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                             ),
                           ),
                           const SizedBox(height: 20,),
-                          Container(
+                          SizedBox(
                             height: MediaQuery.of(context).size.height,
                             child: Column(
                               children: [
-                                Container(
+                                SizedBox(
                                   height: MediaQuery.of(context).size.height ,
                                   child: ListView.builder(
                                     // scrollDirection: Axis.vertical,

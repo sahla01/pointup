@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pointup/loginscreens/otptwopage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';

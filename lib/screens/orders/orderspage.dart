@@ -105,7 +105,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                           ],
                         ),
                         const SizedBox(height: 10,),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height,
                           child: ListView.builder(
                               itemCount: vieworders.length,
@@ -272,7 +272,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                           ],
                         ),
                         const SizedBox(height: 10,),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height,
                           child: ListView.builder(
                               itemCount: vieworders.length,

@@ -36,6 +36,7 @@ dependencies:
   svg_icon: ^0.0.1
   lottie: ^2.0.0
   flutter_barcode_scanner: ^2.0.0
+  smooth_star_rating_null_safety: ^1.0.4+2
   flutter:
     sdk: flutter
 
