@@ -46,9 +46,6 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
           ),
           actions: <Widget>[
             Image.asset("assets/images/noti.png"),
-            // IconButton(
-            //     onPressed: () {},
-            //     icon: const SvgIcon("assets/icons/notifi.svg"))
           ],
           gradient: const LinearGradient(
               colors: [Color(0xff19184D), Color(0xff530393)]),
@@ -71,355 +68,298 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.71,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: orderdetails.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Card(
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10.0),)
-                          ),
-                          child: Column(
-                            children: [
-                              ListTile(
-                                contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                title: Column(
-                                  children: [
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Image.asset(orderdetails[index],fit:BoxFit.cover,height: 89,width: 89,),
-                                        SizedBox(
-                                          width: 120,
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              const SizedBox(
-                                                height: 5.0,
-                                              ),
-                                              AppText(
-                                                text: "PUCKA",
-                                                fw: FontWeight.bold,
-                                                size: 12,
-                                                color: const Color(0xff19184D),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              AppText(
-                                                text: "Men’s Sports Shoe",
-                                                size: 10,
-                                                color: const Color(0xff19184D),
-                                              ),
-                                              RichText(
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: 1,
-                                                text: const TextSpan(
-                                                    text: 'Pts  ',
-                                                    style: TextStyle(
-                                                        color: Color(0xffF99F1E),
-                                                        fontSize: 10),
-                                                    children: [
-                                                      TextSpan(
-                                                          text: '4560 \n',
-                                                          style: TextStyle(
-                                                              color: Color(0xffF99F1E),
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 12)),
-                                                    ]),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              RichText(
-                                                maxLines: 1,
-                                                text: const TextSpan(
-                                                    text: '₹    ',
-                                                    style: TextStyle(
-                                                        color: Color(0xff333333),
-                                                        fontSize: 13.0),
-                                                    children: [
-                                                      TextSpan(
-                                                          text: '2280.00\n',
-                                                          style: TextStyle(
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 12,
-                                                              color: Color(0xff19184D))),
-                                                    ]),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              const SizedBox(
-                                                height: 5.0,
-                                              ),
-                                              AppText(
-                                                text: "Order Ref# 103785647",
-                                                color: const Color(0xff333333),
-                                                size: 10,
-                                                fw: FontWeight.bold,
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              RichText(
-                                                maxLines: 1,
-                                                text: const TextSpan(
-                                                    text: '  13/04/2022,',
-                                                    style: TextStyle(
-                                                        color: Color(0xffA1A2A8),
-                                                        fontSize: 10),
-                                                    children: [
-                                                      TextSpan(
-                                                          text: '10:30 AM\n',
-                                                          style: TextStyle(
-                                                              fontSize: 10,
-                                                              color: Color(0xffA1A2A8))),
-                                                    ]),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left: 73),
-                                                child: AppText(
-                                                  text: "Status",
-                                                  size: 10,
-                                                  fw: FontWeight.bold,
-                                                  color: const Color(0xff333333),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left: 3),
-                                                child: AppText(
-                                                  text: "Awaiting Confirmation",
-                                                  size: 10,
-                                                  color: const Color(0xff39AE58),
-                                                  fw: FontWeight.w600,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left:59),
-                                                child: AppText(
-                                                  text: "Left Day’s",
-                                                  size: 10,
-                                                  color: const Color(0xff333333),
-                                                  fw: FontWeight.bold,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 3,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left:90),
-                                                child: AppText(
-                                                  txtalign: TextAlign.end,
-                                                  text: "05",
-                                                  size: 10,
-                                                  color: const Color(0xff39AE58),
-                                                  fw: FontWeight.w600,
-                                                ),
-                                              ),
-
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    SizedBox(
-                                      width: 130,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          AppText(text: "Member ID",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                          AppText(text: "#2356787697",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                          AppText(text: "Member Contact",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                          AppText(text: "9845676768",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                          AppText(text: "Quantity",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                          AppText(text: "01",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                          AppText(text: "Size",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                          AppText(text: "Shop Trial",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                          AppText(text: "Color",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                          AppText(text: "Shop Trial",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                          const SizedBox(
-                                            height: 15,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    // SizedBox(
-                                    //   child: Column(
-                                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                                    //     children: [
-                                    //       Padding(
-                                    //         padding: const EdgeInsets.only(left: 60,bottom: 50),
-                                    //         child: AppText(text: "Points Credited",color: Color(0xff333333),size: 12,fw: FontWeight.bold,),
-                                    //       ),
-                                    //       const SizedBox(
-                                    //         height: 3.0,
-                                    //       ),
-                                    //       Padding(
-                                    //         padding: const EdgeInsets.only(left: 60),
-                                    //         child: RichText(
-                                    //           maxLines: 1,
-                                    //           text: const TextSpan(
-                                    //               text: '250',
-                                    //               style: TextStyle(
-                                    //                   color: Color(0xff135EF0),
-                                    //                   fontSize: 12,fontWeight: FontWeight.bold),
-                                    //               children: [
-                                    //                 TextSpan(
-                                    //                   text: ' Pts\n',
-                                    //                   style: TextStyle(
-                                    //                       fontWeight: FontWeight.bold,
-                                    //                       fontSize: 12,
-                                    //                       color: Color(0xff135EF0)),
-                                    //                 )]),
-                                    //         ),
-                                    //       ),
-                                    //       const SizedBox(
-                                    //         height: 3.0,
-                                    //       ),
-                                    //       Padding(
-                                    //         padding: const EdgeInsets.only(left: 60),
-                                    //         child: RichText(
-                                    //           maxLines: 1,
-                                    //           text: const TextSpan(
-                                    //               text: '13/04/2022,',
-                                    //               style: TextStyle(
-                                    //                   color: Color(0xffA1A2A8),
-                                    //                   fontSize: 10),
-                                    //               children: [
-                                    //                 TextSpan(
-                                    //                     text: '10:30 AM\n',
-                                    //                     style: TextStyle(
-                                    //                         fontSize: 10,
-                                    //                         color: Color(0xffA1A2A8))),
-                                    //               ]),
-                                    //         ),
-                                    //       ),
-                                    //     ],
-                                    //   ),
-                                    // )
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 5,),
-                              const Divider(
-                                color: Color(0xffDADADA),
-                                thickness: 0.5,
-                                indent: 10,
-                                endIndent: 10,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0),)
+              ),
+              child: Column(
+                children: [
+                  ListTile(
+                    contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    title: Column(
+                      children: [
+                        const SizedBox(
+                          height: 5.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Image.asset('assets/images/shoe.png',fit:BoxFit.cover,height: 89,width: 89,),
+                            SizedBox(
+                              width: 120,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      AppText(
-                                        text: "Total",
-                                        size: 14,
-                                        fw: FontWeight.bold,
-                                        color: const Color(0xff19184D),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      AppText(
-                                          text: "Pts",
-                                          size: 10,
-                                          fw: FontWeight.w600,
-                                          color: const Color(0xff19184D)),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(right: 15),
-                                        child: AppText(
-                                          text: "4560",
-                                          size: 12,
-                                          fw: FontWeight.bold,
-                                          color: const Color(0xff19184D),
-                                        ),
-                                      ),
-                                    ],
+                                  const SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  AppText(
+                                    text: "PUCKA",
+                                    fw: FontWeight.bold,
+                                    size: 12,
+                                    color: const Color(0xff19184D),
                                   ),
                                   const SizedBox(
-                                    height: 5,
+                                    height: 3,
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      AppText(
-                                        text: "₹",
-                                        color: const Color(0xff333333),
-                                        size: 14,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(right: 15),
-                                        child: AppText(
-                                          text: "2280.00",
-                                          size: 12,
-                                          fw: FontWeight.bold,
-                                          color: const Color(0xff19184D),
-                                        ),
-                                      ),
-                                    ],
+                                  AppText(
+                                    text: "Men’s Sports Shoe",
+                                    size: 10,
+                                    color: const Color(0xff19184D),
+                                  ),
+                                  RichText(
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    text: const TextSpan(
+                                        text: 'Pts  ',
+                                        style: TextStyle(
+                                            color: Color(0xffF99F1E),
+                                            fontSize: 10),
+                                        children: [
+                                          TextSpan(
+                                              text: '4560 \n',
+                                              style: TextStyle(
+                                                  color: Color(0xffF99F1E),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12)),
+                                        ]),
                                   ),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 3,
+                                  ),
+                                  RichText(
+                                    maxLines: 1,
+                                    text: const TextSpan(
+                                        text: '₹    ',
+                                        style: TextStyle(
+                                            color: Color(0xff333333),
+                                            fontSize: 13.0),
+                                        children: [
+                                          TextSpan(
+                                              text: '2280.00\n',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12,
+                                                  color: Color(0xff19184D))),
+                                        ]),
                                   ),
                                 ],
-                              )
+                              ),
+                            ),
+                            SizedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  AppText(
+                                    text: "Order Ref# 103785647",
+                                    color: const Color(0xff333333),
+                                    size: 10,
+                                    fw: FontWeight.bold,
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
+                                  RichText(
+                                    maxLines: 1,
+                                    text: const TextSpan(
+                                        text: '  13/04/2022,',
+                                        style: TextStyle(
+                                            color: Color(0xffA1A2A8),
+                                            fontSize: 10),
+                                        children: [
+                                          TextSpan(
+                                              text: '10:30 AM\n',
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  color: Color(0xffA1A2A8))),
+                                        ]),
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 73),
+                                    child: AppText(
+                                      text: "Status",
+                                      size: 10,
+                                      fw: FontWeight.bold,
+                                      color: const Color(0xff333333),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 3),
+                                    child: AppText(
+                                      text: "Awaiting Confirmation",
+                                      size: 10,
+                                      color: const Color(0xff39AE58),
+                                      fw: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:59),
+                                    child: AppText(
+                                      text: "Left Day’s",
+                                      size: 10,
+                                      color: const Color(0xff333333),
+                                      fw: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:90),
+                                    child: AppText(
+                                      txtalign: TextAlign.end,
+                                      text: "05",
+                                      size: 10,
+                                      color: const Color(0xff39AE58),
+                                      fw: FontWeight.w600,
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        SizedBox(
+                          width: 130,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              AppText(text: "Member ID",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
+                              AppText(text: "#2356787697",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              AppText(text: "Member Contact",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
+                              AppText(text: "9845676768",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              AppText(text: "Quantity",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
+                              AppText(text: "01",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              AppText(text: "Size",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
+                              AppText(text: "Shop Trial",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              AppText(text: "Color",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
+                              AppText(text: "Shop Trial",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              const SizedBox(
+                                height: 15,
+                              ),
                             ],
                           ),
-                        );
-                      }),),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 5,),
+                  const Divider(
+                    color: Color(0xffDADADA),
+                    thickness: 0.5,
+                    indent: 10,
+                    endIndent: 10,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          AppText(
+                            text: "Total",
+                            size: 14,
+                            fw: FontWeight.bold,
+                            color: const Color(0xff19184D),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          AppText(
+                              text: "Pts",
+                              size: 10,
+                              fw: FontWeight.w600,
+                              color: const Color(0xff19184D)),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: AppText(
+                              text: "4560",
+                              size: 12,
+                              fw: FontWeight.bold,
+                              color: const Color(0xff19184D),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          AppText(
+                            text: "₹",
+                            color: const Color(0xff333333),
+                            size: 14,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: AppText(
+                              text: "2280.00",
+                              size: 12,
+                              fw: FontWeight.bold,
+                              color: const Color(0xff19184D),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+              SizedBox(height: 140,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -134,11 +134,11 @@ class _PointsRedeemPageState extends State<PointsRedeemPage> with TickerProvider
                                 hintText: "Member ID",
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 0,color: Color(0xffDADADA)),
+                                  borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 0,color: Color(0xffDADADA)),
+                                    borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                               )
@@ -169,11 +169,11 @@ class _PointsRedeemPageState extends State<PointsRedeemPage> with TickerProvider
                                 hintText: "Enter CVV",
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 0,color: Color(0xffDADADA)),
+                                  borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(width: 0,color: Color(0xffDADADA)),
+                                    borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)
                                 ),
                               )

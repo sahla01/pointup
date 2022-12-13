@@ -173,12 +173,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 0, color: Color(0xff330F6C)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 0, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                               )),
                         ),
@@ -239,12 +239,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                       fillColor: const Color(0xffF4F6FF),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xffDADADA)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       hintStyle: const TextStyle(
@@ -278,12 +278,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xffDADADA)),
+                                          width: 0.5, color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     hintStyle: const TextStyle(
@@ -350,12 +350,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xffDADADA)),
+                                          width: 0.5, color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     hintStyle: const TextStyle(
@@ -388,12 +388,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xffDADADA)),
+                                          width: 0.5, color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     hintStyle: const TextStyle(
@@ -458,12 +458,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xffDADADA)),
+                                          width: 0.5, color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     hintStyle: const TextStyle(
@@ -496,12 +496,12 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xffDADADA)),
+                                          width: 0.5, color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 1, color: Color(0xffDADADA)),
+                                            width: 0.5, color: Color(0xff330F6C)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
                                     hintStyle: const TextStyle(
@@ -533,91 +533,87 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                   ],
                 ),
                 Container(
-                  height: 130,
-                  // color: Colors.green,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.125,
-                          child: ListView.builder(
-                              itemCount: pointvoucher.length,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return
-                                    Container(
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Container(
-                                          height: 94,
-                                          width: 125,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(6),
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color:
-                                                      const Color(0xffF99F1E))),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                height: 15,
-                                              ),
-                                              Image.asset(pointvoucher[index]),
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            right: 10),
-                                                    child: AppText(
-                                                      text: points[index],
-                                                      size: 10,
-                                                      fw: FontWeight.bold,
-                                                      color: const Color(
-                                                          0xff39AE58),
-                                                    ),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
+                  height: 135,
+                   // color: Colors.red,
+                  child: ListView.builder(
+                      itemCount: pointvoucher.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0,right: 10.0,top: 25.0),
+                                child: Container(
+                                  height: 98,
+                                  width: 123,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(6),
+                                      border: Border.all(
+                                          width: 1,
+                                          color:
+                                          const Color(0xffF99F1E))),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 18,
                                       ),
-                                    );
+                                      Image.asset(pointvoucher[index]),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(
+                                                right: 10),
+                                            child: AppText(
+                                              text: points[index],
+                                              size: 10,
+                                              fw: FontWeight.bold,
+                                              color: const Color(
+                                                  0xff39AE58),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 125,
+                                top: 10,
+                                child: Container(
+                                  height: 28,
+                                  width: 28,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.green,
+                                      shape: BoxShape.circle
+                                  ),
+                                  child: const CircleAvatar(
+                                    backgroundColor: Color(0xffF99F1E),
+                                    child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
 
-                              }),
-                        ),
-                      ),
-                      Positioned(
-                        left: 130,
-                        bottom: 85,
-                        child: Container(
-                          height: 30,
-                          width: 30,
-                          decoration: const BoxDecoration(
-                              color: Colors.green,
-                              shape: BoxShape.circle
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          child: const CircleAvatar(
-                            backgroundColor: Color(0xffF99F1E),
-                            child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
+                        );
 
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                      }),
+
+
+
+
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -648,7 +644,7 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                   ],
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

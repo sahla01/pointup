@@ -83,7 +83,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                   height: MediaQuery.of(context).size.height * 0.07,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: const Color(0xffDADADA))),
+                      border: Border.all(color: const Color(0xffDADADA),width: 1)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -256,12 +256,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                   fillColor: const Color(0xffF4F6FF),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
+                                        width: 0.5, color: Color(0xffDADADA)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   hintStyle: const TextStyle(
@@ -294,12 +294,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -365,12 +365,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -402,12 +402,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -471,12 +471,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -508,12 +508,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -591,12 +591,12 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 fillColor: const Color(0xffF4F6FF),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
+                                      width: 0.5, color: Color(0xffDADADA)),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff330F6C)),
+                                        width: 0.5, color: Color(0xff330F6C)),
                                     borderRadius: BorderRadius.circular(10)),
                                 hintStyle: const TextStyle(
                                     fontSize: 12, color: Color(0xffA1A2A8)),
@@ -621,7 +621,10 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 Color(0xff22ECBB)
                               ])
                             ),
-                            child: Center(child: AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF))),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 30,top: 3),
+                              child: Center(child: AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF))),
+                            ),
                           ),
                         ),
                       ),
@@ -642,12 +645,16 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                 ])
                             ),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.only(left: 40,top: 5),
+                                  padding: EdgeInsets.only(left: 53,top: 5),
                                   child: Icon(Icons.visibility,size: 14,color: Colors.white,),
                                 ),
-                                AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF)),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: AppText(text: "0.00",size: 12,color: const Color(0xffFFFFFF)),
+                                ),
                               ],
                             ),
                           ),
@@ -659,85 +666,118 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                 const SizedBox(
                   height: 15,
                 ),
-                Column(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: AppText(
-                            text: "Avialable Voucher’s (03)",
-                            color: const Color(0xff333333),
-                            size: 12,
-                            fw: FontWeight.w600,
-                          ),
-                        ),
-                       ]
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: AppText(
+                        text: "Avialable Voucher’s (03)",
+                        color: const Color(0xff333333),
+                        size: 12,
+                        fw: FontWeight.w600,
+                      ),
                     ),
-                    const SizedBox(height: 20,),
-                    Container(
-                      height: MediaQuery.of(context).size.height *0.125,
-                      child: ListView.builder(
-                          itemCount: pointvoucher.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index){
-                            return Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Container(
-                                height: 94,
-                                width: 125,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(width: 1,color: const Color(0xffF99F1E))
-                                ),
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: 15,),
-                                    Image.asset(pointvoucher[index]),
-                                    const SizedBox(height: 10,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(right: 10),
-                                          child: AppText(text: points[index],size: 10,fw: FontWeight.bold,color: const Color(0xff39AE58),),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                   ]
+                ),
+                Container(
+                  height: 135,
+                  // color: Colors.red,
+                  child: ListView.builder(
+                      itemCount: pointvoucher.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0,right: 10.0,top: 25.0),
+                                child: Container(
+                                  height: 98,
+                                  width: 123,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(6),
+                                      border: Border.all(
+                                          width: 1,
+                                          color:
+                                          const Color(0xffF99F1E))),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 18,
+                                      ),
+                                      Image.asset(pointvoucher[index]),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(
+                                                right: 10),
+                                            child: AppText(
+                                              text: points[index],
+                                              size: 10,
+                                              fw: FontWeight.bold,
+                                              color: const Color(
+                                                  0xff39AE58),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            );
-                          }),
-                    ),
-                    const SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 11,
-                          backgroundColor: Color(0xffFFCD08),
-                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
-                        ),
-                        SizedBox(width: 10,),
-                        CircleAvatar(
-                          radius: 11,
-                          backgroundColor: Color(0xffFF8D08),
-                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
-                        ),
-                        SizedBox(width: 10,),
-                        CircleAvatar(
-                          radius: 11,
-                          backgroundColor: Color(0xff08FFFF),
-                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
-                        ),
-                      ],
-                    )
-                  ],
+                              Positioned(
+                                left: 125,
+                                top: 10,
+                                child: Container(
+                                  height: 28,
+                                  width: 28,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.green,
+                                      shape: BoxShape.circle
+                                  ),
+                                  child: const CircleAvatar(
+                                    backgroundColor: Color(0xffF99F1E),
+                                    child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
 
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+
+                      }),
+                ),
+                const SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 11,
+                      backgroundColor: Color(0xffFFCD08),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                    ),
+                    SizedBox(width: 10,),
+                    CircleAvatar(
+                      radius: 11,
+                      backgroundColor: Color(0xffFF8D08),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                    ),
+                    SizedBox(width: 10,),
+                    CircleAvatar(
+                      radius: 11,
+                      backgroundColor: Color(0xff08FFFF),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 20,

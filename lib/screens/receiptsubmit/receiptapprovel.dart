@@ -130,11 +130,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                       filled: true,
                                       fillColor: const Color(0xffF4F6FF),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       hintStyle: const TextStyle(
@@ -162,11 +162,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                     filled: true,
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
@@ -223,11 +223,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                     filled: true,
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
@@ -255,11 +255,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                     filled: true,
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
@@ -315,11 +315,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                     filled: true,
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
@@ -347,11 +347,11 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                     filled: true,
                                     fillColor: const Color(0xffF4F6FF),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                      borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xff330F6C)),
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(

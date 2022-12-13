@@ -56,7 +56,102 @@ class _NotificationPageState extends State<NotificationPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 30,),
+            const SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 130,right: 5),
+                    child: Container(
+                      height: 35,
+                      width: 142,
+                      child: DropdownButtonFormField<String>(
+                        icon:   InkWell(
+                          child: Container(
+                              height: 23,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(width: 0.5,color: Color(0xff360E70)),
+                                  borderRadius:
+                                  BorderRadius.circular(4)),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 8),
+                                    child: Text('filter',style: TextStyle(
+                                        fontSize: 10,fontWeight: FontWeight.w600,color: Color(0xff360E70)
+                                    ),),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Icon(
+                                      Icons.filter_alt_outlined,
+                                      size: 10,color:
+                                  Color(0xff360E70)
+                                  ),
+                                ],
+                              )),
+                        ),
+                        value: dropdownnotifi,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 0.0, horizontal: 8),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                width: 1, color: Color(0xffDADADA)),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(0xffDADADA)),
+                              borderRadius: BorderRadius.circular(4)),
+                          hintStyle: const TextStyle(height: 1.8,
+                              fontSize: 10, color: Color(0xff333333),fontWeight: FontWeight.w600),
+                          hintText: 'All Notification ',
+                          fillColor: const Color(0xffF4F6FF),
+                          filled: true,
+                        ),
+                        validator: (value) =>
+                        value == null
+                            ? 'field required'
+                            : null,
+                        items: ['Confirmed', 'Cancelled']
+                            .map<DropdownMenuItem<String>>(
+                                (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value, style: const TextStyle(
+                                    fontSize: 10, color: Color(0xff333333),fontWeight: FontWeight.w600),),
+                              );
+                            }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownnotifi = newValue;
+                          } );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20,),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: Text("Clear All ",style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    foreground: Paint()..shader = linearGradient
+                  ),),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
            Row(
              children: [
                Padding(
@@ -85,39 +180,71 @@ class _NotificationPageState extends State<NotificationPage> {
                           )),
                       child: ListTile(
                         leading: Image.asset("assets/images/notificationlogo.png",height: 54,width: 54,),
-                        title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
                           children: [
-                            const SizedBox(height: 15,),
-                            AppText(text: "From:",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                            const SizedBox(height: 5,),
-                            AppText(text: "Team Pointupp",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
-                            const SizedBox(height: 5,),
-                            AppText(text: "Thank you for Register!",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                            const SizedBox(height: 15,),
-                          ],
-                        ),
-                        trailing: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            AppText(text: "10 Aug, 2022 10.00 AM",size: 8,fw: FontWeight.w600,color: const Color(0xffA1A2A8),),
-                            const SizedBox(height: 20,),
-                            Container(
-                              width: 24,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    Color(0xff19184D),
-                                    Color(0xff530393)
-                                  ]
-                                ),
-                                borderRadius: BorderRadius.circular(6)
+                            SizedBox(
+                              width:130,
+                              child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(height: 15,),
+                                  AppText(text: "From:",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                  const SizedBox(height: 5,),
+                                  AppText(text: "Team Pointupp",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                                  const SizedBox(height: 5,),
+                                  AppText(text: "Thank you for Register!",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                  const SizedBox(height: 15,),
+                                ],
                               ),
-                              child: const SvgIcon("assets/icons/delete.svg",width: 18,height: 18,color: Colors.white,),
-                            )
+                            ),
+                            SizedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  AppText(text: "10 Aug, 2022 10.00 AM",size: 8,fw: FontWeight.w600,color: const Color(0xffA1A2A8),),
+                                  const SizedBox(height: 20,),
+                                  Container(
+                                    width: 24,
+                                    height: 24,
+                                    decoration: BoxDecoration(
+                                        gradient: const LinearGradient(
+                                            colors: [
+                                              Color(0xff19184D),
+                                              Color(0xff530393)
+                                            ]
+                                        ),
+                                        borderRadius: BorderRadius.circular(6)
+                                    ),
+                                    child: const SvgIcon("assets/icons/delete.svg",width: 18,height: 18,color: Colors.white,),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
+                        // trailing: Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.end,
+                        //   children: [
+                        //     AppText(text: "10 Aug, 2022 10.00 AM",size: 8,fw: FontWeight.w600,color: const Color(0xffA1A2A8),),
+                        //     const SizedBox(height: 20,),
+                        //     Container(
+                        //       width: 24,
+                        //       height: 24,
+                        //       decoration: BoxDecoration(
+                        //         gradient: const LinearGradient(
+                        //           colors: [
+                        //             Color(0xff19184D),
+                        //             Color(0xff530393)
+                        //           ]
+                        //         ),
+                        //         borderRadius: BorderRadius.circular(6)
+                        //       ),
+                        //       child: const SvgIcon("assets/icons/delete.svg",width: 18,height: 18,color: Colors.white,),
+                        //     )
+                        //   ],
+                        // ),
 
                       ),
                     ),

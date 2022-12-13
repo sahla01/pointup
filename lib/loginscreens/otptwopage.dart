@@ -252,10 +252,10 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
             isDense: true,
             counter: const Offstage(),
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Color(0xffDADADA)),
+                borderSide: const BorderSide(width: 0.5, color: Color(0xffDADADA)),
                 borderRadius: BorderRadius.circular(4)),
             focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Color(0xff351070)),
+                borderSide: const BorderSide(width: 0.5, color: Color(0xff351070)),
                 borderRadius: BorderRadius.circular(4)),
           ),
         ),

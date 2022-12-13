@@ -112,11 +112,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                       filled: true,
                                       fillColor: const Color(0xffF4F6FF),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(width: 1,color: Color(0xff351070)),
+                                          borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
                                       hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
@@ -149,16 +149,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                       filled: true,
                                       fillColor: const Color(0xffF4F6FF),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                                        borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(width: 1,color: Color(0xff351070)),
+                                          borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
                                       hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
                                       hintText:' Enter User Name',
                                       prefixIcon:const Icon(Icons.person_outline_rounded,size: 19,
+                                        color: Color(0xffA1A2A8),
                                       ),
                                     )
                                 ),

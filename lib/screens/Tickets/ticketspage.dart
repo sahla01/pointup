@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/Tickets/tickethistoryclosed.dart';
 import 'package:pointup/screens/Tickets/tickethistoryopen.dart';
 import 'package:pointup/screens/customdrwer.dart';
 import 'package:pointup/widgets/app_text.dart';
@@ -122,62 +121,63 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 5,right: 5,top: 10),
+                            padding: const EdgeInsets.only(left: 4,right: 4,top: 10),
                             child: DropdownButtonFormField<String>(
-                              icon:   const SizedBox.shrink(),
+                              icon:   InkWell(
+                                child: Container(
+                                    height: 23,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+
+                                        shape: BoxShape.rectangle,
+                                        border: Border.all(width: 0.5,color: Color(0xff360E70)),
+                                        borderRadius:
+                                        BorderRadius.circular(4.0)),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: const [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 7),
+                                          child: Text('filter',style: TextStyle(
+                                              fontSize: 10,fontWeight: FontWeight.w600,color: Color(0xff360E70)
+                                          ),),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Icon(
+                                            Icons.filter_alt_outlined,
+                                            size: 10,color:
+                                        Color(0xff360E70)
+                                        ),
+                                      ],
+                                    )),
+                              ),
                               value: dropdownticket,
                               decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 10),
-                                  enabledBorder: OutlineInputBorder(
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 15),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      width: 0.5, color: Color(0xffDADADA)),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  hintStyle: const TextStyle(height: 1.8,
-                                      fontSize: 12, color: Color(0xff333333)),
-                                  hintText: 'All Transaction',
-                                  fillColor: const Color(0xffF4F6FF),
-                                  filled: true,
-                                  suffixIcon: SizedBox(
-                                    width: 90,
-                                    child: IconButton(
-                                      onPressed: () {},
-                                      icon: Container(
-                                          width: 54,
-                                          height: 23,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(4),
-                                              border: Border.all(width: 0.5,
-                                                  color: const Color(0xff360E70))
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              const SizedBox(width: 10,),
-                                              AppText(text: "Filter",
-                                                size: 8,
-                                                color: const Color(0xff360E70),
-                                                fw: FontWeight.w600,),
-                                              const SizedBox(width: 6,),
-                                              const Icon(
-                                                  Icons.filter_alt_outlined, size: 10,
-                                                  color: Color(0xff360E70)),
-                                            ],
-                                          )),
-                                    ),
-                                  )
+                                        width: 0.5, color: Color(0xff351070)),
+                                    borderRadius: BorderRadius.circular(10)),
+                                hintStyle: const TextStyle(height: 1.8,
+                                    fontSize: 12, color: Color(0xff333333)),
+                                hintText: 'All Tickets',
+                                fillColor: const Color(0xffF4F6FF),
+                                filled: true,
+
                               ),
-                              onChanged: (ticket) =>
-                                  setState(() => dropdownticket = ticket),
                               validator: (value) =>
                               value == null
                                   ? 'field required'
                                   : null,
-                              items: ['Point Credit', 'Point Redeem']
+                              items: ['Open', 'Closed']
                                   .map<DropdownMenuItem<String>>(
                                       (String value) {
                                     return DropdownMenuItem<String>(
@@ -186,6 +186,11 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fontSize: 12, color: Color(0xff333333)),),
                                     );
                                   }).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownvalue = newValue;
+                                } );
+                              },
                             ),
                           ),
                           const SizedBox(height: 20,),
@@ -202,7 +207,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                         return InkWell(
                                           onTap: (){
                                             Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryOpen()));
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryClosed()));
+                                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryClosed()));
 
                                           },
                                           child: Card(
@@ -293,7 +298,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                          left: 10,
+                                          // left: 10,
                                           top: 20,
                                           right: 20,
                                         ),
@@ -304,48 +309,46 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: DropdownButtonFormField<String>(
-                                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                                          value:dropdownticket,
-                                          decoration: InputDecoration(
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 10, horizontal: 10),
-                                              enabledBorder: OutlineInputBorder(
+                                      SizedBox(height: 10,),
+                                      DropdownButtonFormField<String>(
+                                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                                        value:dropdownvalue,
+                                        decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.symmetric(
+                                                vertical: 10, horizontal: 10),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0.5, color: Color(0xffDADADA)),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                    width: 1, color: Color(0xffDADADA)),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                      width: 1, color: Color(0xff351070)),
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              hintStyle: const TextStyle(
-                                                  fontSize: 12, color: Color(0xff333333)),
-                                              hintText: 'Technical Support',
-                                              fillColor: const Color(0xffF4F6FF),
-                                              filled: true
-                                          ),
-                                          onChanged: (ticket) =>
-                                              setState(() => dropdownticket = ticket),
-                                          validator: (value) =>
-                                          value == null
-                                              ? 'field required'
-                                              : null,
-                                          items: ['Point Credit','Point Redeem']
-                                              .map<DropdownMenuItem<String>>(
-                                                  (String value) {
-                                                return DropdownMenuItem<String>(
-                                                  value: value,
-                                                  child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
-                                                );
-                                              }).toList(),
+                                                    width: 0.5, color: Color(0xff351070)),
+                                                borderRadius: BorderRadius.circular(10)),
+                                            hintStyle: const TextStyle(
+                                                fontSize: 12, color: Color(0xff333333)),
+                                            hintText: 'Technical Support',
+                                            fillColor: const Color(0xffF4F6FF),
+                                            filled: true
                                         ),
+                                        onChanged: (oldticket) =>
+                                            setState(() => dropdownvalue = oldticket),
+                                        validator: (value) =>
+                                        value == null
+                                            ? 'field required'
+                                            : null,
+                                        items: ['Open','Closed']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
+                                              );
+                                            }).toList(),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                          left: 10,
+                                          // left: 10,
                                           top: 5,
                                           right: 20,
                                         ),
@@ -356,48 +359,46 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: DropdownButtonFormField<String>(
-                                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                                          value:dropdownsubject,
-                                          decoration: InputDecoration(
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 10, horizontal: 10),
-                                              enabledBorder: OutlineInputBorder(
+                                      SizedBox(height: 10,),
+                                      DropdownButtonFormField<String>(
+                                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                                        value:dropdownsubject,
+                                        decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.symmetric(
+                                                vertical: 10, horizontal: 10),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0.5, color: Color(0xffDADADA)),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                    width: 1, color: Color(0xffDADADA)),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                      width: 1, color: Color(0xff351070)),
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              hintStyle: const TextStyle(
-                                                  fontSize: 12, color: Color(0xff333333)),
-                                              hintText: 'Other',
-                                              fillColor: const Color(0xffF4F6FF),
-                                              filled: true
-                                          ),
-                                          onChanged: (subject) =>
-                                              setState(() => dropdownsubject = subject),
-                                          validator: (value) =>
-                                          value == null
-                                              ? 'field required'
-                                              : null,
-                                          items: ['Point Credit','Point Redeem']
-                                              .map<DropdownMenuItem<String>>(
-                                                  (String value) {
-                                                return DropdownMenuItem<String>(
-                                                  value: value,
-                                                  child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
-                                                );
-                                              }).toList(),
+                                                    width: 0.5, color: Color(0xff351070)),
+                                                borderRadius: BorderRadius.circular(10)),
+                                            hintStyle: const TextStyle(
+                                                fontSize: 12, color: Color(0xff333333)),
+                                            hintText: 'Other',
+                                            fillColor: const Color(0xffF4F6FF),
+                                            filled: true
                                         ),
+                                        onChanged: (subject) =>
+                                            setState(() => dropdownsubject = subject),
+                                        validator: (value) =>
+                                        value == null
+                                            ? 'field required'
+                                            : null,
+                                        items: ['Point Credit','Point Redeem']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
+                                              );
+                                            }).toList(),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                          left: 10,
+                                          // left: 10,
                                           top: 5,
                                           right: 20,
                                         ),
@@ -408,44 +409,38 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 10.0,
-                                          left: 10.0,
-                                          right: 10.0,
-                                        ),
-                                        child: TextFormField(
-                                            validator: (value) {
-                                              if (value == null || value.isEmpty) {
-                                                return "Enter a valid shop id";
-                                              }
-                                              return null;
-                                            },
-                                            controller:otherController ,
-                                            cursorColor: const Color(0xff351070),
-                                            decoration: InputDecoration(
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 13, horizontal: 13),
-                                              isDense: true,
-                                              filled: true,
-                                              fillColor: const Color(0xffF4F6FF),
-                                              enabledBorder: OutlineInputBorder(
+                                      SizedBox(height: 10,),
+                                      TextFormField(
+                                          validator: (value) {
+                                            if (value == null || value.isEmpty) {
+                                              return "Enter a valid shop id";
+                                            }
+                                            return null;
+                                          },
+                                          controller:otherController ,
+                                          cursorColor: const Color(0xff351070),
+                                          decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.symmetric(
+                                                vertical: 13, horizontal: 13),
+                                            isDense: true,
+                                            filled: true,
+                                            fillColor: const Color(0xffF4F6FF),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0.5, color: Color(0xffDADADA)),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                    width: 1, color: Color(0xffDADADA)),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                      width: 1, color: Color(0xffEF2253)),
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              hintStyle: const TextStyle(
-                                                  fontSize: 12, color: Color(0xffA1A2A8)),
-                                              hintText: ' Write subject here if you are selected “Other”',
-                                            )),
-                                      ),
+                                                    width: 0.5, color: Color(0xffEF2253)),
+                                                borderRadius: BorderRadius.circular(10)),
+                                            hintStyle: const TextStyle(
+                                                fontSize: 12, color: Color(0xffA1A2A8)),
+                                            hintText: ' Write subject here if you are selected “Other”',
+                                          )),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 10, top: 20, right: 20),
+                                            top: 20, right: 20),
                                         child: AppText(
                                           text: "Message",
                                           color: const Color(0xff333333),
@@ -453,48 +448,42 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 10.0,
-                                          left: 10.0,
-                                          right: 10.0,
-                                        ),
-                                        child: TextFormField(
-                                          maxLines: 3,
-                                            validator: (value) {
-                                              if (value == null ||
-                                                  value.isEmpty ||
-                                                  !value.contains('@') ||
-                                                  !value.contains('.')) {
-                                                return "Enter a valid username";
-                                              }
-                                              return null;
-                                            },
-                                            cursorColor: const Color(0xff351070),
-                                            controller:messageController,
-                                            decoration: InputDecoration(
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 13, horizontal: 13),
-                                              isDense: true,
-                                              filled: true,
-                                              fillColor: const Color(0xffF4F6FF),
-                                              enabledBorder: OutlineInputBorder(
+                                      SizedBox(height: 10,),
+                                      TextFormField(
+                                        maxLines: 3,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty ||
+                                                !value.contains('@') ||
+                                                !value.contains('.')) {
+                                              return "Enter a valid username";
+                                            }
+                                            return null;
+                                          },
+                                          cursorColor: const Color(0xff351070),
+                                          controller:messageController,
+                                          decoration: InputDecoration(
+                                            contentPadding: const EdgeInsets.symmetric(
+                                                vertical: 13, horizontal: 13),
+                                            isDense: true,
+                                            filled: true,
+                                            fillColor: const Color(0xffF4F6FF),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0.5, color: Color(0xffDADADA)),
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                    width: 1, color: Color(0xffDADADA)),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                      width: 1, color: Color(0xffDADADA)),
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              hintStyle: const TextStyle(
-                                                  fontSize: 12, color: Color(0xffA1A2A8)),
-                                              hintText: 'Write something .........',
-                                            )),
-                                      ),
+                                                    width: 0.5, color: Color(0xff351070)),
+                                                borderRadius: BorderRadius.circular(10)),
+                                            hintStyle: const TextStyle(
+                                                fontSize: 12, color: Color(0xffA1A2A8)),
+                                            hintText: 'Write something .........',
+                                          )),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 10, top: 20, right: 20),
+                                             top: 20, right: 20),
                                         child: AppText(
                                           text: "Attachement",
                                           color: const Color(0xff333333),
@@ -502,33 +491,31 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 10.0, left: 10.0, right: 10.0),
-                                          child: TextFormField(
-                                            cursorColor: const Color(0xff351070),
-                                            controller: attachController,
-                                            decoration: InputDecoration(
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 13, horizontal: 13),
-                                              isDense: true,
-                                              filled: true,
-                                              fillColor: const Color(0xffF4F6FF),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                    width: 1, color: Color(0xffDADADA)),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                      width: 1, color: Color(0xffDADADA)),
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              hintStyle: const TextStyle(
-                                                  fontSize: 12, color: Color(0xffA1A2A8)),
-                                              hintText: "Attach File",
-                                              suffixIcon: const Icon(Icons.attach_file,color: Color(0xff31126E),)
-                                            ),
-                                          )),
+                                      SizedBox(height: 10,),
+                                      TextFormField(
+                                        cursorColor: const Color(0xff351070),
+                                        controller: attachController,
+                                        decoration: InputDecoration(
+                                          contentPadding: const EdgeInsets.symmetric(
+                                              vertical: 13, horizontal: 13),
+                                          isDense: true,
+                                          filled: true,
+                                          fillColor: const Color(0xffF4F6FF),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: const BorderSide(
+                                                width: 0.5, color: Color(0xffDADADA)),
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                  width: 0.5, color: Color(0xff351070)),
+                                              borderRadius: BorderRadius.circular(10)),
+                                          hintStyle: const TextStyle(
+                                              fontSize: 12, color: Color(0xffA1A2A8)),
+                                          hintText: "Attach File",
+                                          suffixIcon: const Icon(Icons.attach_file,color: Color(0xff31126E),)
+                                        ),
+                                      ),
                                       const SizedBox(
                                         height: 10,
                                       ),

@@ -45,9 +45,11 @@ class _NotificationDetailsState extends State<NotificationDetails> {
         children: [
           const SizedBox(height: 20,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 12),
+                padding: const EdgeInsets.only(right: 310),
                 child: AppText(text: "Inbox",size: 12,fw: FontWeight.w800,color: const Color(0xff333333),),
               ),
             ],

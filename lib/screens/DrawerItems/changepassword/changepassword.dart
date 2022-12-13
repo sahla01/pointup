@@ -50,136 +50,139 @@ class _ChangePasswordState extends State<ChangePassword> {
               ]
           ),
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20,),
-                  AppText(
-                    text: "Change Password",
-                    color: const Color(0xff19184D),
-                    size: 18,
-                    fw: FontWeight.w700,
-                  ),
-                  const SizedBox(height: 20,),
-                  AppText(
-                    text: "Please fill  your shop ID and  User Name",
-                    color: const Color(0xffA1A2A8),
-                    size: 12,
-                    fw: FontWeight.w400,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 40,),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5,left: 20,right: 20),
-                      child: AppText(text: "Shop ID",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
+                    const SizedBox(height: 20,),
+                    AppText(
+                      text: "Change Password",
+                      color: const Color(0xff19184D),
+                      size: 18,
+                      fw: FontWeight.w700,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
-                      child: TextFormField(
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return "Enter a valid shop id";
-                            }
-                            return null;
-                          },
-                          cursorColor: const Color(0xff351070),
-                          controller: idController,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                            isDense: true,
-                            filled: true,
-                            fillColor: const Color(0xffF4F6FF),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(width: 1,color: Color(0xff351070)),
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
-                            hintText:' Enter Shop ID',
-                            prefixIcon: const Padding(
-                              padding: EdgeInsets.all(16),
-                              child: SvgIcon('assets/icons/shop.svg',color: Color(0xffA1A2A8),),
-                            ),
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left:20,right: 20,top: 20),
-                      child: AppText(text: "User Name",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
-                      child: TextFormField(
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return "Enter a valid user name";
-                            }
-                            return null;
-                          },
-                          cursorColor: const Color(0xff351070),
-                          controller: userController,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                            isDense: true,
-                            filled: true,
-                            fillColor: const Color(0xffF4F6FF),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(width: 1,color: Color(0xff351070)),
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
-                            hintText:' Enter User Name',
-                            prefixIcon:const Icon(Icons.person_outline_rounded,size: 19,
-                            ),
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40),
-                      child: Container(
-                        height: 48,
-                        margin: const EdgeInsets.all(20),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                              colors: [Color(0xff19184D), Color(0xff530393)]),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const OtpVerification()));
-
-                          },
-                          child: Center(child: AppText(text: 'Send OTP',color: Colors.white,size: 12,fw: FontWeight.w700,)),
-
-                        ),
-                      ),
+                    const SizedBox(height: 20,),
+                    AppText(
+                      text: "Please fill  your shop ID and  User Name",
+                      color: const Color(0xffA1A2A8),
+                      size: 12,
+                      fw: FontWeight.w400,
                     ),
                   ],
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 40,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5,left: 20,right: 20),
+                        child: AppText(text: "Shop ID",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
+                        child: TextFormField(
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return "Enter a valid shop id";
+                              }
+                              return null;
+                            },
+                            cursorColor: const Color(0xff351070),
+                            controller: idController,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                              isDense: true,
+                              filled: true,
+                              fillColor: const Color(0xffF4F6FF),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
+                              hintText:' Enter Shop ID',
+                              prefixIcon: const Padding(
+                                padding: EdgeInsets.all(16),
+                                child: SvgIcon('assets/icons/shop.svg',color: Color(0xffA1A2A8),),
+                              ),
+                            )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left:20,right: 20,top: 20),
+                        child: AppText(text: "User Name",color: const Color(0xff333333),size: 12,fw: FontWeight.w600,),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20,),
+                        child: TextFormField(
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return "Enter a valid user name";
+                              }
+                              return null;
+                            },
+                            cursorColor: const Color(0xff351070),
+                            controller: userController,
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                              isDense: true,
+                              filled: true,
+                              fillColor: const Color(0xffF4F6FF),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
+                              hintText:' Enter User Name',
+                              prefixIcon:const Icon(Icons.person_outline_rounded,size: 19,
+                                color: Color(0xffA1A2A8),
+                              ),
+                            )
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 40),
+                        child: Container(
+                          height: 48,
+                          margin: const EdgeInsets.all(20),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                                colors: [Color(0xff19184D), Color(0xff530393)]),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const OtpVerification()));
+
+                            },
+                            child: Center(child: AppText(text: 'Send OTP',color: Colors.white,size: 12,fw: FontWeight.w700,)),
+
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
 

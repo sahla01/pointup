@@ -138,12 +138,12 @@ class _SignInState extends State<SignIn> {
                                   fillColor: const Color(0xffF4F6FF),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
+                                        width: 0.5, color: Color(0xffDADADA)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
+                                          width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
                                   hintStyle: const TextStyle(
@@ -194,18 +194,18 @@ class _SignInState extends State<SignIn> {
                                   fillColor: const Color(0xffF4F6FF),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
+                                        width: 0.5, color: Color(0xffDADADA)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
+                                          width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
                                   hintStyle: const TextStyle(
                                       fontSize: 12, color: Color(0xffA1A2A8)),
                                   hintText: ' Enter User Name',
-                                  prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,)
+                                  prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,color: Color(0xffA1A2A8),)
                                 )),
                           ),
                           Padding(
@@ -243,18 +243,18 @@ class _SignInState extends State<SignIn> {
                                   fillColor: const Color(0xffF4F6FF),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
+                                        width: 0.5, color: Color(0xffDADADA)),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: const BorderSide(
-                                          width: 1, color: Color(0xff351070)),
+                                          width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
                                   hintStyle: const TextStyle(
                                       fontSize: 12, color: Color(0xffA1A2A8)),
                                   hintText: "Enter Password",
-                                  prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,),
+                                  prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
                                   suffixIcon: GestureDetector(
                                       onTap: () {
                                         setState(() {
