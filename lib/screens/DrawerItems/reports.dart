@@ -103,7 +103,7 @@ class _ReportsPageState extends State<ReportsPage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: DropdownButtonFormField<String>(
-                        icon: const Icon(Icons.filter_alt_outlined, size: 0,),
+                        icon:   const SizedBox.shrink(),
                         value: dropdownticket,
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
@@ -125,7 +125,12 @@ class _ReportsPageState extends State<ReportsPage> {
                             suffixIcon: SizedBox(
                               width: 90,
                               child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                   dropdownticket.clear();
+                                   FocusScope.of(context).unfocus();
+                                  });
+                                },
                                 icon: Container(
                                     width: 54,
                                     height: 23,

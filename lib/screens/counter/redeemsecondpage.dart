@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import 'package:pointup/models/models.dart';
 import 'package:pointup/screens/counter/pointsredeempage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
@@ -656,10 +657,11 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                   ],
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -673,12 +675,72 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             fw: FontWeight.w600,
                           ),
                         ),
-                      ],
+                       ]
                     ),
+                    const SizedBox(height: 20,),
+                    Container(
+                      height: MediaQuery.of(context).size.height *0.125,
+                      child: ListView.builder(
+                          itemCount: pointvoucher.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index){
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Container(
+                                height: 94,
+                                width: 125,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.all(width: 1,color: const Color(0xffF99F1E))
+                                ),
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 15,),
+                                    Image.asset(pointvoucher[index]),
+                                    const SizedBox(height: 10,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 10),
+                                          child: AppText(text: points[index],size: 10,fw: FontWeight.bold,color: const Color(0xff39AE58),),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                    const SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 11,
+                          backgroundColor: Color(0xffFFCD08),
+                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                        ),
+                        SizedBox(width: 10,),
+                        CircleAvatar(
+                          radius: 11,
+                          backgroundColor: Color(0xffFF8D08),
+                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                        ),
+                        SizedBox(width: 10,),
+                        CircleAvatar(
+                          radius: 11,
+                          backgroundColor: Color(0xff08FFFF),
+                          child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                        ),
+                      ],
+                    )
                   ],
+
                 ),
                 const SizedBox(
-                  height: 150,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -691,7 +753,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             height: 52,
                             width: 147,
                             decoration: BoxDecoration(
-                                color: const Color(0xffEF2222),
+                                color: const Color(0xffEF2253),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Center(
                                 child: AppText(

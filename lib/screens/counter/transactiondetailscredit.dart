@@ -63,7 +63,7 @@ class TransactionCredit extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             SizedBox(
-                              width: 130,
+                              width: 120,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -103,114 +103,33 @@ class TransactionCredit extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            // SizedBox(
-                            //   child: Column(
-                            //     crossAxisAlignment: CrossAxisAlignment.start,
-                            //     children: [
-                            //       Padding(
-                            //         padding: const EdgeInsets.only(left: 60,bottom: 50),
-                            //         child: AppText(text: "Points Credited",color: Color(0xff333333),size: 12,fw: FontWeight.bold,),
-                            //       ),
-                            //       const SizedBox(
-                            //         height: 3.0,
-                            //       ),
-                            //       Padding(
-                            //         padding: const EdgeInsets.only(left: 60),
-                            //         child: RichText(
-                            //           maxLines: 1,
-                            //           text: const TextSpan(
-                            //               text: '250',
-                            //               style: TextStyle(
-                            //                   color: Color(0xff135EF0),
-                            //                   fontSize: 12,fontWeight: FontWeight.bold),
-                            //               children: [
-                            //                 TextSpan(
-                            //                   text: ' Pts\n',
-                            //                   style: TextStyle(
-                            //                       fontWeight: FontWeight.bold,
-                            //                       fontSize: 12,
-                            //                       color: Color(0xff135EF0)),
-                            //                 )]),
-                            //         ),
-                            //       ),
-                            //       const SizedBox(
-                            //         height: 3.0,
-                            //       ),
-                            //       Padding(
-                            //         padding: const EdgeInsets.only(left: 60),
-                            //         child: RichText(
-                            //           maxLines: 1,
-                            //           text: const TextSpan(
-                            //               text: '13/04/2022,',
-                            //               style: TextStyle(
-                            //                   color: Color(0xffA1A2A8),
-                            //                   fontSize: 10),
-                            //               children: [
-                            //                 TextSpan(
-                            //                     text: '10:30 AM\n',
-                            //                     style: TextStyle(
-                            //                         fontSize: 10,
-                            //                         color: Color(0xffA1A2A8))),
-                            //               ]),
-                            //         ),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // )
+                            SizedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 60,),
+                                    child: AppText(text: "Points Credited",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
+                                  ),
+                                  const SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 60,),
+                                    child: AppText(text: "250 pts",size: 12,  color: Color(0xff135EF0),fw: FontWeight.bold,),
+                                  ),
+                                  const SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 60,bottom: 190),
+                                    child: AppText(text: "13/04/2022,10:30 AM",size: 10,  color: Color(0xffA1A2A8),fw: FontWeight.bold,),
+                                  ),
+                                ],
+                              ),
+                            ) ,
                           ],
                         ),
-                        trailing: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 60,top: 5),
-                              child: AppText(text: "Points Credited",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
-                            ),
-                            const SizedBox(
-                              height: 3.0,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 60),
-                              child: RichText(
-                                maxLines: 1,
-                                text: const TextSpan(
-                                    text: '250',
-                                    style: TextStyle(
-                                        color: Color(0xff135EF0),
-                                        fontSize: 12,fontWeight: FontWeight.bold),
-                                    children: [
-                                      TextSpan(
-                                        text: ' Pts\n',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 12,
-                                            color: Color(0xff135EF0)),
-                                      )]),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 3.0,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 60),
-                              child: RichText(
-                                maxLines: 1,
-                                text: const TextSpan(
-                                    text: '13/04/2022,',
-                                    style: TextStyle(
-                                        color: Color(0xffA1A2A8),
-                                        fontSize: 10),
-                                    children: [
-                                      TextSpan(
-                                          text: '10:30 AM\n',
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              color: Color(0xffA1A2A8))),
-                                    ]),
-                              ),
-                            ),
-                          ],
-                        ) ,
                       ),
                     );
                   }),
@@ -219,10 +138,46 @@ class TransactionCredit extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 13,top: 15,bottom: 10),
+                  padding: const EdgeInsets.only(left: 13,top: 15,),
                   child: AppText(text: "Point  Voucher (01) ",size: 14,fw: FontWeight.bold,color: const Color(0xff333333),),
                 ),
               ],
+            ),
+            const SizedBox(height: 15,),
+            Container(
+              height: MediaQuery.of(context).size.height *0.125,
+              child: ListView.builder(
+                  itemCount: 1,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index){
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Container(
+                        height: 94,
+                        width: 125,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(width: 1,color: const Color(0xffF99F1E))
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 15,),
+                            Image.asset("assets/images/voucher2.png"),
+                            const SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: AppText(text: "Points 200",size: 10,fw: FontWeight.bold,color: const Color(0xff39AE58),),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
             ),
           ],
         ),

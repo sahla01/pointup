@@ -13,6 +13,11 @@ class TransactionPage extends StatefulWidget {
 class _TransactionPageState extends State<TransactionPage> {
   var dropdownvalue;
   TextEditingController searchcontroller=TextEditingController();
+  final Shader linearGradient = const LinearGradient(
+    colors: <Color>[Color(0xff19184D), Color(0xff530393)],
+  ).createShader(
+    const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -46,260 +51,511 @@ class _TransactionPageState extends State<TransactionPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Column(
+            Padding(
+              padding: const EdgeInsets.only(left: 12,right: 12,top: 10),
+              child: DropdownButtonFormField<String>(
+                icon:   const SizedBox.shrink(),
+                value: dropdownvalue,
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          width: 1, color: Color(0xffDADADA)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            width: 1, color: Color(0xff351070)),
+                        borderRadius: BorderRadius.circular(10)),
+                    hintStyle: const TextStyle(height: 1.8,
+                        fontSize: 12, color: Color(0xff333333)),
+                    hintText: 'All Transaction',
+                    fillColor: const Color(0xffF4F6FF),
+                    filled: true,
+                    suffixIcon: SizedBox(
+                      width: 90,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Container(
+                            width: 54,
+                            height: 23,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                border: Border.all(width: 0.5,
+                                    color: const Color(0xff360E70))
+                            ),
+                            child: Row(
+                              children: [
+                                const SizedBox(width: 10,),
+                                AppText(text: "Filter",
+                                  size: 8,
+                                  color: const Color(0xff360E70),
+                                  fw: FontWeight.w600,),
+                                const SizedBox(width: 6,),
+                                const Icon(
+                                    Icons.filter_alt_outlined, size: 10,
+                                    color: Color(0xff360E70)),
+                              ],
+                            )),
+                      ),
+                    )
+                ),
+                validator: (value) =>
+                value == null
+                    ? 'field required'
+                    : null,
+                items: ['Point Credit', 'Point Redeem']
+                    .map<DropdownMenuItem<String>>(
+                        (String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value, style: const TextStyle(
+                            fontSize: 12, color: Color(0xff333333)),),
+                      );
+                    }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue !;
+                  } );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 12, left: 12, right: 10,),
+              child: TextFormField(
+                cursorColor: const Color(0xff351070),
+                controller: searchcontroller,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: 13, horizontal: 13),
+                  isDense: true,
+                  filled: true,
+                  fillColor: const Color(0xffF4F6FF),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        width: 1, color: Color(0xffDADADA)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          width: 1, color: Color(0xff351070)),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  hintStyle: const TextStyle(fontSize: 12,
+                      color: Color(0xffA1A2A8)),
+                  hintText: 'Enter Mobile OR Member ID',
+                  suffixIcon: SizedBox(
+                    width: 90,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Container(
+                          width: 54,
+                          height: 23,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              border: Border.all(width: 0.5,
+                                  color: const Color(0xff360E70))
+                          ),
+                          child: Row(
+                            children: [
+                              const SizedBox(width: 10,),
+                              AppText(text: "Serch",
+                                size: 8,
+                                color: const Color(0xff360E70),
+                                fw: FontWeight.w600,),
+                              const SizedBox(width: 6,),
+                              const Icon(
+                                  Icons.search_rounded, size: 10,
+                                  color: Color(0xff360E70)),
+                            ],
+                          )),
+                    ),
+                  )
+                ),
+                style: const TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12,
+                    color: Color(0xff333333)),
+
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 12,right: 12,top: 15),
-                  child: ListTile(
-                    onTap: (){},
-                    selected: true,
-                    shape: const RoundedRectangleBorder(
-                        side: BorderSide(width: 0, color: Color(0xffA1A2A8)),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0),)
-                    ),
-                    selectedTileColor: const Color(0xffF4F6FF),
-                    leading: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: AppText(text: "All Transaction",size: 12,color: const Color(0xff333333),),
-                    ),
-                    title:Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 68),
-                          child: DropdownButtonFormField<String>(
-                            icon: const Icon(Icons.filter_alt_outlined,size: 15,color: Color(0xff360E70),),
-                            value:dropdownvalue,
-                            decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      width: 1, color: Color(0xff351070)),
-                                  borderRadius: BorderRadius.circular(10),
+                  padding: const EdgeInsets.only(left: 13,top: 30,bottom: 10),
+                  child: AppText(text: "Last 3 Weeks Transactions History ",size: 12,fw: FontWeight.bold,color: const Color(0xff000000),),
+                ),
+              ],
+            ),
+            dropdownvalue!=SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: ListView.builder(
+                // scrollDirection: Axis.vertical,
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  itemCount: 6,
+                  itemBuilder: (context,int index){
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionCredit()));
+                      },
+                      child: Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0),)
+                        ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                          title:  Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SizedBox(
+                                width: 130,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppText(text: "Member ID#",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    AppText(text: "2356787697",size: 10,color: const Color(0xffA1A2A8),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '03:46 PM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 1, color: Color(0xff351070)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                hintStyle: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12, color: Color(0xff351070)),
-                                hintText: 'Filter',
-                                fillColor: const Color(0xffF4F6FF),
-                                filled: true
-                            ),
-                            onChanged: (filter) =>
-                                setState(() => dropdownvalue = filter),
-                            validator: (value) =>
-                            value == null
-                                ? 'field required'
-                                : null,
-                            items: ['Point Credit','Point Redeem']
-                                .map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
-                                  );
-                                }).toList(),
-                          ),
-                        ),
-                      ],
-                    ) ,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12,right: 12,top: 10),
-                  child: ListTile(
-                    onTap: (){},
-                    selected: true,
-                    shape: const RoundedRectangleBorder(
-                        side: BorderSide(width: 0, color: Color(0xffA1A2A8)),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0),)
-                    ),
-                    selectedTileColor: const Color(0xffF4F6FF),
-                    leading: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: AppText(text: "Enter Mobile OR Member ID",size: 12,color: const Color(0xff333333),),
-                    ),
-                    title:Column(
-                      children: [
-                        TextFormField(
-                            validator: (value) {
-                              if(value == null || value.isEmpty){
-                                return "Enter a valid mobile or member id";
-                              }
-                              return null;
-                            },
-
-                            cursorColor: const Color(0xff333333),
-                            controller:searchcontroller,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
-                              isDense: true,
-                              filled: true,
-                              hintText: "Search",
-                              suffixIcon: const Icon(Icons.search,size: 15,color: Color(0xff360E70)),
-                              hintStyle: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 12, color: Color(0xff351070)),
-                              fillColor: const Color(0xffF4F6FF),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
-                                borderRadius: BorderRadius.circular(10),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(width: 1,color: Color(0xff330F6C)),
-                                  borderRadius: BorderRadius.circular(10)
-                              ),
-                            )
-                        ),
-                      ],
-                    ) ,
-
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 13,top: 10,bottom: 10),
-                      child: AppText(text: "Last 3 Weeks Transactions History ",size: 12,fw: FontWeight.bold,color: const Color(0xff000000),),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height ,
-                        child: ListView.builder(
-                          // scrollDirection: Axis.vertical,
-                            padding: const EdgeInsets.only(left: 10,right: 10),
-                            itemCount: 5,
-                            itemBuilder: (context,int index){
-                              return InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionCredit()));
-                                },
-                                child: Card(
-                                  shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(10.0),)
-                                  ),
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                                    title:  Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        SizedBox(
-                                          width: 130,
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 60),
+                                      child: RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '250',
+                                            style: TextStyle(
+                                                color: Color(0xff125DEF),
+                                                fontSize: 12,fontWeight: FontWeight.bold),
                                             children: [
-                                              AppText(text: "Member ID#",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
-                                              const SizedBox(
-                                                height: 8.0,
-                                              ),
-                                              AppText(text: "2356787697",size: 10,color: const Color(0xffA1A2A8),),
-                                              const SizedBox(
-                                                height: 8.0,
-                                              ),
-                                              RichText(
-                                                maxLines: 1,
-                                                text: const TextSpan(
-                                                    text: '13/04/2022,',
-                                                    style: TextStyle(
-                                                        color: Color(0xffA1A2A8),
-                                                        fontSize: 10),
-                                                    children: [
-                                                      TextSpan(
-                                                          text: '03:46 PM\n',
-                                                          style: TextStyle(
-                                                              fontSize: 10,
-                                                              color: Color(0xffA1A2A8))),
-                                                    ]),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(left: 60),
-                                                child: RichText(
-                                                  maxLines: 1,
-                                                  text: const TextSpan(
-                                                      text: '250',
-                                                      style: TextStyle(
-                                                          color: Color(0xff125DEF),
-                                                          fontSize: 12,fontWeight: FontWeight.bold),
-                                                      children: [
-                                                        TextSpan(
-                                                          text: ' Pts\n',
-                                                          style: TextStyle(
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 12,
-                                                              color: Color(0xff22ECBB)),
-                                                        )]),
-                                                ),
-                                              ),
-
-                                              const SizedBox(
-                                                height: 8.0,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left: 30),
-                                                child: AppText(
-                                                    text: "Bill # 1023456",
-                                                    size: 10,
-                                                    fw: FontWeight.bold,
-                                                    color: const Color(0xffA1A2A8)
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: 8.0,
-                                              ),
-
-                                              RichText(
-                                                maxLines: 1,
-                                                text: const TextSpan(
-                                                    text: '13/04/2022,',
-                                                    style: TextStyle(
-                                                        color: Color(0xffA1A2A8),
-                                                        fontSize: 10),
-                                                    children: [
-                                                      TextSpan(
-                                                          text: '10:30 AM\n',
-                                                          style: TextStyle(
-                                                              fontSize: 10,
-                                                              color: Color(0xffA1A2A8))),
-                                                    ]),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                      ],
+                                              TextSpan(
+                                                text: ' Pts\n',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    color: Color(0xff22ECBB)),
+                                              )]),
+                                      ),
                                     ),
 
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 30),
+                                      child: AppText(
+                                          text: "Bill # 1023456",
+                                          size: 10,
+                                          fw: FontWeight.bold,
+                                          color: const Color(0xffA1A2A8)
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
 
-                                  ),
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '10:30 AM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
                                 ),
-                              );
-                            }),
+                              )
+                            ],
+                          ),
+
+
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          AppText(text: "Load More",size: 12,fw: FontWeight.bold,color: const Color(0xff19184D),)
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                    );
+                  }),
+            )?
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: ListView.builder(
+                // scrollDirection: Axis.vertical,
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  itemCount: 6,
+                  itemBuilder: (context,int index){
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionCredit()));
+                      },
+                      child: Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0),)
+                        ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                          title:  Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SizedBox(
+                                width: 130,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppText(text: "Member ID#",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    AppText(text: "2356787697",size: 10,color: const Color(0xffA1A2A8),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '03:46 PM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 60),
+                                      child: RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '250',
+                                            style: TextStyle(
+                                                color: Color(0xff125DEF),
+                                                fontSize: 12,fontWeight: FontWeight.bold),
+                                            children: [
+                                              TextSpan(
+                                                text: ' Pts\n',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    color: Color(0xff22ECBB)),
+                                              )]),
+                                      ),
+                                    ),
+
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 30),
+                                      child: AppText(
+                                          text: "Bill # 1023456",
+                                          size: 10,
+                                          fw: FontWeight.bold,
+                                          color: const Color(0xffA1A2A8)
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '10:30 AM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+
+
+                        ),
+                      ),
+                    );
+                  }),
+            ):
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: ListView.builder(
+                // scrollDirection: Axis.vertical,
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  itemCount: 6,
+                  itemBuilder: (context,int index){
+                    return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransactionCredit()));
+                      },
+                      child: Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0),)
+                        ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                          title:  Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SizedBox(
+                                width: 130,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppText(text: "Member ID#",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    AppText(text: "2356787697",size: 10,color: const Color(0xffA1A2A8),),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '03:46 PM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 60),
+                                      child: RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '250',
+                                            style: TextStyle(
+                                                color: Color(0xffEF9712),
+                                                fontSize: 12,fontWeight: FontWeight.bold),
+                                            children: [
+                                              TextSpan(
+                                                text: ' Pts\n',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    color: Color(0xffEF9712)),
+                                              )]),
+                                      ),
+                                    ),
+
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 30),
+                                      child: AppText(
+                                          text: "Bill # 1023456",
+                                          size: 10,
+                                          fw: FontWeight.bold,
+                                          color: const Color(0xffA1A2A8)
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+
+                                    RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '13/04/2022,',
+                                          style: TextStyle(
+                                              color: Color(0xffA1A2A8),
+                                              fontSize: 10),
+                                          children: [
+                                            TextSpan(
+                                                text: '10:30 AM\n',
+                                                style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffA1A2A8))),
+                                          ]),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+
+
+                        ),
+                      ),
+                    );
+                  }),
+            ),
+
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text("Load More",style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,foreground: Paint()..shader = linearGradient),),
+                )
               ],
             ),
           ],

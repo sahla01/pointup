@@ -156,9 +156,6 @@ class ContactUs extends StatelessWidget {
                   Image.asset("assets/images/linkedin.png",),
                   const SizedBox(width: 13,),
                   Image.asset("assets/images/youtube.png",),
-
-
-
                 ],
               )
 

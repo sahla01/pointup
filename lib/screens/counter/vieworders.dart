@@ -672,7 +672,8 @@ class _ViewOrdersState extends State<ViewOrders> {
                                     },
                                     child:Text("OK",style: TextStyle(  fontWeight: FontWeight.w700,
                                         fontSize: 14,
-                                        foreground: Paint()..shader = linearGradient),),
+                                        foreground: Paint()..shader = linearGradient),
+                                    ),
                                   ),
                                 )
                               ],

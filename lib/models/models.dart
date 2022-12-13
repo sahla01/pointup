@@ -66,6 +66,48 @@ final List<String> orderdetails= [
 
 ];
 
+// customer review
+final List<String> profileList = [
+ 'assets/images/profile1.png',
+  'assets/images/profile2.png',
+ 'assets/images/profile3.png',
+  'assets/images/profile4.png',
+  'assets/images/profile1.png',
+  'assets/images/profile2.png',
+  'assets/images/profile3.png',
+  'assets/images/profile4.png',
+
+];
+
+final List<String> profileName = [
+  'Jishad',
+  'Mohammed Thanzeeh',
+  'Band Azim',
+  'Muhammed Faisal',
+  'Jishad',
+  'Mohammed Thanzeeh',
+  'Band Azim',
+  'Muhammed Faisal'
+];
+
+// pointvoucher
+
+final List <String> pointvoucher =[
+
+  'assets/images/voucher1.png',
+  'assets/images/voucher2.png',
+  'assets/images/voucher3.png'
+
+];
+
+final List<String> points= [
+  'Points100',
+  'Points500',
+  'Points500',
+
+];
+
+
 
 
 
