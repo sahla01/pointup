@@ -12,7 +12,7 @@ class ReceiptDetailsPage extends StatefulWidget {
 }
 
 class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
-  TextEditingController reasoncontroler= TextEditingController();
+  TextEditingController reasoncontroler = TextEditingController();
   final Shader linearGradient = const LinearGradient(
     colors: <Color>[Color(0xff19184D), Color(0xff530393)],
   ).createShader(
@@ -52,12 +52,17 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 20,),
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      top: 20,
+                    ),
                     child: AppText(
                       text: "View Submission",
                       size: 12,
@@ -71,8 +76,7 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                    BorderRadius.circular(8), // if you need this
+                    borderRadius: BorderRadius.circular(8), // if you need this
                     side: const BorderSide(
                       color: Color(0xffDADADA),
                       width: 1,
@@ -94,18 +98,48 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  AppText(text: "Member ID",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                  AppText(text: "#2356787697",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                  AppText(
+                                    text: "Member ID",
+                                    size: 10,
+                                    color: const Color(0xffA1A2A8),
+                                    fw: FontWeight.w600,
+                                  ),
+                                  AppText(
+                                    text: "#2356787697",
+                                    size: 12,
+                                    fw: FontWeight.bold,
+                                    color: const Color(0xff333333),
+                                  ),
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  AppText(text: "Date of Submission",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                  AppText(text: "13/04/2022,03:46 PM",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                  AppText(
+                                    text: "Date of Submission",
+                                    size: 10,
+                                    color: const Color(0xffA1A2A8),
+                                    fw: FontWeight.w600,
+                                  ),
+                                  AppText(
+                                    text: "13/04/2022,03:46 PM",
+                                    size: 12,
+                                    fw: FontWeight.bold,
+                                    color: const Color(0xff333333),
+                                  ),
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  AppText(text: "Receipt No",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                                  AppText(text: "1023456",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                  AppText(
+                                    text: "Receipt No",
+                                    size: 10,
+                                    color: const Color(0xffA1A2A8),
+                                    fw: FontWeight.w600,
+                                  ),
+                                  AppText(
+                                    text: "1023456",
+                                    size: 12,
+                                    fw: FontWeight.bold,
+                                    color: const Color(0xff333333),
+                                  ),
                                   const SizedBox(
                                     height: 20,
                                   ),
@@ -115,13 +149,21 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                           ),
                           SizedBox(
                             child: Padding(
-                              padding: const EdgeInsets.only(bottom: 50,right: 20),
+                              padding:
+                                  const EdgeInsets.only(bottom: 50, right: 20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 60,),
-                                    child: AppText(text: "Bill Amount",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
+                                    padding: const EdgeInsets.only(
+                                      left: 60,
+                                    ),
+                                    child: AppText(
+                                      text: "Bill Amount",
+                                      color: const Color(0xff333333),
+                                      size: 12,
+                                      fw: FontWeight.bold,
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 3.0,
@@ -134,7 +176,8 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                                           text: 'Rs.',
                                           style: TextStyle(
                                               color: Color(0xffF99F1E),
-                                              fontSize: 12,fontWeight: FontWeight.bold),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold),
                                           children: [
                                             TextSpan(
                                               text: '3500.00',
@@ -142,7 +185,8 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 12,
                                                   color: Color(0xffF99F1E)),
-                                            )]),
+                                            )
+                                          ]),
                                     ),
                                   ),
                                   const SizedBox(
@@ -170,86 +214,111 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                               ),
                             ),
                           ),
-
                         ],
                       ),
-                      const SizedBox(height: 15,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 64,
-                            width: 307,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(color: const Color(0xffDADADA,),width: 0)
-                            ),
-                            child: Row(
-                              mainAxisAlignment:  MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 120,
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 20,left: 10),
-                                        child: AppText(text: "Receipt Attachments",size: 10,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 64,
+                              width: 307,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4),
+                                  border: Border.all(
+                                      color: const Color(
+                                        0xffDADADA,
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(right: 20),
-                                        child: Text(
-                                          'Imange01.jpg',
-                                          style: TextStyle(
-                                            color: Color(0xff333333),
-                                            fontSize: 10,
-                                            decoration: TextDecoration.underline,
+                                      width: 0)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 120,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 20,left: 10),
+                                          child: AppText(
+                                            text: "Receipt Attachments",
+                                            size: 10,
+                                            fw: FontWeight.w600,
+                                            color: const Color(0xff333333),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 80),
-                                        child: InkWell(
-                                          onTap: (){
-
-
-                                          },
-                                          child: Container(
-                                            width: 91,
-                                            height: 28,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(6),
-                                              gradient: const LinearGradient(
-                                                  colors: [Color(0xff19184D), Color(0xff530393)]),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 20),
+                                          child: Text(
+                                            'Imange01.jpg',
+                                            style: TextStyle(
+                                              color: Color(0xff333333),
+                                              fontSize: 10,
+                                              decoration:
+                                                  TextDecoration.underline,
                                             ),
-                                            child: Center(child: AppText(text: "View Receipt",size: 12,color: Colors.white,)),
                                           ),
                                         ),
-                                      )
-                                    ],
+                                      ],
+                                    ),
                                   ),
-
-                                )
-                              ],
+                                  SizedBox(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 80),
+                                          child: InkWell(
+                                            onTap: () {
+                                              _showMyDialog();
+                                            },
+                                            child: Container(
+                                              width: 91,
+                                              height: 28,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(6),
+                                                gradient: const LinearGradient(
+                                                    colors: [
+                                                      Color(0xff19184D),
+                                                      Color(0xff530393)
+                                                    ]),
+                                              ),
+                                              child: Center(
+                                                  child: AppText(
+                                                text: "View Receipt",
+                                                size: 12,
+                                                color: Colors.white,
+                                              )),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-
-                          ),
-
-                        ],
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 30,),
+                      const SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 250,),
+              const SizedBox(
+                height: 250,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -265,18 +334,20 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: AppText(
-                                text: "Reject",
-                                color: Colors.white,
-                                size: 12,
-                                fw: FontWeight.bold,
-                              )))),
+                            text: "Reject",
+                            color: Colors.white,
+                            size: 12,
+                            fw: FontWeight.bold,
+                          )))),
                   const SizedBox(
                     width: 15,
                   ),
                   InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const ReceiptApproval()));
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ReceiptApproval()));
                       },
                       child: Container(
                           height: 52,
@@ -289,18 +360,18 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: AppText(
-                                text: "Verified",
-                                color: Colors.white,
-                                size: 12,
-                                fw: FontWeight.bold,
-                              ))))
+                            text: "Verified",
+                            color: Colors.white,
+                            size: 12,
+                            fw: FontWeight.bold,
+                          ))))
                 ],
               ),
             ],
           ),
         ));
-
   }
+
   Future<void> _cancelMyDialog() async {
     return showDialog<void>(
         context: context,
@@ -309,128 +380,247 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
           var cancel;
           return AlertDialog(
               content: Container(
-                width: 250.0,
-                height: 350.0,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Column(
+            width: 250.0,
+            height: 350.0,
+            decoration: const BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: Color(0xffFFFFFF),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/delete.png",
+                        width: 83,
+                        height: 83,
+                      ),
+                      Text(
+                        "Do you want to reject this Submission?",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                            foreground: Paint()..shader = linearGradient),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image.asset("assets/images/delete.png",width: 83,height: 83,
-                          ),
-                          Text("Do you want to reject this Submission?",style: TextStyle(fontWeight: FontWeight.w700,
-                              fontSize: 14,foreground: Paint()..shader = linearGradient),),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              AppText(text:'Select Reason',
-                                size: 12,
-                                fw: FontWeight.bold,
-                                color: const Color(0xff333333),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: DropdownButtonFormField<String>(
-                              icon: const Icon(Icons.keyboard_arrow_down,color: Color(0xff333333),),
-                              value:cancel,
-                              decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      width: 1, color: Color(0xffDADADA)),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 1, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                hintStyle: const TextStyle(
-                                  fontSize: 12, color: Color(0xff333333),),
-                                hintText: 'Other',
-                              ),
-                              onChanged: (cancl) =>
-                                  setState(() => cancel = cancl),
-                              validator: (value) =>
-                              value == null
-                                  ? 'field required'
-                                  : null,
-                              items: ['All Transaction', 'Point Credit','Point Redeem']
-                                  .map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value,style: const TextStyle(fontSize: 12,color: Color(0xff333333)),),
-                                    );
-                                  }).toList(),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child:  TextFormField(
-                                maxLines: 2,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return "Enter a Valid  reason";
-                                  }
-                                },
-                                controller: reasoncontroler,
-                                decoration: InputDecoration(
-                                  hintText: 'Write here the reason if you are selected Other',
-                                  hintStyle: const TextStyle(color: Color(0xffA1A2A8),fontSize: 12),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 12),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                    const BorderSide(width: 1, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                    const BorderSide(width: 1, color:Color(0xffEF2253)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                )),
-                          ),
-                          const SizedBox(height: 20,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              InkWell(
-                                onTap: (){
-                                  Navigator.of(context).pop();
-                                },
-                                child:Text("No",style: TextStyle(  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  foreground:Paint()..shader = linearGradient,),
-                                ),
-                              ),
-
-                              const SizedBox(width: 30,),
-                              InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ReceiptSubmitPage()));
-                                },
-                                child:const Text("Reject",style: TextStyle(  fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                    color: Color(0xffEF2253)),
-                                ),
-                              )],
+                          AppText(
+                            text: 'Select Reason',
+                            size: 12,
+                            fw: FontWeight.bold,
+                            color: const Color(0xff333333),
                           ),
                         ],
                       ),
-                    ]),
-              ));
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: DropdownButtonFormField<String>(
+                          icon: const Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Color(0xff333333),
+                          ),
+                          value: cancel,
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(0xffDADADA)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10)),
+                            hintStyle: const TextStyle(
+                              fontSize: 12,
+                              color: Color(0xff333333),
+                            ),
+                            hintText: 'Other',
+                          ),
+                          onChanged: (cancl) => setState(() => cancel = cancl),
+                          validator: (value) =>
+                              value == null ? 'field required' : null,
+                          items: [
+                            'All Transaction',
+                            'Point Credit',
+                            'Point Redeem'
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: const TextStyle(
+                                    fontSize: 12, color: Color(0xff333333)),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: TextFormField(
+                            maxLines: 2,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Enter a Valid  reason";
+                              }
+                            },
+                            controller: reasoncontroler,
+                            decoration: InputDecoration(
+                              hintText:
+                                  'Write here the reason if you are selected Other',
+                              hintStyle: const TextStyle(
+                                  color: Color(0xffA1A2A8), fontSize: 12),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 12, horizontal: 12),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(0xffDADADA)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    width: 1, color: Color(0xffEF2253)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "No",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                foreground: Paint()..shader = linearGradient,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 30,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ReceiptSubmitPage()));
+                            },
+                            child: const Text(
+                              "Reject",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                  color: Color(0xffEF2253)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ]),
+          ));
+        });
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: AppBar(
+                automaticallyImplyLeading: false,
+              actions: [
+                InkWell(
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 120),
+                      child: Container(
+                          child: Icon(Icons.highlight_remove_rounded,)),
+                    )),
+
+              ],
+                backgroundColor: Color(0xff340E6D)
+            ) ,
+
+              backgroundColor: Colors.black,
+              content: Container(
+                  width: 297.0,
+                  height: 536.0,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.black,
+                    // color: Color(0xffFFFFFF),
+                    // borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  child: ListView(
+                    children: [
+                      Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                          Radius.circular(5.0),
+                        )),
+                        child: ListTile(
+                          title: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/receipt.png",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                          Radius.circular(5.0),
+                        )),
+                        child: ListTile(
+                          title: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/receipt.png",
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                          Radius.circular(5.0),
+                        )),
+                        child: ListTile(
+                          title: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/receipt.png",
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  )));
         });
   }
 }
