@@ -170,7 +170,7 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                         borderRadius: BorderRadius.circular(10)
                                     ),
                                     hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
+                                        fontSize: 12, color: Color(0xffA1A2A8),),
                                     hintText: '3500.00',
                                   ),
                                 ),
@@ -529,7 +529,7 @@ class _ReceiptApprovalState extends State<ReceiptApproval> with TickerProviderSt
                                 Expanded(
                                   child: InkWell(
                                     onTap: (){
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const ReceiptSubmitPage()));
+                                      Navigator.pushNamed(context, '/receiptsubmit');
                                     },
                                     child:Text("OK",style: TextStyle(  fontWeight: FontWeight.w700,
                                         fontSize: 14,

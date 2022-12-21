@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pointup/onboardscreen/onboardingscreen.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/changepassword.dart';
-import 'package:pointup/screens/DrawerItems/contactus.dart';
-import 'package:pointup/screens/DrawerItems/customerreviewandrating/customerreviewandrating.dart';
-import 'package:pointup/screens/DrawerItems/myshopqrcode.dart';
-import 'package:pointup/screens/DrawerItems/privacyandpolicy.dart';
-import 'package:pointup/screens/DrawerItems/reports.dart';
-import 'package:pointup/screens/DrawerItems/termsandcondition.dart';
-import 'package:pointup/screens/DrawerItems/userinfo.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -53,12 +44,12 @@ class _CustomDrwerState extends State<CustomDrwer> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
                Padding(
-                padding: EdgeInsets.only(right: 250),
+                padding: const EdgeInsets.only(right: 250),
                 child: InkWell(
                   onTap: (){
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back_ios_new_outlined,
                     size: 15,
                     color: Colors.white,
@@ -92,7 +83,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
           children: [
             ListTile(
               leading: const SvgIcon(
-                "assets/icons/qr.svg",
+                "assets/icons/qrcode-solid.svg",
                 color: Color(0xff19184D),
                 height: 16,
                 width: 16,
@@ -111,10 +102,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MYshopQrCode()));
+                Navigator.pushNamed(context, '/myshoprqcode');
               },
             ),
             ListTile(
@@ -138,10 +126,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const UserInformation()));
+                Navigator.pushNamed(context, '/userinformation');
               },
             ),
             ListTile(
@@ -165,10 +150,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ChangePassword()));
+                Navigator.pushNamed(context, '/changepassword');
               },
             ),
             ListTile(
@@ -192,10 +174,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ReportsPage()));
+                Navigator.pushNamed(context,'/reportpage');
               },
             ),
             ListTile(
@@ -235,10 +214,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const CustomerReviewAndRating()));
+                Navigator.pushNamed(context, '/customreviewandrating');
               },
             ),
             ListTile(
@@ -262,8 +238,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ContactUs()));
+                Navigator.pushNamed(context, '/contactus');
               },
             ),
             ListTile(
@@ -287,10 +262,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => TermsAndCondition()));
+                Navigator.pushNamed(context,  '/termsandcondition');
               },
             ),
             ListTile(
@@ -314,10 +286,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                 color: Color(0xff19184D),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PrivacyAndPolicy()));
+                Navigator.pushNamed(context, '/privacyandpolicy');
               },
             ),
             Padding(
@@ -422,11 +391,7 @@ class _CustomDrwerState extends State<CustomDrwer> {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const OnBoardingScreen()));
+                                Navigator.pushNamed(context, '/second');
                               },
                               child: Text(
                                 "Yes",

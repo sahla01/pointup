@@ -78,7 +78,7 @@ class _ViewCustomerReviewListState extends State<ViewCustomerReviewList> {
                     ),
                   ],
                 )),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             SizedBox(
               height: MediaQuery.of(context).size.height,
               child: ListView.builder(

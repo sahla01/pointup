@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
-import 'package:pointup/screens/counter/pointsredeempage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -704,7 +703,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                                           const Color(0xffF99F1E))),
                                   child: Column(
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 18,
                                       ),
                                       Image.asset(pointvoucher[index]),
@@ -762,20 +761,20 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                   children: [
                     CircleAvatar(
                       radius: 11,
-                      backgroundColor: Color(0xffFFCD08),
-                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                      backgroundColor: const Color(0xffFFCD08),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: const Color(0xff333333),),
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     CircleAvatar(
                       radius: 11,
-                      backgroundColor: Color(0xffFF8D08),
-                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                      backgroundColor: const Color(0xffFF8D08),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: const Color(0xff333333),),
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     CircleAvatar(
                       radius: 11,
-                      backgroundColor: Color(0xff08FFFF),
-                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: Color(0xff333333),),
+                      backgroundColor: const Color(0xff08FFFF),
+                      child: AppText(text: "01",size: 10,fw: FontWeight.bold,color: const Color(0xff333333),),
                     ),
                   ],
                 ),
@@ -1016,11 +1015,7 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             Expanded(
                               child: InkWell(
                                 onTap: () {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PointsRedeemPage()));
+                                  Navigator.pushReplacementNamed(context, '/pointredeem');
                                 },
                                 child: Text(
                                   "OK",

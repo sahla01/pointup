@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/screens/navbar/bottomnavbar.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OtpPage extends StatefulWidget {
@@ -73,7 +72,7 @@ class _OtpPageState extends State<OtpPage> {
                               text: 'Verification Code',
                               fw: FontWeight.bold,
                               size: 18,
-                              color: const Color(0xff19184D),
+                              color: Theme.of(context).primaryColor,
                             ),
                             const SizedBox(
                               height: 10,
@@ -166,14 +165,16 @@ class _OtpPageState extends State<OtpPage> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                              colors: [Color(0xff19184D), Color(0xff530393)]),
+                              colors: [
+                                Color(0xff19184D),
+                                Color(0xff530393)
+                              ]),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: InkWell(
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(
-                                    builder: (context) => const BottomNavBar()));},
+                            Navigator.pushNamed(context, '/eight');
+                          },
                           child: Center(
                               child: AppText(
                                 text: 'Continue',
@@ -207,7 +208,7 @@ class _OtpPageState extends State<OtpPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: const Color(0xffF99F1E),
+                      color: Theme.of(context).secondaryHeaderColor,
                     )
                   ],
                 ),

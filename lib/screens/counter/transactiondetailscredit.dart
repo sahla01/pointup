@@ -116,14 +116,14 @@ class TransactionCredit extends StatelessWidget {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 60,),
-                                    child: AppText(text: "250 pts",size: 12,  color: Color(0xff135EF0),fw: FontWeight.bold,),
+                                    child: AppText(text: "250 pts",size: 12,  color: const Color(0xff135EF0),fw: FontWeight.bold,),
                                   ),
                                   const SizedBox(
                                     height: 3.0,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 60,bottom: 190),
-                                    child: AppText(text: "13/04/2022,10:30 AM",size: 10,  color: Color(0xffA1A2A8),fw: FontWeight.bold,),
+                                    child: AppText(text: "13/04/2022,10:30 AM",size: 10,  color: const Color(0xffA1A2A8),fw: FontWeight.bold,),
                                   ),
                                 ],
                               ),
@@ -161,7 +161,7 @@ class TransactionCredit extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            SizedBox(height: 15,),
+                            const SizedBox(height: 15,),
                             Image.asset("assets/images/voucher2.png"),
                             const SizedBox(height: 10,),
                             Row(

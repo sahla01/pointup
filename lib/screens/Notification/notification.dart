@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/Notification/notificationdetails.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -74,7 +73,7 @@ class _NotificationPageState extends State<NotificationPage> {
                               width: 50,
                               decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
-                                  border: Border.all(width: 0.5,color: Color(0xff360E70)),
+                                  border: Border.all(width: 0.5,color: const Color(0xff360E70)),
                                   borderRadius:
                                   BorderRadius.circular(4)),
                               child: Row(
@@ -82,7 +81,7 @@ class _NotificationPageState extends State<NotificationPage> {
                                 children: const [
                                   Padding(
                                     padding: EdgeInsets.only(left: 8),
-                                    child: Text('filter',style: TextStyle(
+                                    child: Text('Filter',style: TextStyle(
                                         fontSize: 10,fontWeight: FontWeight.w600,color: Color(0xff360E70)
                                     ),),
                                   ),
@@ -120,7 +119,7 @@ class _NotificationPageState extends State<NotificationPage> {
                         value == null
                             ? 'field required'
                             : null,
-                        items: ['Confirmed', 'Cancelled']
+                        items: ['Read', 'Unread']
                             .map<DropdownMenuItem<String>>(
                                 (String value) {
                               return DropdownMenuItem<String>(
@@ -138,7 +137,7 @@ class _NotificationPageState extends State<NotificationPage> {
                     ),
                   ),
                 ),
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 Padding(
                   padding: const EdgeInsets.only(right: 15),
                   child: Text("Clear All ",style: TextStyle(
@@ -169,7 +168,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationDetails()));
+                      Navigator.pushNamed(context, '/notificationdetails');
                       },
                     child: Card(
                       shape: const RoundedRectangleBorder(

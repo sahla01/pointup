@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/loginscreens/resetpassword.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OtpTwoPage extends StatefulWidget {
@@ -166,16 +165,17 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                         margin: const EdgeInsets.all(20),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                              colors: [Color(0xff19184D), Color(0xff530393)]),
+                          gradient:  const LinearGradient(
+                              colors: [
+                                Color(0xff19184D),
+                                Color(0xff530393)
+                              ]),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: InkWell(
                           onTap: () {
+                            Navigator.pushNamed(context, '/sixth');
 
-                            Navigator.push(context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ResetPassword()));
 
                           },
                           child: Center(
@@ -211,7 +211,7 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: const Color(0xffF99F1E),
+                      color: Theme.of(context).secondaryHeaderColor,
                     )
                   ],
                 ),

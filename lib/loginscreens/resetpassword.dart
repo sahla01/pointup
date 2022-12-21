@@ -79,7 +79,7 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                           children: [
                             AppText(
                               text: "Password Reset",
-                              color: const Color(0xff19184D),
+                              color:Theme.of(context).primaryColor,
                               size: 18,
                               fw: FontWeight.w700,
                             ),
@@ -143,8 +143,8 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                                           borderSide: const BorderSide(
                                               width: 0.5, color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)),
-                                      hintStyle: const TextStyle(
-                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintStyle:TextStyle(
+                                          fontSize: 12, color: Theme.of(context).hintColor),
                                       hintText: "Enter Password",
                                       prefixIcon:  const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
                                       suffixIcon: const Icon(
@@ -193,8 +193,8 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                                           borderSide: const BorderSide(
                                               width: 0.5, color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)),
-                                      hintStyle: const TextStyle(
-                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintStyle: TextStyle(
+                                          fontSize: 12, color:Theme.of(context).hintColor),
                                       hintText: "Confirm Password",
                                       prefixIcon: const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),
                                       ),
@@ -224,7 +224,10 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     gradient: const LinearGradient(
-                                        colors: [Color(0xff19184D), Color(0xff530393)]),
+                                        colors: [
+                                          Color(0xff19184D),
+                                          Color(0xff530393)
+                                        ]),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: InkWell(
@@ -268,11 +271,10 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: const Color(0xffF99F1E),
+                      color: Theme.of(context).secondaryHeaderColor
                     )
                   ],
                 ),
-
               ],
             ),
           ),
@@ -280,7 +282,6 @@ class _ResetPasswordState extends State<ResetPassword> with TickerProviderStateM
       ),
     );
   }
-
   Future<void> _showMyDialog() async {
     Future.delayed(const Duration(seconds: 2), () {
             Navigator.pushReplacement(

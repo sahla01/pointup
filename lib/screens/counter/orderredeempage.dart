@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/counter/vieworders.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OrderRedeemPage extends StatefulWidget {
@@ -187,9 +186,8 @@ class _OrderRedeemPageState extends State<OrderRedeemPage> with TickerProviderSt
                               ),
                               child: InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ViewOrders()));
-
-                                },
+                                  Navigator.pushNamed(context, '/vieworders');
+                                  },
                                 child: Center(
                                     child: AppText(
                                       text: 'Validate',

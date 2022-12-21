@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/loginscreens/otptwopage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -70,14 +69,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           children: [
                             AppText(
                               text: "Forgot Password",
-                              color: const Color(0xff19184D),
+                              color: Theme.of(context).primaryColor,
                               size: 18,
                               fw: FontWeight.w700,
                             ),
                             const SizedBox(height: 20,),
                             AppText(
                               text: "Please fill  your shop ID and  User Name",
-                              color: const Color(0xffA1A2A8),
+                              color: Theme.of(context).hintColor,
                               size: 12,
                               fw: FontWeight.w400,
                             ),
@@ -119,7 +118,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
-                                      hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
+                                      hintStyle: TextStyle(fontSize: 12,color:Theme.of(context).hintColor),
                                       hintText:' Enter Shop ID',
                                       prefixIcon: const Padding(
                                         padding: EdgeInsets.all(16),
@@ -156,7 +155,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
-                                      hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8) ),
+                                      hintStyle: TextStyle(fontSize: 12,color:Theme.of(context).hintColor),
                                       hintText:' Enter User Name',
                                       prefixIcon:const Icon(Icons.person_outline_rounded,size: 19,
                                         color: Color(0xffA1A2A8),
@@ -171,14 +170,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                   margin: const EdgeInsets.all(20),
                                   width: double.infinity,
                                   decoration: BoxDecoration(
-                                    gradient: const LinearGradient(
-                                        colors: [Color(0xff19184D), Color(0xff530393)]),
+                                    gradient:  const LinearGradient(
+                                        colors: [
+                                          Color(0xff19184D),
+                                          Color(0xff530393)
+                                        ]),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: InkWell(
                                     onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const OtpTwoPage()));
-
+                                    Navigator.pushNamed(context, '/fifth');
                                     },
                                     child: Center(child: AppText(text: 'Send OTP',color: Colors.white,size: 12,fw: FontWeight.w700,)),
 
@@ -213,7 +214,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: const Color(0xffF99F1E),
+                      color: Theme.of(context).secondaryHeaderColor,
                     )
                   ],
                 ),

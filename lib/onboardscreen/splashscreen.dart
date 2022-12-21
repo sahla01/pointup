@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pointup/onboardscreen/onboardingscreen.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -46,12 +44,7 @@ class _SplashScreenState extends State<SplashScreen>
             _textController.forward().whenComplete(
                   () {
                 Future.delayed(initialDelay, () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const OnBoardingScreen(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/second');
                 });
               },
             );

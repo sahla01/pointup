@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/counter/transactiondetailscredit.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class TransactionPage extends StatefulWidget {
@@ -63,7 +62,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             border: Border.all(
-                                width: 0.5, color: Color(0xff360E70)),
+                                width: 0.5, color: const Color(0xff360E70)),
                             borderRadius: BorderRadius.circular(4.0)),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -204,6 +203,8 @@ class _TransactionPageState extends State<TransactionPage> {
                   ),
                 ],
               ),
+
+              dropdownvalue=="Point Credit"?
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: ListView.builder(
@@ -213,11 +214,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     itemBuilder: (context, int index) {
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const TransactionCredit()));
+                          Navigator.pushNamed(context,'/transactionpointcredit');
                         },
                         child: Card(
                           shape: const RoundedRectangleBorder(
@@ -280,7 +277,7 @@ class _TransactionPageState extends State<TransactionPage> {
                                     children: [
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 60),
+                                            const EdgeInsets.only(left: 55),
                                         child: RichText(
                                           maxLines: 1,
                                           text: const TextSpan(
@@ -341,7 +338,276 @@ class _TransactionPageState extends State<TransactionPage> {
                         ),
                       );
                     }),
+              ): dropdownvalue=="Point Redeem"?
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: ListView.builder(
+                  // scrollDirection: Axis.vertical,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    itemCount: 6,
+                    itemBuilder: (context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/transactionpointredeem');
+                        },
+                        child: Card(
+                          shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              )),
+                          child: ListTile(
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SizedBox(
+                                  width: 130,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      AppText(
+                                        text: "Member ID#",
+                                        size: 12,
+                                        fw: FontWeight.bold,
+                                        color: const Color(0xff333333),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      AppText(
+                                        text: "2356787697",
+                                        size: 10,
+                                        color: const Color(0xffA1A2A8),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '13/04/2022,',
+                                            style: TextStyle(
+                                                color: Color(0xffA1A2A8),
+                                                fontSize: 10),
+                                            children: [
+                                              TextSpan(
+                                                  text: '03:46 PM\n',
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      color:
+                                                      Color(0xffA1A2A8))),
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.only(left: 55),
+                                        child: RichText(
+                                          maxLines: 1,
+                                          text: const TextSpan(
+                                              text: '550',
+                                              style: TextStyle(
+                                                  color: Color(0xffEF9712),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold),
+                                              children: [
+                                                TextSpan(
+                                                  text: ' Pts\n',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontSize: 12,
+                                                      color: Color(0xffEF9712)),
+                                                )
+                                              ]),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.only(left: 30),
+                                        child: AppText(
+                                            text: "Bill # 1023456",
+                                            size: 10,
+                                            fw: FontWeight.bold,
+                                            color: const Color(0xffA1A2A8)),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '13/04/2022,',
+                                            style: TextStyle(
+                                                color: Color(0xffA1A2A8),
+                                                fontSize: 10),
+                                            children: [
+                                              TextSpan(
+                                                  text: '10:30 AM\n',
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      color:
+                                                      Color(0xffA1A2A8))),
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ):SizedBox(
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: ListView.builder(
+                  // scrollDirection: Axis.vertical,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    itemCount: 6,
+                    itemBuilder: (context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context,'/transactionpointcredit');
+                        },
+                        child: Card(
+                          shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              )),
+                          child: ListTile(
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                SizedBox(
+                                  width: 130,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      AppText(
+                                        text: "Member ID#",
+                                        size: 12,
+                                        fw: FontWeight.bold,
+                                        color: const Color(0xff333333),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      AppText(
+                                        text: "2356787697",
+                                        size: 10,
+                                        color: const Color(0xffA1A2A8),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '13/04/2022,',
+                                            style: TextStyle(
+                                                color: Color(0xffA1A2A8),
+                                                fontSize: 10),
+                                            children: [
+                                              TextSpan(
+                                                  text: '03:46 PM\n',
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      color:
+                                                      Color(0xffA1A2A8))),
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.only(left: 60),
+                                        child: RichText(
+                                          maxLines: 1,
+                                          text: const TextSpan(
+                                              text: '250',
+                                              style: TextStyle(
+                                                  color: Color(0xff125DEF),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold),
+                                              children: [
+                                                TextSpan(
+                                                  text: ' Pts\n',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                      FontWeight.bold,
+                                                      fontSize: 12,
+                                                      color: Color(0xff22ECBB)),
+                                                )
+                                              ]),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        const EdgeInsets.only(left: 30),
+                                        child: AppText(
+                                            text: "Bill # 1023456",
+                                            size: 10,
+                                            fw: FontWeight.bold,
+                                            color: const Color(0xffA1A2A8)),
+                                      ),
+                                      const SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      RichText(
+                                        maxLines: 1,
+                                        text: const TextSpan(
+                                            text: '13/04/2022,',
+                                            style: TextStyle(
+                                                color: Color(0xffA1A2A8),
+                                                fontSize: 10),
+                                            children: [
+                                              TextSpan(
+                                                  text: '10:30 AM\n',
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      color:
+                                                      Color(0xffA1A2A8))),
+                                            ]),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
               ),
+
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

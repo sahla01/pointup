@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/navbar/bottomnavbar.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class PasswordReset extends StatefulWidget {
@@ -248,10 +247,7 @@ class _PasswordResetState extends State<PasswordReset> {
 
   Future<void> _showMyDialog() async {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const BottomNavBar()));
+      Navigator.pushReplacementNamed(context, 'bottomnavbar');
     });
     return showDialog<void>(
         context: context,
@@ -274,24 +270,6 @@ class _PasswordResetState extends State<PasswordReset> {
                           children: [
                             Image.asset("assets/images/sucessfull.png",width: 52,height: 52,
                             ),
-                            // SvgIcon("assets/icons/sucess.svg",width: 52,height: 52,),
-                            // Lottie.asset(
-                            //   'assets/confirm.json',
-                            //   width: 60,
-                            //   height: 60,
-                            //   controller: _controller,
-                            //   onLoaded: (composition) {
-                            //     _controller
-                            //       ..duration = composition.duration
-                            //       ..forward();
-                            //     Future.delayed(const Duration(seconds: 2), () {
-                            //       Navigator.pushReplacement(
-                            //           context,
-                            //           MaterialPageRoute(
-                            //               builder: (context) => const SignIn()));
-                            //     });
-                            //   },
-                            // ),
                             Text("Reset Done!",style: TextStyle(fontWeight: FontWeight.w700,
                                 fontSize: 14,foreground: Paint()..shader = linearGradient),),
                             const SizedBox(

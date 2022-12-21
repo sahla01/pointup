@@ -56,34 +56,66 @@ class UserInformation extends StatelessWidget {
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          children: [
-            const SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 240),
-                  child: AppText(text: "User Information",size: 14,fw: FontWeight.bold,color: const Color(0xff333333),),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(text: "User Full Name",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
-                    SizedBox(height: 8.0,),
-                    Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 240),
+                    child: AppText(text: "User Information",size: 14,fw: FontWeight.bold,color: const Color(0xff333333),),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "User Full Name",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
+                          width: 327,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                          ),
+                          child: Row(
+                            mainAxisAlignment:MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: AppText(text: "Midhun Varma",size: 12,color: const Color(0xff333333),),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "Designation",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
                         width: 327,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: const Color(0xffF4F6FF),
-                          borderRadius: BorderRadius.circular(10),
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
                         ),
                         child: Row(
@@ -91,109 +123,141 @@ class UserInformation extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: AppText(text: "Midhun Varma",size: 12,color: const Color(0xff333333),),
+                              child: AppText(text: "Cashier",size: 12,color: const Color(0xff333333),),
                             ),
                           ],
                         ),
                       ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(text: "Designation",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
-                    const SizedBox(height: 8.0,),
-                    Container(
-                      width: 327,
-                      height: 48,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffF4F6FF),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "Shop Mobile For OTP",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
+                        width: 327,
+                        height: 48,
+                        decoration: BoxDecoration(
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                        ),
+                        child: Row(
+                          mainAxisAlignment:MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: AppText(text: "9876765654",size: 12,color: const Color(0xff333333),),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment:MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AppText(text: "Cashier",size: 12,color: const Color(0xff333333),),
-                          ),
-                        ],
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "User ID/Email",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
+                        width: 327,
+                        height: 48,
+                        decoration: BoxDecoration(
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                        ),
+                        child: Row(
+                          mainAxisAlignment:MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: AppText(text: "Myworldadmin1234",size: 12,color: const Color(0xff333333),),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(text: "Shop Mobile For OTP",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
-                    SizedBox(height: 8.0,),
-                    Container(
-                      width: 327,
-                      height: 48,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffF4F6FF),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "Since User",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
+                        width: 327,
+                        height: 48,
+                        decoration: BoxDecoration(
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                        ),
+                        child: Row(
+                          mainAxisAlignment:MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: AppText(text: "05/08/2022",size: 12,color: const Color(0xff333333),),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment:MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AppText(text: "9876765654",size: 12,color: const Color(0xff333333),),
-                          ),
-                        ],
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppText(text: "Last Logged In",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
+                      const SizedBox(height: 8.0,),
+                      Container(
+                        width: 327,
+                        height: 48,
+                        decoration: BoxDecoration(
+                            color: const Color(0xffF4F6FF),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
+                        ),
+                        child: Row(
+                          mainAxisAlignment:MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: AppText(text: "11/11/2022 , 03:47 PM",size: 12,color: const Color(0xff333333),),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(text: "User ID/Email",size: 12,fw: FontWeight.w600,color: const Color(0xff333333),),
-                    SizedBox(height: 8.0,),
-                    Container(
-                      width: 327,
-                      height: 48,
-                      decoration: BoxDecoration(
-                          color: const Color(0xffF4F6FF),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xffDADADA,),width: 0.5)
-                      ),
-                      child: Row(
-                        mainAxisAlignment:MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: AppText(text: "Myworldadmin1234",size: 12,color: const Color(0xff333333),),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

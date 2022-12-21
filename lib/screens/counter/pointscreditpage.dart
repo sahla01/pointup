@@ -556,7 +556,7 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                           const Color(0xffF99F1E))),
                                   child: Column(
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 18,
                                       ),
                                       Image.asset(pointvoucher[index]),
@@ -605,12 +605,7 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                             ],
                           ),
                         );
-
                       }),
-
-
-
-
                 ),
                 const SizedBox(
                   height: 10,
@@ -620,25 +615,25 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                   children: [
                     CircleAvatar(
                       radius: 11,
-                      backgroundColor: Color(0xffFFCD08),
+                      backgroundColor: const Color(0xffFFCD08),
                       child: AppText(
                         text: "01",
                         size: 10,
                         fw: FontWeight.bold,
-                        color: Color(0xff333333),
+                        color: const Color(0xff333333),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     CircleAvatar(
                       radius: 11,
-                      backgroundColor: Color(0xffFF8D08),
+                      backgroundColor: const Color(0xffFF8D08),
                       child: AppText(
                         text: "02",
                         size: 10,
                         fw: FontWeight.bold,
-                        color: Color(0xff333333),
+                        color: const Color(0xff333333),
                       ),
                     ),
                   ],
@@ -698,7 +693,6 @@ class _PointsCreditPageState extends State<PointsCreditPage>
       ),
     );
   }
-
   Future<void> _showMyDialog() async {
     return showDialog<void>(
         context: context,
@@ -855,13 +849,6 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                       foreground: Paint()
                                         ..shader = linearGradient),
                                 ),
-                                // child: AppText(
-                                //   txtalign: TextAlign.end,
-                                //   text: "OK",
-                                //   size: 14,
-                                //   fw: FontWeight.w700,
-                                //   color: const Color(0xff351070),
-                                //  ),
                               ),
                             )
                           ],

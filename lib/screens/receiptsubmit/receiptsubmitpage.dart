@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/screens/customdrwer.dart';
-import 'package:pointup/screens/receiptsubmit/receiptdetails.dart';
 import 'package:pointup/widgets/app_text.dart';
-import 'package:svg_icon/svg_icon.dart';
 
 class ReceiptSubmitPage extends StatefulWidget {
   const ReceiptSubmitPage({Key? key}) : super(key: key);
@@ -26,14 +24,17 @@ class _ReceiptSubmitPageState extends State<ReceiptSubmitPage> {
           ),
         ),
         actions: <Widget>[
-          Image.asset("assets/images/noti.png"),
-          // IconButton(
-          //     onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
+          InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, '/notification');
+              },
+              child: Image.asset("assets/images/noti.png")),
         ],
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
       ),
-      drawer: CustomDrwer(),
+      drawer: const CustomDrwer(),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -63,7 +64,7 @@ class _ReceiptSubmitPageState extends State<ReceiptSubmitPage> {
                       itemBuilder: (context,int index){
                         return InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ReceiptDetailsPage()));
+                            Navigator.pushNamed(context, '/receiptdetailspage');
                           },
                           child: Card(
                             shape: const RoundedRectangleBorder(

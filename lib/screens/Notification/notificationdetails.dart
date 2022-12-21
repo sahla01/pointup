@@ -61,7 +61,7 @@ class _NotificationDetailsState extends State<NotificationDetails> {
               height: 335,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: 0.5,color: Color(0xffDADADA))
+                border: Border.all(width: 0.5,color: const Color(0xffDADADA))
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +70,7 @@ class _NotificationDetailsState extends State<NotificationDetails> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(width: 5,),
+                      const SizedBox(width: 5,),
                       Image.asset("assets/images/notificationlogo.png",height: 54,width: 54,),
                       SizedBox(
                         width: 140,
@@ -103,7 +103,7 @@ class _NotificationDetailsState extends State<NotificationDetails> {
                       )
                     ],
                   ),
-                  SizedBox(height: 40,),
+                  const SizedBox(height: 40,),
                   Row(
                     children: const [
                       Padding(
@@ -112,7 +112,7 @@ class _NotificationDetailsState extends State<NotificationDetails> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -122,18 +122,18 @@ class _NotificationDetailsState extends State<NotificationDetails> {
                       )
                     ],
                   ),
-                  SizedBox(height: 40,),
+                  const SizedBox(height: 40,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 20),
-                        child: AppText(text: "Best regards",color: Color(0xff333333),size: 12,fw: FontWeight.bold,),
+                        child: AppText(text: "Best regards",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
                       ),
-                      SizedBox(height: 3,),
+                      const SizedBox(height: 3,),
                       Padding(
                         padding: const EdgeInsets.only(left: 20),
-                        child: AppText(text: "Team Pointupp",color: Color(0xff333333),size: 12,fw: FontWeight.bold,),
+                        child: AppText(text: "Team Pointupp",color: const Color(0xff333333),size: 12,fw: FontWeight.bold,),
                       )
                     ],
                   )

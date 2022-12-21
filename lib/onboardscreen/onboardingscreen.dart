@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:pointup/loginscreens/signin.dart';
 import 'package:pointup/models/models.dart';
 import 'package:pointup/widgets/app_text.dart';
 
@@ -146,7 +145,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             child: CircleAvatar(
                               radius: 5,
                               backgroundColor: _activePage == index
-                                  ? const Color(0xffF99F1E)
+                                  ? Theme.of(context).secondaryHeaderColor
                                   : const Color(0xffF4F6FF),
                             ),
                           ),
@@ -165,10 +164,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignIn()));
+                        Navigator.pushNamed(context, '/third');
                       },
                       child: Center(
                           child: AppText(
@@ -176,6 +172,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             color: Colors.white,
                             size: 12,
                             fw: FontWeight.w700,
+
                           )),
                     ),
                   ),

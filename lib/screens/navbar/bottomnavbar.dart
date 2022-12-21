@@ -7,7 +7,8 @@ import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
 import 'package:svg_icon/svg_icon.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+
+  const BottomNavBar({Key? key}) : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();

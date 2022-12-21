@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/receiptsubmit/receiptapprovel.dart';
-import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class ReceiptDetailsPage extends StatefulWidget {
@@ -344,10 +342,7 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                   ),
                   InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ReceiptApproval()));
+                        Navigator.pushNamed(context,'/receiptapprovel');
                       },
                       child: Container(
                           height: 52,
@@ -467,11 +462,11 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: TextFormField(
                             maxLines: 2,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Enter a Valid  reason";
-                              }
-                            },
+                            // validator: (value) {
+                            //   if (value == null || value.isEmpty) {
+                            //     return "Enter a Valid  reason";
+                            //   }
+                            // },
                             controller: reasoncontroler,
                             decoration: InputDecoration(
                               hintText:
@@ -516,11 +511,7 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ReceiptSubmitPage()));
+                              Navigator.pushNamed(context, '/receiptsubmit');
                             },
                             child: const Text(
                               "Reject",
@@ -538,7 +529,6 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
           ));
         });
   }
-
   Future<void> _showMyDialog() async {
     return showDialog<void>(
         context: context,
@@ -552,20 +542,23 @@ class _ReceiptDetailsPageState extends State<ReceiptDetailsPage> {
                     onTap: (){
                       Navigator.of(context).pop();
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 120),
-                      child: Container(
-                          child: Icon(Icons.highlight_remove_rounded,)),
+                    child:  Padding(
+                      padding: const EdgeInsets.only(right: 110),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.highlight_remove_rounded,),
+                        ],
+                      ),
                     )),
 
               ],
-                backgroundColor: Color(0xff340E6D)
+                backgroundColor: const Color(0xff340E6D)
             ) ,
-
               backgroundColor: Colors.black,
               content: Container(
-                  width: 297.0,
-                  height: 536.0,
+                  width: 350.0,
+                  height: 460,
                   decoration: const BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: Colors.black,

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import 'package:pointup/models/models.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
 class OrderDetailsPage extends StatefulWidget {
-  const OrderDetailsPage({Key? key}) : super(key: key);
+var pass_index;
+  OrderDetailsPage({Key? key,required this.pass_index}) : super(key: key);
 
   @override
   State<OrderDetailsPage> createState() => _OrderDetailsPageState();
 }
 
 class _OrderDetailsPageState extends State<OrderDetailsPage> {
+
   TextEditingController reasoncontroler= TextEditingController();
 
   final Shader linearGradient = const LinearGradient(
@@ -35,17 +38,17 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
             },
           ),
           title: Center(
-            child: AppText(
-              txtalign: TextAlign.left,
-              text: "Order’s",
-              color: Colors.white,
-              size: 16,
-              fw: FontWeight.bold,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: AppText(
+                txtalign: TextAlign.left,
+                text: "Order’s",
+                color: Colors.white,
+                size: 16,
+                fw: FontWeight.bold,
+              ),
             ),
           ),
-          actions: <Widget>[
-            Image.asset("assets/images/noti.png"),
-          ],
           gradient: const LinearGradient(
               colors: [Color(0xff19184D), Color(0xff530393)]),
         ),
@@ -87,17 +90,14 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Image.asset('assets/images/shoe.png',fit:BoxFit.cover,height: 89,width: 89,),
+                            Image.asset(ordersLayout[widget.pass_index]['image'],fit:BoxFit.cover,height: 89,width: 89,),
                             SizedBox(
                               width: 120,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(
-                                    height: 5.0,
-                                  ),
                                   AppText(
-                                    text: "PUCKA",
+                                    text: ordersLayout[widget.pass_index]['pname'],
                                     fw: FontWeight.bold,
                                     size: 12,
                                     color: const Color(0xff19184D),
@@ -106,22 +106,22 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                     height: 3,
                                   ),
                                   AppText(
-                                    text: "Men’s Sports Shoe",
+                                    text: ordersLayout[widget.pass_index]['sname'],
                                     size: 10,
                                     color: const Color(0xff19184D),
                                   ),
                                   RichText(
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
-                                    text: const TextSpan(
+                                    text:  TextSpan(
                                         text: 'Pts  ',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Color(0xffF99F1E),
                                             fontSize: 10),
                                         children: [
                                           TextSpan(
-                                              text: '4560 \n',
-                                              style: TextStyle(
+                                              text: ordersLayout[widget.pass_index]['pamt'],
+                                              style: const TextStyle(
                                                   color: Color(0xffF99F1E),
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 12)),
@@ -130,21 +130,24 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                   const SizedBox(
                                     height: 3,
                                   ),
-                                  RichText(
-                                    maxLines: 1,
-                                    text: const TextSpan(
-                                        text: '₹    ',
-                                        style: TextStyle(
-                                            color: Color(0xff333333),
-                                            fontSize: 13.0),
-                                        children: [
-                                          TextSpan(
-                                              text: '2280.00\n',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12,
-                                                  color: Color(0xff19184D))),
-                                        ]),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 20),
+                                    child: RichText(
+                                      maxLines: 1,
+                                      text: const TextSpan(
+                                          text: '₹   ',
+                                          style: TextStyle(
+                                              color: Color(0xff333333),
+                                              fontSize: 13.0),
+                                          children: [
+                                            TextSpan(
+                                                text: '2280.00\n',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12,
+                                                    color: Color(0xff19184D))),
+                                          ]),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -157,7 +160,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                     height: 5.0,
                                   ),
                                   AppText(
-                                    text: "Order Ref# 103785647",
+                                    text: "Order Ref# "+ordersLayout[widget.pass_index]['orderref'],
                                     color: const Color(0xff333333),
                                     size: 10,
                                     fw: FontWeight.bold,
@@ -167,15 +170,15 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                   ),
                                   RichText(
                                     maxLines: 1,
-                                    text: const TextSpan(
-                                        text: '  13/04/2022,',
-                                        style: TextStyle(
+                                    text:TextSpan(
+                                        text: ordersLayout[widget.pass_index]['date']+',',
+                                        style: const TextStyle(
                                             color: Color(0xffA1A2A8),
                                             fontSize: 10),
                                         children: [
                                           TextSpan(
-                                              text: '10:30 AM\n',
-                                              style: TextStyle(
+                                              text:  ordersLayout[widget.pass_index]['time'],
+                                              style: const TextStyle(
                                                   fontSize: 10,
                                                   color: Color(0xffA1A2A8))),
                                         ]),
@@ -250,7 +253,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(
-                                height: 20,
+                                height: 10,
                               ),
                               AppText(text: "Member ID",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
                               AppText(text: "#2356787697",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
@@ -263,7 +266,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                                 height: 15,
                               ),
                               AppText(text: "Quantity",size: 10,color: const Color(0xffA1A2A8),fw: FontWeight.w600,),
-                              AppText(text: "01",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                              AppText(text: ordersLayout[widget.pass_index]['qty'],size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
                               const SizedBox(
                                 height: 15,
                               ),
@@ -316,7 +319,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                           Padding(
                             padding: const EdgeInsets.only(right: 15),
                             child: AppText(
-                              text: "4560",
+                              text: "4569",
                               size: 12,
                               fw: FontWeight.bold,
                               color: const Color(0xff19184D),
@@ -358,7 +361,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
               ),
             ),
           ),
-              SizedBox(height: 140,),
+              const SizedBox(height: 140,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

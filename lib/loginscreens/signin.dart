@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/loginscreens/forgotpassword.dart';
-import 'package:pointup/loginscreens/otppage.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -83,7 +81,7 @@ class _SignInState extends State<SignIn> {
                             ),
                             AppText(
                               text: "Sign In",
-                              color: const Color(0xff19184D),
+                              color: Theme.of(context).primaryColor,
                               size: 18,
                               fw: FontWeight.w700,
                             ),
@@ -146,8 +144,8 @@ class _SignInState extends State<SignIn> {
                                           width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
+                                  hintStyle: TextStyle(
+                                      fontSize: 12,color: Theme.of(context).hintColor),
                                   hintText: ' Enter Shop ID',
                                   prefixIcon: const Padding(
                                     padding: EdgeInsets.all(16),
@@ -202,8 +200,8 @@ class _SignInState extends State<SignIn> {
                                           width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
+                                  hintStyle:TextStyle(
+                                      fontSize: 12, color:Theme.of(context).hintColor),
                                   hintText: ' Enter User Name',
                                   prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,color: Color(0xffA1A2A8),)
                                 )),
@@ -251,8 +249,8 @@ class _SignInState extends State<SignIn> {
                                           width: 0.5, color: Color(0xff351070)),
                                       borderRadius:
                                           BorderRadius.circular(10)),
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12, color: Color(0xffA1A2A8)),
+                                  hintStyle: TextStyle(
+                                      fontSize: 12, color: Theme.of(context).hintColor),
                                   hintText: "Enter Password",
                                   prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
                                   suffixIcon: GestureDetector(
@@ -289,11 +287,8 @@ class _SignInState extends State<SignIn> {
                             ),
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const OtpPage()));
+
+                              Navigator.pushNamed(context, '/seventh');
                               },
                               child: Center(
                                   child: AppText(
@@ -312,11 +307,7 @@ class _SignInState extends State<SignIn> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ForgotPasswordPage()));
+                                  Navigator.pushNamed(context, '/fourth');
                                 },
                                 child: Text(
                                   "Forgot Password ?",
@@ -356,7 +347,7 @@ class _SignInState extends State<SignIn> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: const Color(0xffF99F1E),
+                      color: Theme.of(context).secondaryHeaderColor,
                     )
                   ],
                 ),

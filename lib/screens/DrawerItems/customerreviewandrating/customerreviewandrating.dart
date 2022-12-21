@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:pointup/models/models.dart';
-import 'package:pointup/screens/DrawerItems/customerreviewandrating/viewcustomerreviewList.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:svg_icon/svg_icon.dart';
@@ -186,24 +185,56 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                       const SizedBox(
                         width: 80,
                       ),
-                      InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ViewCustomerReviewList()));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              "See All Review",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  foreground: Paint()..shader = linearGradient,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          )),
+                      // InkWell(
+                      //     onTap: () {
+                      //       Navigator.pushNamed(context, '/viewcustomerreviewlist');
+                      //     },
+                      //     child: Padding(
+                      //       padding: const EdgeInsets.only(top: 10),
+                      //       child: Text(
+                      //         "See All Review",
+                      //         style: TextStyle(
+                      //             fontSize: 12,
+                      //             foreground: Paint()..shader = linearGradient,
+                      //             fontWeight: FontWeight.w600),
+                      //       ),
+                      //     )),
+                      // IconButton(onPressed: () {
+                      //
+                      // },
+                      //     icon: Padding(
+                      //       padding: const EdgeInsets.only(top: 10),
+                      //       child: Icon(Icons.more_vert_rounded,size: 20,color: Color(0xff360E70),),
+                      //     ))
+                      PopupMenuButton<int>(
+                        icon: const Padding(
+                          padding: EdgeInsets.only(top: 10,left: 20),
+                          child: Icon(Icons.more_vert_rounded,size: 20,color: Color(0xff360E70),),
+                        ),
+                        itemBuilder: (context) => [
+                          // PopupMenuItem 1
+                          const PopupMenuItem(
+                            value: 1,
+                            child: Text("Newest Review",style: TextStyle(fontSize: 13,color: Color(0xff333333)),),
+                          ),
+                          const PopupMenuItem(
+                            value: 2,
+                            child: Text("Oldest Review",style: TextStyle(fontSize: 13,color: Color(0xff333333))),
+                          ),
+                        ],
+                        offset: const Offset(0, 22,),
+                        color: Colors.white,
+                        elevation: 2,
+                        onSelected: (value) {
+                          // if value 1 show dialog
+                          if (value == 1) {
+                            // _showDialog(context);
+                            // if value 2 show dialog
+                          } else if (value == 2) {
+                            // _showDialog(context);
+                          }
+                        },
+                      ),
                     ],
                   )),
               SizedBox(
@@ -211,7 +242,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     scrollDirection: Axis.vertical,
-                    itemCount: profileList.length < 5 ? profileList.length : 5,
+                    itemCount: profileList.length ,
                     itemBuilder: (BuildContext context, int index) {
                       return Card(
                         shape: const RoundedRectangleBorder(

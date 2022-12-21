@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/counter/redeemsecondpage.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class PointsRedeemPage extends StatefulWidget {
@@ -192,10 +191,7 @@ class _PointsRedeemPageState extends State<PointsRedeemPage> with TickerProvider
                           ),
                           child: InkWell(
                             onTap: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const RedeemSecondPage()));
-                              // Navigator.push(context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => const RedeemSecondPage()));
+                              Navigator.pushNamed(context, '/redeemsecondpage');
                             },
                             child: Center(
                                 child: AppText(

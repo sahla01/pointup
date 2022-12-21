@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/screens/Tickets/tickethistoryopen.dart';
 import 'package:pointup/screens/customdrwer.dart';
 import 'package:pointup/widgets/app_text.dart';
+
 
 class TicketsPage extends StatefulWidget {
   const TicketsPage({Key? key}) : super(key: key);
@@ -15,13 +17,10 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
   final TextEditingController otherController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
   final TextEditingController attachController = TextEditingController();
-
   TabController? _tabcontroller;
   var  dropdownvalue;
   var dropdownticket;
   var dropdownsubject;
-
-
   final Shader linearGradient = const LinearGradient(
     colors: <Color>[Color(0xff19184D), Color(0xff530393)],
   ).createShader(
@@ -33,7 +32,6 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
     _tabcontroller = TabController(length: 2, vsync: this);
     super.initState();
   }
-
   @override
   void dispose() {
     super.dispose();
@@ -55,9 +53,11 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
             ),
           ),
           actions: <Widget>[
-            Image.asset("assets/images/noti.png"),
-            // IconButton(
-            //     onPressed: () {}, icon: const SvgIcon("assets/icons/notifi.svg"))
+            InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, '/notification');
+                },
+                child: Image.asset("assets/images/noti.png")),
           ],
           gradient: const LinearGradient(
               colors: [Color(0xff19184D), Color(0xff530393)]),
@@ -130,7 +130,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                     decoration: BoxDecoration(
 
                                         shape: BoxShape.rectangle,
-                                        border: Border.all(width: 0.5,color: Color(0xff360E70)),
+                                        border: Border.all(width: 0.5,color: const Color(0xff360E70)),
                                         borderRadius:
                                         BorderRadius.circular(4.0)),
                                     child: Row(
@@ -138,7 +138,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                       children: const [
                                         Padding(
                                           padding: EdgeInsets.only(left: 7),
-                                          child: Text('filter',style: TextStyle(
+                                          child: Text('Filter',style: TextStyle(
                                               fontSize: 10,fontWeight: FontWeight.w600,color: Color(0xff360E70)
                                           ),),
                                         ),
@@ -194,6 +194,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                             ),
                           ),
                           const SizedBox(height: 20,),
+                          dropdownvalue=='Open'?
                           SizedBox(
                             height: MediaQuery.of(context).size.height,
                             child: Column(
@@ -206,7 +207,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                       itemBuilder: (context,int index){
                                         return InkWell(
                                           onTap: (){
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryOpen()));
+                                            Navigator.pushNamed(context, '/tickethistoryopen');
                                             // Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryClosed()));
 
                                           },
@@ -277,10 +278,180 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                 ),
                               ],
                             ),
+                          ): dropdownvalue=='Closed'?
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height ,
+                                  child: ListView.builder(
+                                    // scrollDirection: Axis.vertical,
+                                      itemCount: 5,
+                                      itemBuilder: (context,int index){
+                                        return InkWell(
+                                          onTap: (){
+                                            Navigator.pushNamed(context, '/tickethistoryclosed');
+                                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryClosed()));
+
+                                          },
+                                          child: Card(
+                                            shape: const RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(Radius.circular(10.0),)
+                                            ),
+                                            child: ListTile(
+                                              contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                                              title:  Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 130,
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        AppText(text: "Ticket #23567",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        AppText(text: "Technical Support",size: 10,color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            AppText(text: "13/04/2022,",size: 10,color: const Color(0xffA1A2A8),),
+                                                            const SizedBox(width: 5,),
+                                                            AppText(text: "03:46 PM",size: 10,color: const Color(0xffA1A2A8),)
+                                                          ],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                      children: [
+                                                        AppText(
+                                                          text: "Status",
+                                                          size: 12,
+                                                          fw: FontWeight.bold,
+                                                          color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        AppText(
+                                                            text: "Closed",
+                                                            size: 12,
+                                                            color: const Color(0xffEF2253)
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 8.0,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+
+
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                ),
+                              ],
+                            ),
+                          ):SizedBox(
+                            height: MediaQuery.of(context).size.height,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height ,
+                                  child: ListView.builder(
+                                    // scrollDirection: Axis.vertical,
+                                      itemCount: 5,
+                                      itemBuilder: (context,int index){
+                                        return InkWell(
+                                          onTap: (){
+                                            Navigator.pushNamed(context, '/tickethistory');
+                                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>const TicketHistoryClosed()));
+
+                                          },
+                                          child: Card(
+                                            shape: const RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(Radius.circular(10.0),)
+                                            ),
+                                            child: ListTile(
+                                              contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                                              title:  Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 130,
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        AppText(text: "Ticket #23567",size: 12,fw: FontWeight.bold,color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        AppText(text: "Technical Support",size: 10,color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            AppText(text: "13/04/2022,",size: 10,color: const Color(0xffA1A2A8),),
+                                                            const SizedBox(width: 5,),
+                                                            AppText(text: "03:46 PM",size: 10,color: const Color(0xffA1A2A8),)
+                                                          ],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                      children: [
+                                                        AppText(
+                                                          text: "Status",
+                                                          size: 12,
+                                                          fw: FontWeight.bold,
+                                                          color: const Color(0xff333333),),
+                                                        const SizedBox(
+                                                          height: 5.0,
+                                                        ),
+                                                        AppText(
+                                                            text: "Open",
+                                                            size: 12,
+                                                            color: const Color(0xff39AE58)
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 8.0,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+
+
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                ),
+                              ],
+                            ),
                           ),
+
                         ],
                       ),
                     ),
+
+
                     Form(
                       child: SizedBox(
                         width: double.infinity,
@@ -309,7 +480,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
                                       DropdownButtonFormField<String>(
                                         icon: const Icon(Icons.keyboard_arrow_down_rounded),
                                         value:dropdownvalue,
@@ -359,7 +530,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
                                       DropdownButtonFormField<String>(
                                         icon: const Icon(Icons.keyboard_arrow_down_rounded),
                                         value:dropdownsubject,
@@ -409,7 +580,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
                                       TextFormField(
                                           validator: (value) {
                                             if (value == null || value.isEmpty) {
@@ -448,7 +619,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
                                       TextFormField(
                                         maxLines: 3,
                                           validator: (value) {
@@ -491,7 +662,7 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           fw: FontWeight.w600,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
                                       TextFormField(
                                         cursorColor: const Color(0xff351070),
                                         controller: attachController,
@@ -513,7 +684,12 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
                                           hintStyle: const TextStyle(
                                               fontSize: 12, color: Color(0xffA1A2A8)),
                                           hintText: "Attach File",
-                                          suffixIcon: const Icon(Icons.attach_file,color: Color(0xff31126E),)
+                                          suffixIcon: InkWell(
+                                            onTap: (){
+
+
+                                            },
+                                              child: const Icon(Icons.attach_file,color: Color(0xff31126E),))
                                         ),
                                       ),
                                       const SizedBox(
@@ -575,4 +751,5 @@ class _TicketsPageState extends State<TicketsPage> with TickerProviderStateMixin
       ),
     );
   }
+
 }

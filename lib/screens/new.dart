@@ -1,98 +1,98 @@
 import 'package:flutter/material.dart';
-import 'package:pointup/models/models.dart';
-import 'package:pointup/widgets/app_text.dart';
 
-class New extends StatefulWidget {
-  const New({Key? key}) : super(key: key);
+void main() {
 
-  @override
-  State<New> createState() => _NewState();
+  runApp(const SimpleAppBarPopupMenuButton());
 }
 
-class _NewState extends State<New> {
+class SimpleAppBarPopupMenuButton extends StatelessWidget {
+  const SimpleAppBarPopupMenuButton({Key? key}) : super(key: key);
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Alert!!"),
+          content: const Text("You are awesome!"),
+          actions: [
+            MaterialButton(
+              child: const Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        height: 150,
-         // color: Colors.red,
-           child: ListView.builder(
-          itemCount: pointvoucher.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0,right: 10.0,top: 40.0),
-                      child: Container(
-                        height: 98,
-                        width: 125,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(6),
-                            border: Border.all(
-                                width: 1,
-                                color:
-                                const Color(0xffF99F1E))),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 18,
-                            ),
-                            Image.asset(pointvoucher[index]),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding:
-                                  const EdgeInsets.only(
-                                      right: 10),
-                                  child: AppText(
-                                    text: points[index],
-                                    size: 10,
-                                    fw: FontWeight.bold,
-                                    color: const Color(
-                                        0xff39AE58),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+    // MaterialApp with debugShowCheckedModeBanner
+    // false and title.
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'AppBar Popup Menu Button',
+      // scaffold with appbar
+      home: Scaffold(
+        // appbar with title text
+        appBar: AppBar(
+          title: const Text('AppBar Popup Menu Button'),
+          // in action widget we have PopupMenuButton
+          actions: [
+            PopupMenuButton<int>(
+              itemBuilder: (context) => [
+                // PopupMenuItem 1
+                PopupMenuItem(
+                  value: 1,
+                  // row with 2 children
+                  child: Row(
+                    children: [
+                      const Icon(Icons.star),
+                      const SizedBox(
+                        width: 10,
                       ),
-                    ),
-                    Positioned(
-                      left: 115,
-                      top: 24,
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: const BoxDecoration(
-                            color: Colors.green,
-                            shape: BoxShape.circle
-                        ),
-                        child: const CircleAvatar(
-                          backgroundColor: Color(0xffF99F1E),
-                          child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
-
-                        ),
-                      ),
-                    ),
-                  ],
+                      const Text("Get The App")
+                    ],
+                  ),
                 ),
-              );
-
-          }),
-
-
-
-
+                // PopupMenuItem 2
+                PopupMenuItem(
+                  value: 2,
+                  // row with two children
+                  child: Row(
+                    children: [
+                      const Icon(Icons.chrome_reader_mode),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text("About")
+                    ],
+                  ),
+                ),
+              ],
+              offset: const Offset(0, 100),
+              color: Colors.grey,
+              elevation: 2,
+              // on selected we show the dialog box
+              onSelected: (value) {
+                // if value 1 show dialog
+                if (value == 1) {
+                  _showDialog(context);
+                  // if value 2 show dialog
+                } else if (value == 2) {
+                  _showDialog(context);
+                }
+              },
+            ),
+          ],
+        ),
+        // body with centered text
+        body: const Center(
+          child: Text("Press the 3 Point Button Up!"),
+        ),
       ),
     );
   }

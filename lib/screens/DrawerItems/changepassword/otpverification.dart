@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/passwordrest.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class OtpVerification extends StatefulWidget {
@@ -35,7 +34,7 @@ class _OtpVerificationState extends State<OtpVerification> {
             },
           ),
           title: Padding(
-            padding: const EdgeInsets.only(left: 60,right: 60),
+            padding: const EdgeInsets.only(left: 60, right: 60),
             child: AppText(
               txtalign: TextAlign.left,
               text: "Change Password",
@@ -45,16 +44,14 @@ class _OtpVerificationState extends State<OtpVerification> {
             ),
           ),
           gradient: const LinearGradient(
-              colors: [
-                Color(0xff19184D),
-                Color(0xff530393)
-              ]
-          ),
+              colors: [Color(0xff19184D), Color(0xff530393)]),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -71,7 +68,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                     ),
                     const Text(
                       ' Verify your mobile number with verification code\n'
-                          'has sent to the number 997*******786',
+                      'has sent to the number 997*******786',
                       style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.normal,
@@ -82,7 +79,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                   ],
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Row(
@@ -150,7 +149,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                   )
                 ],
               ),
-              const SizedBox(height: 70,),
+              const SizedBox(
+                height: 70,
+              ),
               Container(
                 height: 48,
                 margin: const EdgeInsets.all(20),
@@ -162,21 +163,20 @@ class _OtpVerificationState extends State<OtpVerification> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(
-                            builder: (context) => const PasswordReset()));
-                            },
+                    Navigator.pushNamed(context, '/passwordrest');
+                  },
                   child: Center(
                       child: AppText(
-                        text: 'Continue',
-                        color: Colors.white,
-                        size: 12,
-                        fw: FontWeight.w700,
-                      )),
+                    text: 'Continue',
+                    color: Colors.white,
+                    size: 12,
+                    fw: FontWeight.w700,
+                  )),
                 ),
               ),
-              const SizedBox(height: 90,),
-
+              const SizedBox(
+                height: 90,
+              ),
             ],
           ),
         ),
@@ -213,11 +213,11 @@ class _OtpVerificationState extends State<OtpVerification> {
             counter: const Offstage(),
             enabledBorder: OutlineInputBorder(
                 borderSide:
-                const BorderSide(width: 0.5, color: Color(0xffDADADA)),
+                    const BorderSide(width: 0.5, color: Color(0xffDADADA)),
                 borderRadius: BorderRadius.circular(4)),
             focusedBorder: OutlineInputBorder(
                 borderSide:
-                const BorderSide(width: 0.5, color: Color(0xff351070)),
+                    const BorderSide(width: 0.5, color: Color(0xff351070)),
                 borderRadius: BorderRadius.circular(4)),
           ),
         ),

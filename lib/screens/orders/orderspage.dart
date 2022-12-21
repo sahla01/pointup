@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
 import 'package:pointup/screens/customdrwer.dart';
-import 'package:pointup/screens/orders/confirmedorders.dart';
 import 'package:pointup/screens/orders/orderdetails.dart';
 import 'package:pointup/widgets/app_text.dart';
 
@@ -15,6 +14,7 @@ class OrdersPage extends StatefulWidget {
 
 class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
   TabController? _tabcontroller;
+ int? passIndex;
 
   var dropdownvalue;
 
@@ -43,7 +43,11 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
           ),
         ),
         actions: <Widget>[
-          Image.asset("assets/images/noti.png"),
+          InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, '/notification');
+              },
+              child: Image.asset("assets/images/noti.png")),
         ],
         gradient: const LinearGradient(
             colors: [Color(0xff19184D), Color(0xff530393)]),
@@ -111,169 +115,174 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 10,
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height,
-                          child: ListView.builder(
-                              itemCount: vieworders.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const OrderDetailsPage()));
-                                  },
-                                  child: Card(
-                                    shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                      Radius.circular(10.0),
-                                    )),
-                                    child: Column(
-                                      children: [
-                                        ListTile(
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 8, vertical: 2),
-                                          title: Column(
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Image.asset(
-                                                    vieworders[index],
-                                                    fit: BoxFit.cover,
-                                                    height: 57,
-                                                    width: 57,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 130,
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        AppText(
-                                                          text:
-                                                              redeemitem[index],
-                                                          fw: FontWeight.bold,
-                                                          size: 12,
-                                                          color: const Color(
-                                                              0xff444444),
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 3,
-                                                        ),
-                                                        AppText(
-                                                          text:
-                                                              redeemname[index],
-                                                          size: 10,
-                                                          color: const Color(
-                                                              0xff444444),
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 3,
-                                                        ),
-                                                        RichText(
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                          maxLines: 1,
-                                                          text: const TextSpan(
-                                                              text: 'Qty :',
-                                                              style: TextStyle(
-                                                                  color: Color(
-                                                                      0xff333333),
-                                                                  fontSize: 10,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600),
-                                                              children: [
-                                                                TextSpan(
-                                                                    text: '1\n',
-                                                                    style: TextStyle(
-                                                                        color: Color(
-                                                                            0xff333333),
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
-                                                                        fontSize:
-                                                                            10)),
-                                                              ]),
-                                                        ),
-                                                      ],
+                        SingleChildScrollView(
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height,
+                            child: ListView.builder(
+                                itemCount: ordersLayout.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      passIndex=index;
+                                      // Navigator.pushNamed(context, '/orderdetails');
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                   OrderDetailsPage(
+                                                    pass_index: passIndex,
+
+                                                  )));
+                                    },
+                                    child: Card(
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                        Radius.circular(10.0),
+                                      )),
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 8, vertical: 2),
+                                            title: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  children: [
+                                                    Image.asset(
+                                                      ordersLayout[index]['image'],
+                                                      fit: BoxFit.cover,
+                                                      height: 57,
+                                                      width: 57,
                                                     ),
-                                                  ),
-                                                  SizedBox(
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        const SizedBox(
-                                                          height: 5.0,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 50),
-                                                          child: AppText(
-                                                            text: "4560 Pts",
-                                                            color: const Color(
-                                                                0xffF99F1E),
-                                                            size: 12,
+                                                    SizedBox(
+                                                      width: 130,
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AppText(
+                                                            text:
+                                                                ordersLayout[index]['pname'],
                                                             fw: FontWeight.bold,
+                                                            size: 12,
+                                                            color: const Color(
+                                                                0xff444444),
                                                           ),
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 3,
-                                                        ),
-                                                        AppText(
-                                                          text:
-                                                              "Order Ref# 103785647",
-                                                          color: const Color(
-                                                              0xffA1A2A8),
-                                                          size: 10,
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 3,
-                                                        ),
-                                                        RichText(
-                                                          maxLines: 1,
-                                                          text: const TextSpan(
-                                                              text:
-                                                                  '  13/04/2022,',
-                                                              style: TextStyle(
-                                                                  color: Color(
-                                                                      0xffA1A2A8),
-                                                                  fontSize: 10),
-                                                              children: [
-                                                                TextSpan(
-                                                                    text:
-                                                                        '10:30 AM\n',
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            10,
-                                                                        color: Color(
-                                                                            0xffA1A2A8))),
-                                                              ]),
-                                                        ),
-                                                      ],
+                                                          const SizedBox(
+                                                            height: 3,
+                                                          ),
+                                                          AppText(
+                                                            text:
+                                                                ordersLayout[index]['sname'],
+                                                            size: 10,
+                                                            color: const Color(
+                                                                0xff444444),
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 3,
+                                                          ),
+                                                          RichText(
+                                                            overflow: TextOverflow
+                                                                .ellipsis,
+                                                            maxLines: 1,
+                                                            text: TextSpan(
+                                                                text: 'Qty :',
+                                                                style: const TextStyle(
+                                                                    color: Color(
+                                                                        0xff333333),
+                                                                    fontSize: 10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                                children: [
+                                                                  TextSpan(
+                                                                      text: ordersLayout[index]['qty'],
+                                                                      style: const TextStyle(
+                                                                          color: Color(
+                                                                              0xff333333),
+                                                                          fontWeight:
+                                                                              FontWeight
+                                                                                  .w600,
+                                                                          fontSize:
+                                                                              10)),
+                                                                ]),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
+                                                    SizedBox(
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          const SizedBox(
+                                                            height: 5.0,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 50),
+                                                            child: AppText(
+                                                              text: ordersLayout[index]['pamt']+ " Pts",
+                                                              color: const Color(
+                                                                  0xffF99F1E),
+                                                              size: 12,
+                                                              fw: FontWeight.bold,
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 3,
+                                                          ),
+                                                          AppText(
+                                                            text:
+                                                               "Order Ref# " +ordersLayout[index]['orderref'],
+                                                            color: const Color(
+                                                                0xffA1A2A8),
+                                                            size: 10,
+                                                          ),
+                                                          const SizedBox(
+                                                            height: 3,
+                                                          ),
+                                                          RichText(
+                                                            maxLines: 1,
+                                                            text: TextSpan(
+                                                                text: ordersLayout[index]['date'],
+                                                                style: const TextStyle(
+                                                                    color: Color(
+                                                                        0xffA1A2A8),
+                                                                    fontSize: 10),
+                                                                children: [
+                                                                  TextSpan(
+                                                                      text: ordersLayout[index]['time'],
+                                                                      style: const TextStyle(
+                                                                          fontSize:
+                                                                              10,
+                                                                          color: Color(
+                                                                              0xffA1A2A8))),
+                                                                ]),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }),
+                                  );
+                                }),
+                          ),
                         ),
                       ],
                     ),
@@ -314,7 +323,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                             width: 50,
                                             decoration: BoxDecoration(
                                                 shape: BoxShape.rectangle,
-                                                border: Border.all(width: 0.5,color: Color(0xff360E70)),
+                                                border: Border.all(width: 0.5,color: const Color(0xff360E70)),
                                                 borderRadius:
                                                 BorderRadius.circular(4)),
                                             child: Row(
@@ -322,7 +331,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                               children: const [
                                                 Padding(
                                                   padding: EdgeInsets.only(left: 8),
-                                                  child: Text('filter',style: TextStyle(
+                                                  child: Text('Filter',style: TextStyle(
                                                       fontSize: 10,fontWeight: FontWeight.w600,color: Color(0xff360E70)
                                                   ),),
                                                 ),
@@ -384,32 +393,33 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 10,
                         ),
-                        SizedBox(
+                       dropdownvalue=='Confirmed'?
+                       SizedBox(
                           height: MediaQuery.of(context).size.height,
                           child: ListView.builder(
                               itemCount: vieworders.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return InkWell(
                                   onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ConfirmedOrders()));
+                                    Navigator.pushNamed(context, '/confirmorders');
                                   },
                                   child: Card(
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
-                                      Radius.circular(10.0),
-                                    )),
+                                          Radius.circular(10.0),
+                                        )),
                                     child: Column(
                                       children: [
                                         ListTile(
                                           contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 8, vertical: 2),
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 8, vertical: 2),
                                           title: Column(
                                             children: [
                                               Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                MainAxisAlignment
+                                                    .spaceBetween,
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Image.asset(
@@ -422,8 +432,8 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                     width: 140,
                                                     child: Column(
                                                       crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
+                                                      CrossAxisAlignment
+                                                          .start,
                                                       children: [
                                                         AppText(
                                                           text: redeemitem[index],
@@ -455,8 +465,8 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                                       0xff333333),
                                                                   fontSize: 10,
                                                                   fontWeight:
-                                                                      FontWeight
-                                                                          .w600),
+                                                                  FontWeight
+                                                                      .w600),
                                                               children: [
                                                                 TextSpan(
                                                                     text: '01\n',
@@ -464,10 +474,10 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                                         color: Color(
                                                                             0xff333333),
                                                                         fontWeight:
-                                                                            FontWeight
-                                                                                .w600,
+                                                                        FontWeight
+                                                                            .w600,
                                                                         fontSize:
-                                                                            10)),
+                                                                        10)),
                                                               ]),
                                                         ),
                                                         const SizedBox(
@@ -513,16 +523,16 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                   SizedBox(
                                                     child: Column(
                                                       crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
+                                                      CrossAxisAlignment
+                                                          .start,
                                                       children: [
                                                         const SizedBox(
                                                           height: 5.0,
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets
-                                                                  .only(left: 50),
+                                                          const EdgeInsets
+                                                              .only(left: 50),
                                                           child: AppText(
                                                             text: "4560 Pts",
                                                             color: const Color(
@@ -536,7 +546,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                         ),
                                                         AppText(
                                                           text:
-                                                              "Order Ref# 103785647",
+                                                          "Order Ref# 103785647",
                                                           color: const Color(
                                                               0xffA1A2A8),
                                                           size: 10,
@@ -548,7 +558,7 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                           maxLines: 1,
                                                           text: const TextSpan(
                                                               text:
-                                                                  '  13/04/2022,',
+                                                              '  13/04/2022,',
                                                               style: TextStyle(
                                                                   color: Color(
                                                                       0xffA1A2A8),
@@ -556,10 +566,10 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                                               children: [
                                                                 TextSpan(
                                                                     text:
-                                                                        '10:30 AM\n',
+                                                                    '10:30 AM\n',
                                                                     style: TextStyle(
                                                                         fontSize:
-                                                                            10,
+                                                                        10,
                                                                         color: Color(
                                                                             0xffA1A2A8))),
                                                               ]),
@@ -577,12 +587,594 @@ class _OrdersPageState extends State<OrdersPage> with TickerProviderStateMixin {
                                   ),
                                 );
                               }),
-                        ),
+                        ): dropdownvalue=='Cancelled'?
+                       SizedBox(
+                         height: MediaQuery.of(context).size.height,
+                         child: ListView.builder(
+                             itemCount: vieworders.length,
+                             itemBuilder: (BuildContext context, int index) {
+                               return InkWell(
+                                 onTap: (){
+                                   Navigator.pushNamed(context,  '/cancelorders');
+                                 },
+                                 child: Card(
+                                   shape: const RoundedRectangleBorder(
+                                       borderRadius: BorderRadius.all(
+                                         Radius.circular(10.0),
+                                       )),
+                                   child: Column(
+                                     children: [
+                                       ListTile(
+                                         contentPadding:
+                                         const EdgeInsets.symmetric(
+                                             horizontal: 8, vertical: 2),
+                                         title: Column(
+                                           children: [
+                                             Row(
+                                               mainAxisAlignment:
+                                               MainAxisAlignment
+                                                   .spaceBetween,
+                                               mainAxisSize: MainAxisSize.max,
+                                               children: [
+                                                 Image.asset(
+                                                   vieworders[index],
+                                                   fit: BoxFit.cover,
+                                                   height: 57,
+                                                   width: 57,
+                                                 ),
+                                                 SizedBox(
+                                                   width: 140,
+                                                   child: Column(
+                                                     crossAxisAlignment:
+                                                     CrossAxisAlignment
+                                                         .start,
+                                                     children: [
+                                                       AppText(
+                                                         text: redeemitem[index],
+                                                         fw: FontWeight.bold,
+                                                         size: 12,
+                                                         color: const Color(
+                                                             0xff444444),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       AppText(
+                                                         text: redeemname[index],
+                                                         size: 10,
+                                                         color: const Color(
+                                                             0xff444444),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         overflow: TextOverflow
+                                                             .ellipsis,
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text: 'Qty :',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xff333333),
+                                                                 fontSize: 10,
+                                                                 fontWeight:
+                                                                 FontWeight
+                                                                     .w600),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text: '01\n',
+                                                                   style: TextStyle(
+                                                                       color: Color(
+                                                                           0xff333333),
+                                                                       fontWeight:
+                                                                       FontWeight
+                                                                           .w600,
+                                                                       fontSize:
+                                                                       10)),
+                                                             ]),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         overflow: TextOverflow
+                                                             .ellipsis,
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text: 'Status: ',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xff333333),
+                                                                 fontSize: 10,
+                                                                 fontWeight:
+                                                                 FontWeight
+                                                                     .w600),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text:'Cancelled by Shop\n',
+                                                                   style: TextStyle(
+                                                                       color: Color(
+                                                                           0xffEF2253),
+                                                                       fontWeight:
+                                                                       FontWeight
+                                                                           .w600,
+                                                                       fontSize:
+                                                                       10)),
+                                                             ]),
+                                                       ),
+                                                       // Row(
+                                                       //   mainAxisAlignment: MainAxisAlignment.start,
+                                                       //   children: [
+                                                       //     AppText(text:" Status:",size: 10,fw: FontWeight.w600,color: Color(0xff333333),),
+                                                       //     AppText(text: "Order Confirmed",size: 10,fw: FontWeight.w600,color: Color(0xff39AE58),),
+                                                       //   ],
+                                                       // )
+
+                                                     ],
+                                                   ),
+                                                 ),
+                                                 SizedBox(
+                                                   child: Column(
+                                                     crossAxisAlignment:
+                                                     CrossAxisAlignment
+                                                         .start,
+                                                     children: [
+                                                       const SizedBox(
+                                                         height: 5.0,
+                                                       ),
+                                                       Padding(
+                                                         padding:
+                                                         const EdgeInsets
+                                                             .only(left: 50),
+                                                         child: AppText(
+                                                           text: "4560 Pts",
+                                                           color: const Color(
+                                                               0xffF99F1E),
+                                                           size: 12,
+                                                           fw: FontWeight.bold,
+                                                         ),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       AppText(
+                                                         text:
+                                                         "Order Ref# 103785647",
+                                                         color: const Color(
+                                                             0xffA1A2A8),
+                                                         size: 10,
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text:
+                                                             '  13/04/2022,',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xffA1A2A8),
+                                                                 fontSize: 10),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text:
+                                                                   '10:30 AM\n',
+                                                                   style: TextStyle(
+                                                                       fontSize:
+                                                                       10,
+                                                                       color: Color(
+                                                                           0xffA1A2A8))),
+                                                             ]),
+                                                       ),
+                                                     ],
+                                                   ),
+                                                 )
+                                               ],
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 ),
+                               );
+                             }),
+                       ):SizedBox(
+                         height: MediaQuery.of(context).size.height,
+                         child: ListView.builder(
+                             itemCount: vieworders.length,
+                             itemBuilder: (BuildContext context, int index) {
+                               return InkWell(
+                                 onTap: (){
+                                   Navigator.pushNamed(context, '/confirmorders');
+                                 },
+                                 child: Card(
+                                   shape: const RoundedRectangleBorder(
+                                       borderRadius: BorderRadius.all(
+                                         Radius.circular(10.0),
+                                       )),
+                                   child: Column(
+                                     children: [
+                                       ListTile(
+                                         contentPadding:
+                                         const EdgeInsets.symmetric(
+                                             horizontal: 8, vertical: 2),
+                                         title: Column(
+                                           children: [
+                                             Row(
+                                               mainAxisAlignment:
+                                               MainAxisAlignment
+                                                   .spaceBetween,
+                                               mainAxisSize: MainAxisSize.max,
+                                               children: [
+                                                 Image.asset(
+                                                   vieworders[index],
+                                                   fit: BoxFit.cover,
+                                                   height: 57,
+                                                   width: 57,
+                                                 ),
+                                                 SizedBox(
+                                                   width: 140,
+                                                   child: Column(
+                                                     crossAxisAlignment:
+                                                     CrossAxisAlignment
+                                                         .start,
+                                                     children: [
+                                                       AppText(
+                                                         text: redeemitem[index],
+                                                         fw: FontWeight.bold,
+                                                         size: 12,
+                                                         color: const Color(
+                                                             0xff444444),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       AppText(
+                                                         text: redeemname[index],
+                                                         size: 10,
+                                                         color: const Color(
+                                                             0xff444444),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         overflow: TextOverflow
+                                                             .ellipsis,
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text: 'Qty :',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xff333333),
+                                                                 fontSize: 10,
+                                                                 fontWeight:
+                                                                 FontWeight
+                                                                     .w600),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text: '01\n',
+                                                                   style: TextStyle(
+                                                                       color: Color(
+                                                                           0xff333333),
+                                                                       fontWeight:
+                                                                       FontWeight
+                                                                           .w600,
+                                                                       fontSize:
+                                                                       10)),
+                                                             ]),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         overflow: TextOverflow
+                                                             .ellipsis,
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text: 'Status: ',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xff333333),
+                                                                 fontSize: 10,
+                                                                 fontWeight:
+                                                                 FontWeight
+                                                                     .w600),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text: 'Order Confirmed\n',
+                                                                   style: TextStyle(
+                                                                       color: Color(
+                                                                           0xff39AE58),
+                                                                       fontWeight:
+                                                                       FontWeight
+                                                                           .w600,
+                                                                       fontSize:
+                                                                       10)),
+                                                             ]),
+                                                       ),
+                                                       // Row(
+                                                       //   mainAxisAlignment: MainAxisAlignment.start,
+                                                       //   children: [
+                                                       //     AppText(text:" Status:",size: 10,fw: FontWeight.w600,color: Color(0xff333333),),
+                                                       //     AppText(text: "Order Confirmed",size: 10,fw: FontWeight.w600,color: Color(0xff39AE58),),
+                                                       //   ],
+                                                       // )
+
+                                                     ],
+                                                   ),
+                                                 ),
+                                                 SizedBox(
+                                                   child: Column(
+                                                     crossAxisAlignment:
+                                                     CrossAxisAlignment
+                                                         .start,
+                                                     children: [
+                                                       const SizedBox(
+                                                         height: 5.0,
+                                                       ),
+                                                       Padding(
+                                                         padding:
+                                                         const EdgeInsets
+                                                             .only(left: 50),
+                                                         child: AppText(
+                                                           text: "4560 Pts",
+                                                           color: const Color(
+                                                               0xffF99F1E),
+                                                           size: 12,
+                                                           fw: FontWeight.bold,
+                                                         ),
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       AppText(
+                                                         text:
+                                                         "Order Ref# 103785647",
+                                                         color: const Color(
+                                                             0xffA1A2A8),
+                                                         size: 10,
+                                                       ),
+                                                       const SizedBox(
+                                                         height: 3,
+                                                       ),
+                                                       RichText(
+                                                         maxLines: 1,
+                                                         text: const TextSpan(
+                                                             text:
+                                                             '  13/04/2022,',
+                                                             style: TextStyle(
+                                                                 color: Color(
+                                                                     0xffA1A2A8),
+                                                                 fontSize: 10),
+                                                             children: [
+                                                               TextSpan(
+                                                                   text:
+                                                                   '10:30 AM\n',
+                                                                   style: TextStyle(
+                                                                       fontSize:
+                                                                       10,
+                                                                       color: Color(
+                                                                           0xffA1A2A8))),
+                                                             ]),
+                                                       ),
+                                                     ],
+                                                   ),
+                                                 )
+                                               ],
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 ),
+                               );
+                             }),
+                       ),
+
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.height,
+                        //   child: ListView.builder(
+                        //       itemCount: vieworders.length,
+                        //       itemBuilder: (BuildContext context, int index) {
+                        //         return InkWell(
+                        //           onTap: (){
+                        //             Navigator.push(context, MaterialPageRoute(builder: (context)=> const ConfirmedOrders()));
+                        //           },
+                        //           child: Card(
+                        //             shape: const RoundedRectangleBorder(
+                        //                 borderRadius: BorderRadius.all(
+                        //                   Radius.circular(10.0),
+                        //                 )),
+                        //             child: Column(
+                        //               children: [
+                        //                 ListTile(
+                        //                   contentPadding:
+                        //                   const EdgeInsets.symmetric(
+                        //                       horizontal: 8, vertical: 2),
+                        //                   title: Column(
+                        //                     children: [
+                        //                       Row(
+                        //                         mainAxisAlignment:
+                        //                         MainAxisAlignment
+                        //                             .spaceBetween,
+                        //                         mainAxisSize: MainAxisSize.max,
+                        //                         children: [
+                        //                           Image.asset(
+                        //                             vieworders[index],
+                        //                             fit: BoxFit.cover,
+                        //                             height: 57,
+                        //                             width: 57,
+                        //                           ),
+                        //                           SizedBox(
+                        //                             width: 140,
+                        //                             child: Column(
+                        //                               crossAxisAlignment:
+                        //                               CrossAxisAlignment
+                        //                                   .start,
+                        //                               children: [
+                        //                                 AppText(
+                        //                                   text: redeemitem[index],
+                        //                                   fw: FontWeight.bold,
+                        //                                   size: 12,
+                        //                                   color: const Color(
+                        //                                       0xff444444),
+                        //                                 ),
+                        //                                 const SizedBox(
+                        //                                   height: 3,
+                        //                                 ),
+                        //                                 AppText(
+                        //                                   text: redeemname[index],
+                        //                                   size: 10,
+                        //                                   color: const Color(
+                        //                                       0xff444444),
+                        //                                 ),
+                        //                                 const SizedBox(
+                        //                                   height: 3,
+                        //                                 ),
+                        //                                 RichText(
+                        //                                   overflow: TextOverflow
+                        //                                       .ellipsis,
+                        //                                   maxLines: 1,
+                        //                                   text: const TextSpan(
+                        //                                       text: 'Qty :',
+                        //                                       style: TextStyle(
+                        //                                           color: Color(
+                        //                                               0xff333333),
+                        //                                           fontSize: 10,
+                        //                                           fontWeight:
+                        //                                           FontWeight
+                        //                                               .w600),
+                        //                                       children: [
+                        //                                         TextSpan(
+                        //                                             text: '01\n',
+                        //                                             style: TextStyle(
+                        //                                                 color: Color(
+                        //                                                     0xff333333),
+                        //                                                 fontWeight:
+                        //                                                 FontWeight
+                        //                                                     .w600,
+                        //                                                 fontSize:
+                        //                                                 10)),
+                        //                                       ]),
+                        //                                 ),
+                        //                                 const SizedBox(
+                        //                                   height: 3,
+                        //                                 ),
+                        //                                 RichText(
+                        //                                   overflow: TextOverflow
+                        //                                       .ellipsis,
+                        //                                   maxLines: 1,
+                        //                                   text: const TextSpan(
+                        //                                       text: 'Status: ',
+                        //                                       style: TextStyle(
+                        //                                           color: Color(
+                        //                                               0xff333333),
+                        //                                           fontSize: 10,
+                        //                                           fontWeight:
+                        //                                           FontWeight
+                        //                                               .w600),
+                        //                                       children: [
+                        //                                         TextSpan(
+                        //                                             text: 'Cancelled by shop\n',
+                        //                                             style: TextStyle(
+                        //                                                 color: Color(
+                        //                                                     0xffEF2253),
+                        //                                                 fontWeight:
+                        //                                                 FontWeight
+                        //                                                     .w600,
+                        //                                                 fontSize:
+                        //                                                 10)),
+                        //                                       ]),
+                        //                                 ),
+                        //                                 // Row(
+                        //                                 //   mainAxisAlignment: MainAxisAlignment.start,
+                        //                                 //   children: [
+                        //                                 //     AppText(text:" Status:",size: 10,fw: FontWeight.w600,color: Color(0xff333333),),
+                        //                                 //     AppText(text: "Order Confirmed",size: 10,fw: FontWeight.w600,color: Color(0xff39AE58),),
+                        //                                 //   ],
+                        //                                 // )
+                        //
+                        //                               ],
+                        //                             ),
+                        //                           ),
+                        //                           SizedBox(
+                        //                             child: Column(
+                        //                               crossAxisAlignment:
+                        //                               CrossAxisAlignment
+                        //                                   .start,
+                        //                               children: [
+                        //                                 const SizedBox(
+                        //                                   height: 5.0,
+                        //                                 ),
+                        //                                 Padding(
+                        //                                   padding:
+                        //                                   const EdgeInsets
+                        //                                       .only(left: 50),
+                        //                                   child: AppText(
+                        //                                     text: "4560 Pts",
+                        //                                     color: const Color(
+                        //                                         0xffF99F1E),
+                        //                                     size: 12,
+                        //                                     fw: FontWeight.bold,
+                        //                                   ),
+                        //                                 ),
+                        //                                 const SizedBox(
+                        //                                   height: 3,
+                        //                                 ),
+                        //                                 AppText(
+                        //                                   text:
+                        //                                   "Order Ref# 103785647",
+                        //                                   color: const Color(
+                        //                                       0xffA1A2A8),
+                        //                                   size: 10,
+                        //                                 ),
+                        //                                 const SizedBox(
+                        //                                   height: 3,
+                        //                                 ),
+                        //                                 RichText(
+                        //                                   maxLines: 1,
+                        //                                   text: const TextSpan(
+                        //                                       text:
+                        //                                       '  13/04/2022,',
+                        //                                       style: TextStyle(
+                        //                                           color: Color(
+                        //                                               0xffA1A2A8),
+                        //                                           fontSize: 10),
+                        //                                       children: [
+                        //                                         TextSpan(
+                        //                                             text:
+                        //                                             '10:30 AM\n',
+                        //                                             style: TextStyle(
+                        //                                                 fontSize:
+                        //                                                 10,
+                        //                                                 color: Color(
+                        //                                                     0xffA1A2A8))),
+                        //                                       ]),
+                        //                                 ),
+                        //                               ],
+                        //                             ),
+                        //                           )
+                        //                         ],
+                        //                       ),
+                        //                     ],
+                        //                   ),
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           ),
+                        //         );
+                        //       }),
+                        // ),,
                       ],
                     ),
                   ),
                 ],
-              ),
+              )
             ),
           ],
         ),

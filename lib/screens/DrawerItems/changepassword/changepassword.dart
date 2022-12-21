@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/otpverification.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:svg_icon/svg_icon.dart';
 
@@ -169,9 +168,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                           child: InkWell(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const OtpVerification()));
-
-                            },
+                              Navigator.pushNamed(context, 'otpverification');
+                              },
                             child: Center(child: AppText(text: 'Send OTP',color: Colors.white,size: 12,fw: FontWeight.w700,)),
 
                           ),
