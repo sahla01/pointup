@@ -238,7 +238,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                     ],
                   )),
               SizedBox(
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height * 0.8,
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     scrollDirection: Axis.vertical,

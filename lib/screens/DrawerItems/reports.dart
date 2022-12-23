@@ -227,10 +227,8 @@ class _ReportsPageState extends State<ReportsPage> {
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
-                              child: Text(
-                                value,
-                                style: const TextStyle(
-                                    fontSize: 12, color: Color(0xff333333)),
+                              child: Text(value, style: const TextStyle(
+                                  fontSize: 12, color: Color(0xff333333)),
                               ),
                             );
                           }).toList(),
@@ -378,7 +376,7 @@ class _ReportsPageState extends State<ReportsPage> {
                             child: Padding(
                               padding: const EdgeInsets.only(right: 20),
                               child: RadioListTile(
-                                contentPadding: const EdgeInsets.all(0.0),
+                                contentPadding: const EdgeInsets.only(right: 35),
                                   value: "PDF Format",
                                   title: AppText(
                                     text: "PDF Format", size: 12,
@@ -395,9 +393,9 @@ class _ReportsPageState extends State<ReportsPage> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding: const EdgeInsets.only(right: 17),
                               child: RadioListTile(
-                                contentPadding: const EdgeInsets.all(0.0),
+                                contentPadding: const EdgeInsets.only(right: 35),
                                   value: "Excel Format",
                                   title: AppText(
                                     text: "Excel Format",

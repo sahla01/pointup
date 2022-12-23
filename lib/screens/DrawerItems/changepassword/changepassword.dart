@@ -64,7 +64,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       size: 18,
                       fw: FontWeight.w700,
                     ),
-                    const SizedBox(height: 20,),
+                    const SizedBox(height: 10,),
                     AppText(
                       text: "Please fill  your shop ID and  User Name",
                       color: const Color(0xffA1A2A8),

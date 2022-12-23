@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:pointup/loginscreens/forgotpassword.dart';
 import 'package:pointup/loginscreens/otppage.dart';
@@ -30,6 +31,7 @@ import 'package:pointup/screens/counter/transactiondetailsredeem.dart';
 import 'package:pointup/screens/counter/transactionpage.dart';
 import 'package:pointup/screens/counter/vieworders.dart';
 import 'package:pointup/screens/navbar/bottomnavbar.dart';
+import 'package:pointup/screens/new.dart';
 import 'package:pointup/screens/orders/cancelorders.dart';
 import 'package:pointup/screens/orders/confirmedorders.dart';
 import 'package:pointup/screens/receiptsubmit/receiptapprovel.dart';
@@ -73,7 +75,7 @@ class MyApp extends StatelessWidget {
         '/vieworders':(context) => const ViewOrders(),
         '/transaction':(context) => const TransactionPage(),
         '/transactionpointcredit':(context) => const TransactionCredit(),
-        '/transactionpointredeem':(context) => TransactionRedeem(),
+        '/transactionpointredeem':(context) => const TransactionRedeem(),
         '/notification':(context) => const NotificationPage(),
         '/notificationdetails':(context) => const NotificationDetails(),
         // '/orderdetails':(context) => OrderDetailsPage(pass_index: null,),
@@ -100,4 +102,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

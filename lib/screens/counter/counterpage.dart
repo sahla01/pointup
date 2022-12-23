@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/models/models.dart';
-import 'package:pointup/screens/customdrwer.dart';
 import 'package:pointup/widgets/app_text.dart';
+import 'package:pointup/widgets/customdrwer.dart';
 
 
 class CounterPage extends StatefulWidget {

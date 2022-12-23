@@ -59,7 +59,7 @@ class ContactUs extends StatelessWidget {
                     foreground: Paint()..shader = linearGradient),
               ),
               const SizedBox(
-                height: 30,
+                height: 10,
               ),
               const Text("We are happy to hearing from you!!",
                 style: TextStyle(

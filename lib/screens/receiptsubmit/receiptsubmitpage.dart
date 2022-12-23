@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/customdrwer.dart';
 import 'package:pointup/widgets/app_text.dart';
+import 'package:pointup/widgets/customdrwer.dart';
 
 class ReceiptSubmitPage extends StatefulWidget {
   const ReceiptSubmitPage({Key? key}) : super(key: key);
