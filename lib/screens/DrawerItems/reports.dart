@@ -223,7 +223,7 @@ class _ReportsPageState extends State<ReportsPage> {
                               setState(() => dropdownwallet = wallet),
                           validator: (value) =>
                               value == null ? 'field required' : null,
-                          items: ['Wallet Points', 'Point credit']
+                          items: ['Wallet Points', 'voucher Points']
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,

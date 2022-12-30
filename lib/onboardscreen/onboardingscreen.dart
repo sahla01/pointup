@@ -92,35 +92,37 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 },
                 itemCount: imgList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      Image.asset(
-                        imgList[index],
-                        height: 275.34,
-                        width: 347,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        contants[index],
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 24,
-                            color: Color(0xffFFFFFF)
-                      ),),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      AppText(
-                        text: 'Boost your customer engagement and grow your\n '
-                            '  business with amazing customer loyalty rewards\n'
-                            'management system ',
-                        size: 12,
-                        height: 1.4,
-                        color: const Color(0xffFFFFFF),
-                      ),
-                    ],
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          imgList[index],
+                          height: 275.34,
+                          width: 347,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          contants[index],
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 24,
+                              color: Color(0xffFFFFFF)
+                        ),),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        AppText(
+                          text: 'Boost your customer engagement and grow your\n '
+                              '  business with amazing customer loyalty rewards\n'
+                              'management system ',
+                          size: 12,
+                          height: 1.4,
+                          color: const Color(0xffFFFFFF),
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),

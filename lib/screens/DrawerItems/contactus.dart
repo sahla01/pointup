@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:pointup/widgets/app_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class ContactUs extends StatelessWidget {
-  ContactUs({Key? key}) : super(key: key);
+class ContactUs extends StatefulWidget {
+  const ContactUs({Key? key}) : super(key: key);
+
+  @override
+  State<ContactUs> createState() => _ContactUsState();
+}
+
+class _ContactUsState extends State<ContactUs> {
 
   final Shader linearGradient = const LinearGradient(
     colors: <Color>[Color(0xff19184D), Color(0xff530393)],
@@ -67,70 +74,86 @@ class ContactUs extends StatelessWidget {
                     fontSize: 14),),
               Padding(
                 padding: const EdgeInsets.only(left: 15.0,right: 15.0,top: 30.0,),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
-                    borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap:() {
+                    _makePhoneCall("9967879788");
+                    // _launched = _makePhoneCall(_phone);
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                        title: Text("Customer Service Call Center",
+                          style: TextStyle(
+                              foreground: Paint()..shader = linearGradient,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold
+                          ),),
+                      subtitle: const Text("+91 9967879788",style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Color(0xff333333)),),
+                      trailing: Image.asset("assets/images/Call on speaker.png"),
+                    ),
                   ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                      title: Text("Customer Service Call Center",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0,right: 15.0,top: 5.0),
+                child: InkWell(
+                  onTap: (){
+                    launch('mailto:rashfifahad@gmail.com');
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                      title: Text("Email",
                         style: TextStyle(
                             foreground: Paint()..shader = linearGradient,
                             fontSize: 14,
                             fontWeight: FontWeight.bold
                         ),),
-                    subtitle: const Text("+91 9967879788",style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: Color(0xff333333)),),
-                    trailing: Image.asset("assets/images/Call on speaker.png"),
+                      subtitle: const Text("info@pointupp.com",style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Color(0xff333333)),),
+                      trailing:Image.asset("assets/images/Email.png"),
+                    ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 15.0,right: 15.0,top: 5.0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                    title: Text("Email",
-                      style: TextStyle(
-                          foreground: Paint()..shader = linearGradient,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold
-                      ),),
-                    subtitle: const Text("info@pointupp.com",style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: Color(0xff333333)),),
-                    trailing:Image.asset("assets/images/Email.png"),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15.0,right: 15.0,top: 5.0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                    title: Text("Whatsapp Chat",
-                      style: TextStyle(
-                          foreground: Paint()..shader = linearGradient,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold
-                      ),),
-                    subtitle: const Text("+91 9967879788",style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: Color(0xff333333)),),
-                    trailing:Image.asset("assets/images/Whatsapp.png"),
+                child: InkWell(
+                  onTap: (){
+                    launchWhatsapp(number: "+919947160900");
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(width: 0.5,color: Color(0xffDADADA)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                      title: Text("Whatsapp Chat",
+                        style: TextStyle(
+                            foreground: Paint()..shader = linearGradient,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold
+                        ),),
+                      subtitle: const Text("+91 9967879788",style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Color(0xff333333)),),
+                      trailing:Image.asset("assets/images/Whatsapp.png"),
+                    ),
                   ),
                 ),
               ),
@@ -165,4 +188,17 @@ class ContactUs extends StatelessWidget {
       ),
     );
   }
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
+  }
+
+  void launchWhatsapp({@required number}) async{
+    String url="whatsapp://send?phone=$number";
+    await canLaunch(url) ? launch(url): print("Can't open whatsapp");
+  }
+
 }

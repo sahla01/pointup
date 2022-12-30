@@ -20,7 +20,7 @@ class _SignInState extends State<SignIn> {
     const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
   );
 
-  var loginkey = GlobalKey<FormState>();
+ final  loginkey = GlobalKey<FormState>();
   var visibility = true;
   @override
   Widget build(BuildContext context) {
@@ -69,263 +69,282 @@ class _SignInState extends State<SignIn> {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white,
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(18),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            AppText(
-                              text: "Sign In",
-                              color: Theme.of(context).primaryColor,
-                              size: 18,
-                              fw: FontWeight.w700,
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            AppText(
-                              text: "Please sing in to your counter",
-                              color: const Color(0xffA1A2A8),
-                              size: 12,
-                              fw: FontWeight.w400,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 20,
-                              right: 20,
-                            ),
-                            child: AppText(
-                              text: "Shop ID",
-                              color: const Color(0xff333333),
-                              size: 12,
-                              fw: FontWeight.w600,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 10.0,
-                              left: 20,
-                              right: 20,
-                            ),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return "Enter a valid shop id";
-                                  }
-                                  return null;
-                                },
-                                controller: idController,
-                                cursorColor: const Color(0xff351070),
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 0.5, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xff351070)),
-                                      borderRadius:
-                                          BorderRadius.circular(10)),
-                                  hintStyle: TextStyle(
-                                      fontSize: 12,color: Theme.of(context).hintColor),
-                                  hintText: ' Enter Shop ID',
-                                  prefixIcon: const Padding(
-                                    padding: EdgeInsets.all(16),
-                                    child: SvgIcon(
-                                      'assets/icons/shop.svg',
-                                      color: Color(0xffA1A2A8),
-                                    ),
-                                  ),
-                                )),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 20, top: 20, right: 20),
-                            child: AppText(
-                              text: "User Name",
-                              color: const Color(0xff333333),
-                              size: 12,
-                              fw: FontWeight.w600,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 10.0,
-                              left: 20,
-                              right: 20,
-                            ),
-                            child: TextFormField(
-                                validator: (value) {
-                                  if (value == null ||
-                                      value.isEmpty ||
-                                      !value.contains('@') ||
-                                      !value.contains('.')) {
-                                    return "Enter a valid username";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff351070),
-                                controller: userController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 0.5, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xff351070)),
-                                      borderRadius:
-                                          BorderRadius.circular(10)),
-                                  hintStyle:TextStyle(
-                                      fontSize: 12, color:Theme.of(context).hintColor),
-                                  hintText: ' Enter User Name',
-                                  prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,color: Color(0xffA1A2A8),)
-                                )),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 20, top: 20, right: 20),
-                            child: AppText(
-                              text: "Password",
-                              color: const Color(0xff333333),
-                              size: 12,
-                              fw: FontWeight.w600,
-                            ),
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10.0, left: 20, right: 20),
-                              child: TextFormField(
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Enter a Valid Password";
-                                  } else if (passwordController.text.length <
-                                      8) {
-                                    return "password must be 8 characters";
-                                  }
-                                  return null;
-                                },
-                                cursorColor: const Color(0xff351070),
-                                controller: passwordController,
-                                obscureText: visibility,
-                                obscuringCharacter: "*",
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 13, horizontal: 13),
-                                  isDense: true,
-                                  filled: true,
-                                  fillColor: const Color(0xffF4F6FF),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 0.5, color: Color(0xffDADADA)),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xff351070)),
-                                      borderRadius:
-                                          BorderRadius.circular(10)),
-                                  hintStyle: TextStyle(
-                                      fontSize: 12, color: Theme.of(context).hintColor),
-                                  hintText: "Enter Password",
-                                  prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
-                                  suffixIcon: GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          if (visibility == true) {
-                                            visibility = false;
-                                          } else {
-                                            visibility = true;
-                                          }
-                                        });
-                                      },
-                                      child: visibility == true
-                                          ? const Icon(
-                                              Icons.visibility_off_outlined,
-                                              color: Color(0xff351070))
-                                          : const Icon(Icons.visibility,
-                                              color: Color(0xff351070))),
-                                ),
-                              )),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            height: 48,
-                            margin: const EdgeInsets.all(20),
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(colors: [
-                                Color(0xff19184D),
-                                Color(0xff530393)
-                              ]),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: InkWell(
-                              onTap: () {
-
-                              Navigator.pushNamed(context, '/seventh');
-                              },
-                              child: Center(
-                                  child: AppText(
-                                text: 'Send OTP',
-                                color: Colors.white,
-                                size: 12,
-                                fw: FontWeight.w700,
-                              )),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                  child: Form(
+                    key: loginkey,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(18),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/fourth');
-                                },
-                                child: Text(
-                                  "Forgot Password ?",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
-                                      foreground: Paint()
-                                        ..shader = linearGradient),
-                                ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              AppText(
+                                text: "Sign In",
+                                color: Theme.of(context).primaryColor,
+                                size: 18,
+                                fw: FontWeight.w700,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              AppText(
+                                text: "Please sing in to your counter",
+                                color: const Color(0xffA1A2A8),
+                                size: 12,
+                                fw: FontWeight.w400,
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                        ],
-                      ),
-                    ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                                right: 20,
+                              ),
+                              child: AppText(
+                                text: "Shop ID",
+                                color: const Color(0xff333333),
+                                size: 12,
+                                fw: FontWeight.w600,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 10.0,
+                                left: 20,
+                                right: 20,
+                              ),
+                              child: TextFormField(
+                                  style: TextStyle(color: Color(0xff333333)),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Enter a valid shop id';
+                                    }
+                                    return null;
+                                  },
+                                  controller: idController,
+                                  cursorColor: const Color(0xff351070),
+                                  decoration: InputDecoration(
+                                    errorBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xffEF2253),width: 0.5)),
+                                    focusedErrorBorder: const OutlineInputBorder(
+                                      borderSide:BorderSide(color:Color(0xffEF2253), width: 0.5),),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.5, color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xff351070)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    hintStyle: const TextStyle(
+                                        fontSize: 12,color: Color(0xffA1A2A8)),
+                                    hintText: ' Enter Shop ID',
+                                    prefixIcon: const Padding(
+                                      padding: EdgeInsets.all(16),
+                                      child: SvgIcon(
+                                        'assets/icons/shop.svg',
+                                        color: Color(0xffA1A2A8),
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 20, right: 20),
+                              child: AppText(
+                                text: "User Name",
+                                color: const Color(0xff333333),
+                                size: 12,
+                                fw: FontWeight.w600,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 10.0,
+                                left: 20,
+                                right: 20,
+                              ),
+                              child: TextFormField(
+                                  validator: (value) {
+                                    if (value == null ||
+                                        value.isEmpty ||
+                                        !value.contains('@') ||
+                                        !value.contains('.')) {
+                                      return "Enter a valid username";
+                                    }
+                                    return null;
+                                  },
+                                  cursorColor: const Color(0xff351070),
+                                  controller: userController,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                      errorBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xffEF2253),width: 0.5)),
+                                      focusedErrorBorder: const OutlineInputBorder(
+                                        borderSide:BorderSide(color:Color(0xffEF2253), width: 0.5),),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.5, color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xff351070)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    hintStyle:TextStyle(
+                                        fontSize: 12, color:Theme.of(context).hintColor),
+                                    hintText: ' Enter User Name',
+                                    prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,color: Color(0xffA1A2A8),)
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 20, right: 20),
+                              child: AppText(
+                                text: "Password",
+                                color: const Color(0xff333333),
+                                size: 12,
+                                fw: FontWeight.w600,
+                              ),
+                            ),
+                            Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 10.0, left: 20, right: 20),
+                                child: TextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Enter a Valid Password";
+                                    } else if (value.length < 8) {
+                                      return "password must be 8 characters";
+                                    } else
+                                      return null;
+                                  },
+                                  cursorColor: const Color(0xff351070),
+                                  controller: passwordController,
+                                  obscureText: visibility,
+                                  obscuringCharacter: "*",
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 13, horizontal: 13),
+                                    isDense: true,
+                                    filled: true,
+                                    fillColor: const Color(0xffF4F6FF),
+                                    errorBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xffEF2253),width: 0.5)),
+                                    focusedErrorBorder: const OutlineInputBorder(
+                                      borderSide:BorderSide(color:Color(0xffEF2253), width: 0.5),),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.5, color: Color(0xffDADADA)),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xff351070)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    hintStyle: TextStyle(
+                                        fontSize: 12, color: Theme.of(context).hintColor),
+                                    hintText: "Enter Password",
+                                    prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
+                                    suffixIcon: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            if (visibility == true) {
+                                              visibility = false;
+                                            } else {
+                                              visibility = true;
+                                            }
+                                          });
+                                        },
+                                        child: visibility == true
+                                            ? const Icon(
+                                                Icons.visibility_off_outlined,
+                                                color: Color(0xff351070))
+                                            : const Icon(Icons.visibility,
+                                                color: Color(0xff351070))),
+                                  ),
+                                )),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: 48,
+                              margin: const EdgeInsets.all(20),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(colors: [
+                                  Color(0xff19184D),
+                                  Color(0xff530393)
+                                ]),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: InkWell(
+                                onTap: () {
+                                  if (loginkey.currentState!.validate()) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Processing Data')),
+                                    );
+                                    Navigator.pushNamed(context, '/seventh');
+                                  }
+                                  },
+                                child: Center(
+                                    child: AppText(
+                                  text: 'Send OTP',
+                                  color: Colors.white,
+                                  size: 12,
+                                  fw: FontWeight.w700,
+                                )),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, '/fourth');
+                                  },
+                                  child: Text(
+                                    "Forgot Password ?",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        foreground: Paint()
+                                          ..shader = linearGradient),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(

@@ -107,113 +107,227 @@ class _PointsCreditPageState extends State<PointsCreditPage>
           gradient: const LinearGradient(
               colors: [Color(0xff19184D), Color(0xff530393)]),
         ),
-        body: Form(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 30, top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      AppText(
-                        text: "Scan Barcode",
-                        size: 14,
-                        fw: FontWeight.bold,
-                        color: const Color(0xff333333),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      InkWell(
-                          onTap: () => scanBarcodeNormal(),
-                          child: Image.asset(
-                            'assets/images/Barcod.png',
-                          )),
-                    ],
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30, top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 10, left: 20, right: 10),
-                          child: AppText(
-                            text: "Mobile OR Member ID",
-                            color: const Color(0xff333333),
-                            size: 12,
-                            fw: FontWeight.w600,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 10.0,
-                            left: 20,
-                            right: 20,
-                          ),
-                          child: TextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Enter a valid mobile or member id";
-                                }
-                                return null;
-                              },
-                              cursorColor: const Color(0xff333333),
-                              controller: mobileController,
-                              decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 13, horizontal: 13),
-                                isDense: true,
-                                filled: true,
-                                fillColor: const Color(0xffF4F6FF),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      width: 0.5, color: Color(0xffDADADA)),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 0.5, color: Color(0xff330F6C)),
-                                    borderRadius: BorderRadius.circular(10)),
-                              )),
+                        AppText(
+                          text: "Scan Barcode",
+                          size: 14,
+                          fw: FontWeight.bold,
+                          color: const Color(0xff333333),
                         ),
                         const SizedBox(
-                          height: 20,
+                          width: 10,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: AppText(
-                                text: "Receipt No ( Optional)",
-                                size: 12,
-                                fw: FontWeight.w600,
-                                txtalign: TextAlign.start,
-                                color: const Color(0xff333333),
-                              ),
+                        InkWell(
+                            onTap: () => scanBarcodeNormal(),
+                            child: Image.asset(
+                              'assets/images/Barcod.png',
                             )),
-                            Expanded(
+                      ],
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, left: 20, right: 10),
+                            child: AppText(
+                              text: "Mobile OR Member ID",
+                              color: const Color(0xff333333),
+                              size: 12,
+                              fw: FontWeight.w600,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10.0,
+                              left: 20,
+                              right: 20,
+                            ),
+                            child: TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Enter a valid mobile or member id";
+                                  }
+                                  return null;
+                                },
+                                cursorColor: const Color(0xff333333),
+                                controller: mobileController,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 13, horizontal: 13),
+                                  isDense: true,
+                                  filled: true,
+                                  fillColor: const Color(0xffF4F6FF),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                        width: 0.5, color: Color(0xffDADADA)),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.5, color: Color(0xff330F6C)),
+                                      borderRadius: BorderRadius.circular(10)),
+                                )),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: AppText(
+                                  text: "Receipt No ( Optional)",
+                                  size: 12,
+                                  fw: FontWeight.w600,
+                                  txtalign: TextAlign.start,
+                                  color: const Color(0xff333333),
+                                ),
+                              )),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: AppText(
+                                  text: "Bill Amount",
+                                  size: 12,
+                                  txtalign: TextAlign.left,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
+                                ),
+                              )),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
                                 child: Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: AppText(
-                                text: "Bill Amount",
-                                size: 12,
-                                txtalign: TextAlign.left,
-                                fw: FontWeight.w600,
-                                color: const Color(0xff333333),
+                                  padding: const EdgeInsets.only(
+                                    top: 10.0,
+                                    left: 20,
+                                    right: 5,
+                                  ),
+                                  child: TextFormField(
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return "Enter a valid shop id";
+                                        }
+                                        return null;
+                                      },
+                                      cursorColor: const Color(0xff333333),
+                                      controller: receiptController,
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 13, horizontal: 13),
+                                        isDense: true,
+                                        filled: true,
+                                        fillColor: const Color(0xffF4F6FF),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xffDADADA)),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        hintStyle: const TextStyle(
+                                            fontSize: 12,
+                                            color: Color(0xffA1A2A8)),
+                                        hintText: 'Enter Receipt No',
+                                      )),
+                                ),
                               ),
-                            )),
-                          ],
-                        ),
-                        Row(
-                          children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 10.0,
+                                    left: 5,
+                                    right: 20,
+                                  ),
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller: billController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0.00',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: AppText(
+                                  text: "Total Earnings",
+                                  txtalign: TextAlign.left,
+                                  size: 12,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
+                                ),
+                              )),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: AppText(
+                                  text: "Rewards Value Rs",
+                                  size: 12,
+                                  txtalign: TextAlign.left,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
+                                ),
+                              )),
+                            ],
+                          ),
+                          Row(children: [
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.only(
@@ -229,11 +343,10 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                       return null;
                                     },
                                     cursorColor: const Color(0xff333333),
-                                    controller: receiptController,
+                                    controller: totalController,
                                     decoration: InputDecoration(
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              vertical: 13, horizontal: 13),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 13, horizontal: 13),
                                       isDense: true,
                                       filled: true,
                                       fillColor: const Color(0xffF4F6FF),
@@ -243,14 +356,13 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
                                       hintStyle: const TextStyle(
-                                          fontSize: 12,
-                                          color: Color(0xffA1A2A8)),
-                                      hintText: 'Enter Receipt No',
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0',
                                     )),
                               ),
                             ),
@@ -262,431 +374,322 @@ class _PointsCreditPageState extends State<PointsCreditPage>
                                   right: 20,
                                 ),
                                 child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: billController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller: rewardsController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
-                                  ),
-                                ),
+                                            width: 0.5, color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0.00',
+                                    )),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: AppText(
-                                text: "Total Earnings",
-                                txtalign: TextAlign.left,
-                                size: 12,
-                                fw: FontWeight.w600,
-                                color: const Color(0xff333333),
-                              ),
-                            )),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: AppText(
-                                text: "Rewards Value Rs",
-                                size: 12,
-                                txtalign: TextAlign.left,
-                                fw: FontWeight.w600,
-                                color: const Color(0xff333333),
-                              ),
-                            )),
-                          ],
-                        ),
-                        Row(children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 20,
-                                right: 5,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: totalController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0',
-                                  )),
-                            ),
+                            )
+                          ]),
+                          const SizedBox(
+                            height: 20,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 5,
-                                right: 20,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: rewardsController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0.00',
-                                  )),
-                            ),
-                          )
-                        ]),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: AppText(
-                                text: "Wallet Rewards",
-                                size: 12,
-                                txtalign: TextAlign.left,
-                                fw: FontWeight.w600,
-                                color: const Color(0xff333333),
-                              ),
-                            )),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: AppText(
-                                text: "Points Voucher",
-                                txtalign: TextAlign.left,
-                                size: 12,
-                                fw: FontWeight.w600,
-                                color: const Color(0xff333333),
-                              ),
-                            )),
-                          ],
-                        ),
-                        Row(children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 20,
-                                right: 5,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: walletController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0',
-                                  )),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 10.0,
-                                left: 5,
-                                right: 20,
-                              ),
-                              child: TextFormField(
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return "Enter a valid shop id";
-                                    }
-                                    return null;
-                                  },
-                                  cursorColor: const Color(0xff333333),
-                                  controller: voucherController,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 13, horizontal: 13),
-                                    isDense: true,
-                                    filled: true,
-                                    fillColor: const Color(0xffF4F6FF),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                          width: 0.5, color: Color(0xffDADADA)),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                            width: 0.5, color: Color(0xff330F6C)),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12, color: Color(0xffA1A2A8)),
-                                    hintText: '0',
-                                  )),
-                            ),
-                          )
-                        ]),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: AppText(
-                        text: "Point  Voucher (03) ",
-                        color: const Color(0xff333333),
-                        size: 12,
-                        fw: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 135,
-                   // color: Colors.red,
-                  child: ListView.builder(
-                      itemCount: pointvoucher.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          child: Stack(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 20.0,right: 10.0,top: 25.0),
-                                child: Container(
-                                  height: 98,
-                                  width: 123,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(6),
-                                      border: Border.all(
-                                          width: 1,
-                                          color:
-                                          const Color(0xffF99F1E))),
-                                  child: Column(
-                                    children: [
-                                      const SizedBox(
-                                        height: 18,
-                                      ),
-                                      Image.asset(pointvoucher[index]),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                            const EdgeInsets.only(
-                                                right: 10),
-                                            child: AppText(
-                                              text: points[index],
-                                              size: 10,
-                                              fw: FontWeight.bold,
-                                              color: const Color(
-                                                  0xff39AE58),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: AppText(
+                                  text: "Wallet Rewards",
+                                  size: 12,
+                                  txtalign: TextAlign.left,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
                                 ),
-                              ),
-                              Positioned(
-                                left: 125,
-                                top: 10,
-                                child: Container(
-                                  height: 28,
-                                  width: 28,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.green,
-                                      shape: BoxShape.circle
-                                  ),
-                                  child: const CircleAvatar(
-                                    backgroundColor: Color(0xffF99F1E),
-                                    child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
-
-                                  ),
+                              )),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: AppText(
+                                  text: "Points Voucher",
+                                  txtalign: TextAlign.left,
+                                  size: 12,
+                                  fw: FontWeight.w600,
+                                  color: const Color(0xff333333),
                                 ),
-                              ),
+                              )),
                             ],
                           ),
-                        );
-                      }),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 11,
-                      backgroundColor: const Color(0xffFFCD08),
-                      child: AppText(
-                        text: "01",
-                        size: 10,
-                        fw: FontWeight.bold,
-                        color: const Color(0xff333333),
+                          Row(children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 10.0,
+                                  left: 20,
+                                  right: 5,
+                                ),
+                                child: TextFormField(
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller: walletController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0',
+                                    )),
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 10.0,
+                                  left: 5,
+                                  right: 20,
+                                ),
+                                child: TextFormField(
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Enter a valid shop id";
+                                      }
+                                      return null;
+                                    },
+                                    cursorColor: const Color(0xff333333),
+                                    controller: voucherController,
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 13, horizontal: 13),
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: const Color(0xffF4F6FF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: const BorderSide(
+                                            width: 0.5, color: Color(0xffDADADA)),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              width: 0.5, color: Color(0xff330F6C)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintStyle: const TextStyle(
+                                          fontSize: 12, color: Color(0xffA1A2A8)),
+                                      hintText: '0',
+                                    )),
+                              ),
+                            )
+                          ]),
+                        ],
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    CircleAvatar(
-                      radius: 11,
-                      backgroundColor: const Color(0xffFF8D08),
-                      child: AppText(
-                        text: "02",
-                        size: 10,
-                        fw: FontWeight.bold,
-                        color: const Color(0xff333333),
+                      const SizedBox(
+                        height: 15,
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                            height: 52,
-                            width: 147,
-                            decoration: BoxDecoration(
-                                color: const Color(0xffEF2253),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: AppText(
-                              text: "Cancel",
-                              color: Colors.white,
-                              size: 12,
-                              fw: FontWeight.bold,
-                            )))),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    InkWell(
-                        onTap: () {
-                          _showMyDialog();
-                        },
-                        child: Container(
-                            height: 52,
-                            width: 147,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(colors: [
-                                  Color(0xff19184D),
-                                  Color(0xff530393)
-                                ]),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                                child: AppText(
-                              text: "Credit",
-                              color: Colors.white,
-                              size: 12,
-                              fw: FontWeight.bold,
-                            ))))
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: AppText(
+                          text: "Point  Voucher (03) ",
+                          color: const Color(0xff333333),
+                          size: 12,
+                          fw: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 135,
+                     // color: Colors.red,
+                    child: ListView.builder(
+                        itemCount: pointvoucher.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20.0,right: 10.0,top: 25.0),
+                                  child: Container(
+                                    height: 98,
+                                    width: 123,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(6),
+                                        border: Border.all(
+                                            width: 1,
+                                            color:
+                                            const Color(0xffF99F1E))),
+                                    child: Column(
+                                      children: [
+                                        const SizedBox(
+                                          height: 18,
+                                        ),
+                                        Image.asset(pointvoucher[index]),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              const EdgeInsets.only(
+                                                  right: 10),
+                                              child: AppText(
+                                                text: points[index],
+                                                size: 10,
+                                                fw: FontWeight.bold,
+                                                color: const Color(
+                                                    0xff39AE58),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 125,
+                                  top: 10,
+                                  child: Container(
+                                    height: 28,
+                                    width: 28,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.green,
+                                        shape: BoxShape.circle
+                                    ),
+                                    child: const CircleAvatar(
+                                      backgroundColor: Color(0xffF99F1E),
+                                      child: Icon(Icons.check,color: Color(0xffFFFFFF),size: 20,),
+
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 11,
+                        backgroundColor: const Color(0xffFFCD08),
+                        child: AppText(
+                          text: "01",
+                          size: 10,
+                          fw: FontWeight.bold,
+                          color: const Color(0xff333333),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      CircleAvatar(
+                        radius: 11,
+                        backgroundColor: const Color(0xffFF8D08),
+                        child: AppText(
+                          text: "02",
+                          size: 10,
+                          fw: FontWeight.bold,
+                          color: const Color(0xff333333),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                              height: 52,
+                              width: 147,
+                              decoration: BoxDecoration(
+                                  color: const Color(0xffEF2253),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                  child: AppText(
+                                text: "Cancel",
+                                color: Colors.white,
+                                size: 12,
+                                fw: FontWeight.bold,
+                              )))),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            _showMyDialog();
+                          },
+                          child: Container(
+                              height: 52,
+                              width: 147,
+                              decoration: BoxDecoration(
+                                  gradient: const LinearGradient(colors: [
+                                    Color(0xff19184D),
+                                    Color(0xff530393)
+                                  ]),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Center(
+                                  child: AppText(
+                                text: "Credit",
+                                color: Colors.white,
+                                size: 12,
+                                fw: FontWeight.bold,
+                              ))))
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

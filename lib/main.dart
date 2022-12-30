@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
         '/fifth':(context) => const OtpTwoPage(),
         '/sixth':(context) => const ResetPassword(),
         '/seventh':(context) => const OtpPage(),
-        '/eight':(context)=> const BottomNavBar(),
+        '/eight':(context)=>  BottomNavBar(),
         '/pointcredit':(context) => const PointsCreditPage(),
         '/pointredeem':(context) => const PointsRedeemPage(),
         '/redeemsecondpage':(context) => const RedeemSecondPage(),
@@ -94,10 +94,10 @@ class MyApp extends StatelessWidget {
         '/reportpage':(context) => const ReportsPage(),
         '/customreviewandrating':(context)=> const CustomerReviewAndRating(),
         '/viewcustomerreviewlist':(context) => const ViewCustomerReviewList(),
-        '/contactus':(context)=> ContactUs(),
+        '/contactus':(context)=> const ContactUs(),
         '/termsandcondition':(context)=> TermsAndCondition(),
         '/privacyandpolicy':(context)=> PrivacyAndPolicy(),
-        'bottomnavbar':(context)=> const BottomNavBar(),
+        'bottomnavbar':(context)=> BottomNavBar(),
       },
     );
   }

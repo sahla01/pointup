@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:pointup/models/models.dart';
+import 'package:pointup/screens/DrawerItems/customerreviewandrating/model.dart';
 import 'package:pointup/widgets/app_text.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:svg_icon/svg_icon.dart';
@@ -16,13 +17,24 @@ class CustomerReviewAndRating extends StatefulWidget {
 
 class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
   TextEditingController msgController = TextEditingController();
-  List<double> ratings = [0.1,0.3,0.5,0.7,0.9];
+  List<double> ratings = [0.1, 0.3, 0.5, 0.7, 0.9];
 
   final Shader linearGradient = const LinearGradient(
     colors: <Color>[Color(0xff19184D), Color(0xff530393)],
   ).createShader(
     const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
   );
+
+  late final List<Item> _data = generateItems(8);
+  List<Item> generateItems(int numberOfItems) {
+    return List<Item>.generate(numberOfItems, (int index) {
+      return Item(
+        headerValue: 'Show',
+        expandedValue: 'This is item number $index',
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,29 +98,44 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
                   shape: const RoundedRectangleBorder(
-                      side: BorderSide(
-                          width: 0.5, color: Color((0xffDADADA))),
+                      side: BorderSide(width: 0.5, color: Color((0xffDADADA))),
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       )),
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 8, vertical: 2),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                           // color: Colors.teal,
+                          // color: Colors.teal,
                           width: MediaQuery.of(context).size.width * 0.25,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const SizedBox(height:10,),
-                              AppText(text: "Average Ratings",size: 10,fw: FontWeight.w600,color: const Color(0xff333333),),
-                              const SizedBox(height:5,),
-                              AppText(text: "4.7",size: 30,fw: FontWeight.bold,color: const Color(0xff19184D),),
-                              const SizedBox(height: 5,),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              AppText(
+                                text: "Average Ratings",
+                                size: 10,
+                                fw: FontWeight.w600,
+                                color: const Color(0xff333333),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              AppText(
+                                text: "4.7",
+                                size: 30,
+                                fw: FontWeight.bold,
+                                color: const Color(0xff19184D),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
                               SmoothStarRating(
                                 allowHalfRating: true,
                                 size: 16.0,
@@ -116,13 +143,14 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                 rating: 4.1,
                                 spacing: 1.5,
                                 color: const Color(0xffF99F1E),
-                                borderColor:
-                                const Color(0xffF99F1E),
-                                onRatingChanged: (rating){
+                                borderColor: const Color(0xffF99F1E),
+                                onRatingChanged: (rating) {
                                   print(rating);
                                 },
                               ),
-                              const SizedBox(height:10,),
+                              const SizedBox(
+                                height: 10,
+                              ),
                             ],
                           ),
                         ),
@@ -137,28 +165,49 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                   shrinkWrap: true,
                                   reverse: true,
                                   itemCount: 5,
-                                  itemBuilder: (context , index){
-                                 return  Row(
-                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    AppText(text: "${index + 1}",size: 10,fw: FontWeight.w600,color: const Color(0xff000000),),
-                                    const SizedBox(width: 3.0,),
-                                    const Icon(Icons.star,color: Color(0xffF99F1E),size: 14,),
-                                    LinearPercentIndicator(
-                                      width: MediaQuery.of(context).size.width / 2.5,
-                                      lineHeight: 9,
-                                      percent: ratings[index],
-                                      progressColor: const Color(0xffF99F1E),
-                                      backgroundColor: const Color(0xffDADADA),
-                                    ),
-                                    AppText(text:"80%",size: 10,fw: FontWeight.w600,color: const Color(0xff000000),)
-                                  ],
-                                );
-                              }),
+                                  itemBuilder: (context, index) {
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        AppText(
+                                          text: "${index + 1}",
+                                          size: 10,
+                                          fw: FontWeight.w600,
+                                          color: const Color(0xff000000),
+                                        ),
+                                        const SizedBox(
+                                          width: 3.0,
+                                        ),
+                                        const Icon(
+                                          Icons.star,
+                                          color: Color(0xffF99F1E),
+                                          size: 14,
+                                        ),
+                                        LinearPercentIndicator(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              2.5,
+                                          lineHeight: 9,
+                                          percent: ratings[index],
+                                          progressColor:
+                                              const Color(0xffF99F1E),
+                                          backgroundColor:
+                                              const Color(0xffDADADA),
+                                        ),
+                                        AppText(
+                                          text: "80%",
+                                          size: 10,
+                                          fw: FontWeight.w600,
+                                          color: const Color(0xff000000),
+                                        )
+                                      ],
+                                    );
+                                  }),
                             ],
                           ),
                         )
-
                       ],
                     ),
                   ),
@@ -208,21 +257,34 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                       //     ))
                       PopupMenuButton<int>(
                         icon: const Padding(
-                          padding: EdgeInsets.only(top: 10,left: 20),
-                          child: Icon(Icons.more_vert_rounded,size: 20,color: Color(0xff360E70),),
+                          padding: EdgeInsets.only(top: 10, left: 20),
+                          child: Icon(
+                            Icons.more_vert_rounded,
+                            size: 20,
+                            color: Color(0xff360E70),
+                          ),
                         ),
                         itemBuilder: (context) => [
                           // PopupMenuItem 1
                           const PopupMenuItem(
                             value: 1,
-                            child: Text("Newest Review",style: TextStyle(fontSize: 13,color: Color(0xff333333)),),
+                            child: Text(
+                              "Newest Review",
+                              style: TextStyle(
+                                  fontSize: 13, color: Color(0xff333333)),
+                            ),
                           ),
                           const PopupMenuItem(
                             value: 2,
-                            child: Text("Oldest Review",style: TextStyle(fontSize: 13,color: Color(0xff333333))),
+                            child: Text("Oldest Review",
+                                style: TextStyle(
+                                    fontSize: 13, color: Color(0xff333333))),
                           ),
                         ],
-                        offset: const Offset(0, 22,),
+                        offset: const Offset(
+                          0,
+                          22,
+                        ),
                         color: Colors.white,
                         elevation: 2,
                         onSelected: (value) {
@@ -242,7 +304,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     scrollDirection: Axis.vertical,
-                    itemCount: profileList.length ,
+                    itemCount: profileList.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Card(
                         shape: const RoundedRectangleBorder(
@@ -262,8 +324,10 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                     height: 5.0,
                                   ),
                                   Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Image.asset(
                                         profileList[index],
@@ -277,26 +341,31 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                       SizedBox(
                                         width: 260,
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             const SizedBox(
                                               height: 3.0,
                                             ),
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                   profileName[index],
                                                   style: const TextStyle(
                                                       fontSize: 10,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       color: Color(0xff000000)),
                                                 ),
                                                 const Text(
                                                   "4hr ago",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      fontWeight: FontWeight.w600,
+                                                      fontWeight:
+                                                          FontWeight.w600,
                                                       color: Color(0xffA1A2A8)),
                                                 )
                                               ],
@@ -312,8 +381,8 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                               spacing: 1.5,
                                               color: const Color(0xffF99F1E),
                                               borderColor:
-                                              const Color(0xffF99F1E),
-                                              onRatingChanged: (rating){
+                                                  const Color(0xffF99F1E),
+                                              onRatingChanged: (rating) {
                                                 print(rating);
                                               },
                                             ),
@@ -334,39 +403,77 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                             ),
                                             Row(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      left: 5),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 5),
                                                   child: Text(
                                                     "Replied:",
                                                     style: TextStyle(
                                                         fontWeight:
-                                                        FontWeight.bold,
+                                                            FontWeight.bold,
                                                         fontSize: 10,
                                                         foreground: Paint()
                                                           ..shader =
                                                               linearGradient),
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  width: 3,
-                                                ),
-                                                Text(
-                                                  "Show",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 10,
-                                                      foreground: Paint()
-                                                        ..shader =
-                                                            linearGradient),
-                                                ),
-                                                const Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  size: 18,
-                                                  color: Color(0xff360E70),
+                                                // const SizedBox(
+                                                //   width: 3,
+                                                // ),
+                                                // Text(
+                                                //   "Show",
+                                                //   style: TextStyle(
+                                                //       fontWeight: FontWeight.bold,
+                                                //       fontSize: 10,
+                                                //       foreground: Paint()
+                                                //         ..shader =
+                                                //             linearGradient),
+                                                // ),
+                                                // const Icon(
+                                                //   Icons
+                                                //       .keyboard_arrow_down_rounded,
+                                                //   size: 18,
+                                                //   color: Color(0xff360E70),
+                                                // ),
+                                                Container(
+                                                  height: 60,
+                                                  width: 200,
+                                                  margin: const EdgeInsets.only(
+                                                      top: 5,right: 5),
+                                                  child: SingleChildScrollView(
+                                                    child: ExpansionPanelList(
+                                                      expansionCallback: (int index, bool isExpanded) {
+                                                        setState(() {
+                                                          _data[index].isExpanded = !isExpanded;
+                                                        });
+                                                      },
+                                                      children: _data.map<ExpansionPanel>((Item item) {
+                                                        return ExpansionPanel(
+                                                          headerBuilder: (BuildContextcontext, boolisExpanded) {
+                                                            return ListTile(
+                                                              title: Text(
+                                                                item.headerValue,
+                                                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
+                                                              ),
+                                                            );
+                                                          },
+                                                          body: ListTile(
+                                                            title: Text(
+                                                              item.expandedValue,
+                                                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
+                                                            ),
+                                                            subtitle: const Text(
+                                                                'To delete this panel, tap the trash can icon'),
+                                                          ),
+                                                          isExpanded:
+                                                              item.isExpanded,
+                                                        );
+                                                      }).toList(),
+                                                    ),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -374,22 +481,22 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                               height: 10,
                                             ),
                                             Padding(
-                                              padding:
-                                              const EdgeInsets.only(left: 80),
+                                              padding: const EdgeInsets.only(
+                                                  left: 80),
                                               child: Row(
                                                 crossAxisAlignment:
-                                                CrossAxisAlignment.center,
+                                                    CrossAxisAlignment.center,
                                                 children: [
                                                   InkWell(
-                                                      onTap:(){
+                                                      onTap: () {
                                                         _showMyDialog();
                                                       },
                                                       child: AppText(
                                                         text: "Reply",
                                                         size: 10,
                                                         fw: FontWeight.bold,
-                                                        color:
-                                                        const Color(0xffA1A2A8),
+                                                        color: const Color(
+                                                            0xffA1A2A8),
                                                       )),
                                                   const SizedBox(
                                                     width: 3,
@@ -408,14 +515,14 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                                     size: 10,
                                                     fw: FontWeight.bold,
                                                     color:
-                                                    const Color(0xffA1A2A8),
+                                                        const Color(0xffA1A2A8),
                                                   ),
                                                   const SizedBox(
                                                     width: 3,
                                                   ),
                                                   const Padding(
                                                     padding:
-                                                    EdgeInsets.only(top: 6),
+                                                        EdgeInsets.only(top: 6),
                                                     child: SvgIcon(
                                                       "assets/icons/dislike.svg",
                                                       color: Color(0xffA1A2A8),
@@ -431,7 +538,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                                     size: 10,
                                                     fw: FontWeight.bold,
                                                     color:
-                                                    const Color(0xffA1A2A8),
+                                                        const Color(0xffA1A2A8),
                                                   ),
                                                   const SizedBox(
                                                     width: 3,
@@ -452,8 +559,6 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                           ],
                                         ),
                                       ),
-
-
                                     ],
                                   ),
                                 ],
@@ -470,6 +575,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
       ),
     );
   }
+
   Future<void> _showMyDialog() async {
     return showDialog<void>(
         context: context,
@@ -477,8 +583,7 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
         builder: (BuildContext context) {
           return AlertDialog(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)
-              ),
+                  borderRadius: BorderRadius.circular(10.0)),
               content: SizedBox(
                 width: 230.0,
                 height: 135.0,
@@ -488,44 +593,55 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                     TextFormField(
                         maxLines: 4,
                         cursorColor: const Color(0xff333333),
-                        controller:msgController,
+                        controller: msgController,
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 13, horizontal: 13),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
+                            borderSide: const BorderSide(
+                                width: 1, color: Color(0xffDADADA)),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(width: 1,color: Color(0xffDADADA)),
-                              borderRadius: BorderRadius.circular(10)
-                          ),
+                              borderSide: const BorderSide(
+                                  width: 1, color: Color(0xffDADADA)),
+                              borderRadius: BorderRadius.circular(10)),
                           hintStyle: const TextStyle(
                               fontSize: 9, color: Color(0xffA1A2A8)),
                           hintText: 'Write here your comment’s.............',
-                        )
+                        )),
+                    const SizedBox(
+                      height: 20,
                     ),
-                    const SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        AppText(text: "Cancel",size: 10,color: const Color(0xffF99F1E),fw: FontWeight.bold,),
-                        const SizedBox(width: 20,),
+                        AppText(
+                          text: "Cancel",
+                          size: 10,
+                          color: const Color(0xffF99F1E),
+                          fw: FontWeight.bold,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text("Send",style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              foreground: Paint()..shader = linearGradient
-                          ),),
+                          child: Text(
+                            "Send",
+                            style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                foreground: Paint()..shader = linearGradient),
+                          ),
                         )
                       ],
                     )
                   ],
                 ),
-              )
-          );
+              ));
         });
   }
 }
