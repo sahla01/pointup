@@ -1,50 +1,56 @@
 
 import 'package:flutter/material.dart';
-import 'package:pointup/loginscreens/forgotpassword.dart';
-import 'package:pointup/loginscreens/otppage.dart';
-import 'package:pointup/loginscreens/otptwopage.dart';
-import 'package:pointup/loginscreens/resetpassword.dart';
-import 'package:pointup/loginscreens/signin.dart';
-import 'package:pointup/onboardscreen/onboardingscreen.dart';
-import 'package:pointup/onboardscreen/splashscreen.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/changepassword.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/otpverification.dart';
-import 'package:pointup/screens/DrawerItems/changepassword/passwordrest.dart';
-import 'package:pointup/screens/DrawerItems/contactus.dart';
-import 'package:pointup/screens/DrawerItems/customerreviewandrating/customerreviewandrating.dart';
-import 'package:pointup/screens/DrawerItems/customerreviewandrating/viewcustomerreviewList.dart';
-import 'package:pointup/screens/DrawerItems/myshopqrcode.dart';
-import 'package:pointup/screens/DrawerItems/privacyandpolicy.dart';
-import 'package:pointup/screens/DrawerItems/reports.dart';
-import 'package:pointup/screens/DrawerItems/termsandcondition.dart';
-import 'package:pointup/screens/DrawerItems/userinfo.dart';
-import 'package:pointup/screens/Notification/notification.dart';
-import 'package:pointup/screens/Notification/notificationdetails.dart';
-import 'package:pointup/screens/Tickets/tickethistoryclosed.dart';
-import 'package:pointup/screens/Tickets/tickethistoryopen.dart';
-import 'package:pointup/screens/counter/orderredeempage.dart';
-import 'package:pointup/screens/counter/pointscreditpage.dart';
-import 'package:pointup/screens/counter/pointsredeempage.dart';
-import 'package:pointup/screens/counter/redeemsecondpage.dart';
-import 'package:pointup/screens/counter/transactiondetailscredit.dart';
-import 'package:pointup/screens/counter/transactiondetailsredeem.dart';
-import 'package:pointup/screens/counter/transactionpage.dart';
-import 'package:pointup/screens/counter/vieworders.dart';
-import 'package:pointup/screens/navbar/bottomnavbar.dart';
+import 'package:pointup/loginscreens/forgot_password.dart';
+import 'package:pointup/loginscreens/otp_page.dart';
+import 'package:pointup/loginscreens/otp_two_page.dart';
+import 'package:pointup/loginscreens/reset_password.dart';
+import 'package:pointup/loginscreens/sign_in.dart';
+import 'package:pointup/onboardscreen/onboarding_screen.dart';
+import 'package:pointup/onboardscreen/splash_screen.dart';
+import 'package:pointup/routes/routes_manager.dart';
+import 'package:pointup/screens/DrawerItems/changepassword/change_password.dart';
+import 'package:pointup/screens/DrawerItems/changepassword/otp_verification.dart';
+import 'package:pointup/screens/DrawerItems/changepassword/password_rest.dart';
+import 'package:pointup/screens/DrawerItems/contact_us.dart';
+import 'package:pointup/screens/DrawerItems/customerreviewandrating/customer_review_and_rating.dart';
+import 'package:pointup/screens/DrawerItems/customerreviewandrating/view_customer_review_list.dart';
+import 'package:pointup/screens/DrawerItems/my_shop_qrcode.dart';
+import 'package:pointup/screens/DrawerItems/privacy_and_policy.dart';
+import 'package:pointup/screens/DrawerItems/reports_page.dart';
+import 'package:pointup/screens/DrawerItems/terms_and_condition.dart';
+import 'package:pointup/screens/DrawerItems/user_information.dart';
+import 'package:pointup/screens/Notification/notification_page.dart';
+import 'package:pointup/screens/Notification/notification_details.dart';
+import 'package:pointup/screens/Tickets/ticket_history_closed.dart';
+import 'package:pointup/screens/Tickets/ticket_history_open.dart';
+import 'package:pointup/screens/counter/order_redeem_page.dart';
+import 'package:pointup/screens/counter/points_credit_page.dart';
+import 'package:pointup/screens/counter/points_redeem_page.dart';
+import 'package:pointup/screens/counter/redeem_second_page.dart';
+import 'package:pointup/screens/counter/transaction_details_credit.dart';
+import 'package:pointup/screens/counter/transaction_details_redeem.dart';
+import 'package:pointup/screens/counter/transaction_page.dart';
+import 'package:pointup/screens/counter/view_orders.dart';
+import 'package:pointup/screens/navbar/bottom_navbar.dart';
 import 'package:pointup/screens/new.dart';
-import 'package:pointup/screens/orders/cancelorders.dart';
-import 'package:pointup/screens/orders/confirmedorders.dart';
-import 'package:pointup/screens/receiptsubmit/receiptapprovel.dart';
-import 'package:pointup/screens/receiptsubmit/receiptdetails.dart';
-import 'package:pointup/screens/receiptsubmit/receiptsubmitpage.dart';
+import 'package:pointup/screens/orders/cancel_orders.dart';
+import 'package:pointup/screens/orders/confirmed_orders.dart';
+import 'package:pointup/screens/receiptsubmit/receipt_approvel.dart';
+import 'package:pointup/screens/receiptsubmit/receipt_details.dart';
+import 'package:pointup/screens/receiptsubmit/receipt_submit_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,49 +62,9 @@ class MyApp extends StatelessWidget {
         secondaryHeaderColor: const Color(0xffF99F1E),
         hintColor: const Color(0xffA1A2A8),
         errorColor: const Color(0xffEF2253),
-        // fontFamily: 'Open Sans',
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/second': (context) => const OnBoardingScreen(),
-        '/third':(context) => const SignIn(),
-        '/fourth':(context) => const ForgotPasswordPage(),
-        '/fifth':(context) => const OtpTwoPage(),
-        '/sixth':(context) => const ResetPassword(),
-        '/seventh':(context) => const OtpPage(),
-        '/eight':(context)=>  BottomNavBar(),
-        '/pointcredit':(context) => const PointsCreditPage(),
-        '/pointredeem':(context) => const PointsRedeemPage(),
-        '/redeemsecondpage':(context) => const RedeemSecondPage(),
-        '/orderredeem':(context) => const OrderRedeemPage(),
-        '/vieworders':(context) => const ViewOrders(),
-        '/transaction':(context) => const TransactionPage(),
-        '/transactionpointcredit':(context) => const TransactionCredit(),
-        '/transactionpointredeem':(context) => const TransactionRedeem(),
-        '/notification':(context) => const NotificationPage(),
-        '/notificationdetails':(context) => const NotificationDetails(),
-        // '/orderdetails':(context) => OrderDetailsPage(pass_index: null,),
-        '/confirmorders':(context) => const ConfirmedOrders(),
-        '/cancelorders':(context) => const CancelOrders(),
-        '/receiptsubmit':(context) => const ReceiptSubmitPage(),
-        '/receiptdetailspage':(context) => const ReceiptDetailsPage(),
-        '/receiptapprovel':(context) => const ReceiptApproval(),
-        '/tickethistoryopen':(context) => const TicketHistoryOpen(),
-        '/tickethistoryclosed':(context) => const TicketHistoryClosed(),
-        '/myshoprqcode':(context) => const MYshopQrCode(),
-        '/userinformation':(context) => const UserInformation(),
-        '/changepassword':(context) => const ChangePassword(),
-        'otpverification':(context) => const OtpVerification(),
-        '/passwordrest':(context) => const PasswordReset(),
-        '/reportpage':(context) => const ReportsPage(),
-        '/customreviewandrating':(context)=> const CustomerReviewAndRating(),
-        '/viewcustomerreviewlist':(context) => const ViewCustomerReviewList(),
-        '/contactus':(context)=> const ContactUs(),
-        '/termsandcondition':(context)=> TermsAndCondition(),
-        '/privacyandpolicy':(context)=> PrivacyAndPolicy(),
-        'bottomnavbar':(context)=> BottomNavBar(),
-      },
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute:Routes.splashRoute,
     );
   }
 }
