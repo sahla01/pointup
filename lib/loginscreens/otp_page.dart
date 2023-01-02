@@ -75,7 +75,7 @@ class _OtpPageState extends State<OtpPage> {
                                 text: 'Verification Code',
                                 fw: FontWeight.bold,
                                 size: 18,
-                                color: Theme.of(context).primaryColor,
+                                color:const Color(0xff19184D),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -212,7 +212,7 @@ class _OtpPageState extends State<OtpPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: const Color(0xffF99F1E),
                     )
                   ],
                 ),

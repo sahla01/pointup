@@ -416,61 +416,64 @@ class _CustomerReviewAndRatingState extends State<CustomerReviewAndRating> {
                                                               linearGradient),
                                                   ),
                                                 ),
-                                                // const SizedBox(
-                                                //   width: 3,
-                                                // ),
-                                                // Text(
-                                                //   "Show",
-                                                //   style: TextStyle(
-                                                //       fontWeight: FontWeight.bold,
-                                                //       fontSize: 10,
-                                                //       foreground: Paint()
-                                                //         ..shader =
-                                                //             linearGradient),
-                                                // ),
-                                                // const Icon(
-                                                //   Icons
-                                                //       .keyboard_arrow_down_rounded,
-                                                //   size: 18,
-                                                //   color: Color(0xff360E70),
-                                                // ),
-                                                Container(
-                                                  height: 60,
-                                                  width: 200,
-                                                  margin: const EdgeInsets.only(
-                                                      top: 5,right: 5),
-                                                  child: SingleChildScrollView(
-                                                    child: ExpansionPanelList(
-                                                      expansionCallback: (int index, bool isExpanded) {
-                                                        setState(() {
-                                                          _data[index].isExpanded = !isExpanded;
-                                                        });
-                                                      },
-                                                      children: _data.map<ExpansionPanel>((Item item) {
-                                                        return ExpansionPanel(
-                                                          headerBuilder: (BuildContextcontext, boolisExpanded) {
-                                                            return ListTile(
-                                                              title: Text(
-                                                                item.headerValue,
-                                                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
-                                                              ),
-                                                            );
-                                                          },
-                                                          body: ListTile(
-                                                            title: Text(
-                                                              item.expandedValue,
-                                                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
-                                                            ),
-                                                            subtitle: const Text(
-                                                                'To delete this panel, tap the trash can icon'),
-                                                          ),
-                                                          isExpanded:
-                                                              item.isExpanded,
-                                                        );
-                                                      }).toList(),
-                                                    ),
-                                                  ),
+                                                const SizedBox(
+                                                  width: 3,
                                                 ),
+
+                                                Text(
+                                                  "Show",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 10,
+                                                      foreground: Paint()
+                                                        ..shader =
+                                                            linearGradient),
+                                                ),
+                                                const Icon(
+                                                  Icons
+                                                      .keyboard_arrow_down_rounded,
+                                                  size: 18,
+                                                  color: Color(0xff360E70),
+                                                ),
+
+
+                                                // Container(
+                                                //   height: 60,
+                                                //   width: 200,
+                                                //   margin: const EdgeInsets.only(
+                                                //       top: 5,right: 5),
+                                                //   child: SingleChildScrollView(
+                                                //     child: ExpansionPanelList(
+                                                //       expansionCallback: (int index, bool isExpanded) {
+                                                //         setState(() {
+                                                //           _data[index].isExpanded = !isExpanded;
+                                                //         });
+                                                //       },
+                                                //       children: _data.map<ExpansionPanel>((Item item) {
+                                                //         return ExpansionPanel(
+                                                //           headerBuilder: (BuildContextcontext, boolisExpanded) {
+                                                //             return ListTile(
+                                                //               title: Text(
+                                                //                 item.headerValue,
+                                                //                 style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
+                                                //               ),
+                                                //             );
+                                                //           },
+                                                //           body: ListTile(
+                                                //             title: Text(
+                                                //               item.expandedValue,
+                                                //               style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10, foreground: Paint()..shader = linearGradient),
+                                                //             ),
+                                                //             subtitle: const Text(
+                                                //                 'To delete this panel, tap the trash can icon'),
+                                                //           ),
+                                                //           isExpanded:
+                                                //               item.isExpanded,
+                                                //         );
+                                                //       }).toList(),
+                                                //     ),
+                                                //   ),
+                                                // ),
                                               ],
                                             ),
                                             const SizedBox(

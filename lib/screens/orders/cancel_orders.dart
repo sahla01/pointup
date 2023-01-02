@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:pointup/screens/orders/orders_page.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class CancelOrders extends StatefulWidget {

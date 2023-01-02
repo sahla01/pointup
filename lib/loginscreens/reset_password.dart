@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pointup/loginscreens/sign_in.dart';
-import 'package:pointup/routes/routes_manager.dart';
 import 'package:pointup/widgets/app_text.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -90,7 +89,7 @@ class _ResetPasswordState extends State<ResetPassword>
                           children: [
                             AppText(
                               text: "Password Reset",
-                              color: Theme.of(context).primaryColor,
+                              color:  const Color(0xff19184D),
                               size: 18,
                               fw: FontWeight.w700,
                             ),
@@ -159,9 +158,9 @@ class _ResetPasswordState extends State<ResetPassword>
                                               color: Color(0xff351070)),
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                           fontSize: 12,
-                                          color: Theme.of(context).hintColor),
+                                          color:Color(0xffA1A2A8)),
                                       hintText: "Enter Password",
                                       prefixIcon: const Icon(
                                         Icons.lock_outline_rounded,
@@ -220,9 +219,9 @@ class _ResetPasswordState extends State<ResetPassword>
                                               color: Color(0xff351070)),
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                           fontSize: 12,
-                                          color: Theme.of(context).hintColor),
+                                          color: Color(0xffA1A2A8)),
                                       hintText: "Confirm Password",
                                       prefixIcon: const Icon(
                                         Icons.lock_outline_rounded,
@@ -303,7 +302,7 @@ class _ResetPasswordState extends State<ResetPassword>
                         text: 'Send Request',
                         size: 12,
                         fw: FontWeight.w700,
-                        color: Theme.of(context).secondaryHeaderColor)
+                        color: const Color(0xffF99F1E))
                   ],
                 ),
               ],

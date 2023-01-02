@@ -1019,7 +1019,8 @@ class _RedeemSecondPageState extends State<RedeemSecondPage>
                             Expanded(
                               child: InkWell(
                                 onTap: () {
-                                  Navigator.pushReplacementNamed(context, Routes.pointRedeem);
+                                  Navigator.popUntil(context, ModalRoute.withName(Routes.pointRedeem));
+                                  // Navigator.pushReplacementNamed(context, Routes.pointRedeem);
                                 },
                                 child: Text(
                                   "OK",

@@ -84,7 +84,7 @@ class _SignInState extends State<SignIn> {
                               ),
                               AppText(
                                 text: "Sign In",
-                                color: Theme.of(context).primaryColor,
+                                color: const Color(0xff19184D),
                                 size: 18,
                                 fw: FontWeight.w700,
                               ),
@@ -123,7 +123,7 @@ class _SignInState extends State<SignIn> {
                                 right: 20,
                               ),
                               child: TextFormField(
-                                  style: TextStyle(color: Color(0xff333333)),
+                                  style: const TextStyle(color: Color(0xff333333)),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Enter a valid shop id';
@@ -212,8 +212,8 @@ class _SignInState extends State<SignIn> {
                                             width: 0.5, color: Color(0xff351070)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
-                                    hintStyle:TextStyle(
-                                        fontSize: 12, color:Theme.of(context).hintColor),
+                                    hintStyle:const TextStyle(
+                                        fontSize: 12, color:Color(0xffA1A2A8)),
                                     hintText: ' Enter User Name',
                                     prefixIcon: const Icon(Icons.perm_identity_rounded,size: 16,color: Color(0xffA1A2A8),)
                                   )),
@@ -237,8 +237,9 @@ class _SignInState extends State<SignIn> {
                                       return "Enter a Valid Password";
                                     } else if (value.length < 8) {
                                       return "password must be 8 characters";
-                                    } else
+                                    } else {
                                       return null;
+                                    }
                                   },
                                   cursorColor: const Color(0xff351070),
                                   controller: passwordController,
@@ -264,8 +265,8 @@ class _SignInState extends State<SignIn> {
                                             width: 0.5, color: Color(0xff351070)),
                                         borderRadius:
                                             BorderRadius.circular(10)),
-                                    hintStyle: TextStyle(
-                                        fontSize: 12, color: Theme.of(context).hintColor),
+                                    hintStyle: const TextStyle(
+                                        fontSize: 12, color:Color(0xffA1A2A8)),
                                     hintText: "Enter Password",
                                     prefixIcon:const Icon(Icons.lock_outline_rounded,size: 16,color: Color(0xffA1A2A8),),
                                     suffixIcon: GestureDetector(
@@ -367,7 +368,7 @@ class _SignInState extends State<SignIn> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: const Color(0xffF99F1E),
                     )
                   ],
                 ),

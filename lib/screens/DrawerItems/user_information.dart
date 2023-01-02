@@ -77,7 +77,7 @@ class UserInformation extends StatelessWidget {
               ),
             ),
             expandedHeight: 230,
-            backgroundColor: Color(0xff19184D)
+            backgroundColor: const Color(0xff19184D)
           ), //SliverAppBar
           SliverList(
             delegate: SliverChildBuilderDelegate(

@@ -70,14 +70,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           children: [
                             AppText(
                               text: "Forgot Password",
-                              color: Theme.of(context).primaryColor,
+                              color: const Color(0xff19184D),
                               size: 18,
                               fw: FontWeight.w700,
                             ),
                             const SizedBox(height: 20,),
                             AppText(
                               text: "Please fill  your shop ID and  User Name",
-                              color: Theme.of(context).hintColor,
+                              color: const Color(0xffA1A2A8),
                               size: 12,
                               fw: FontWeight.w400,
                             ),
@@ -119,7 +119,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
-                                      hintStyle: TextStyle(fontSize: 12,color:Theme.of(context).hintColor),
+                                      hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8)),
                                       hintText:' Enter Shop ID',
                                       prefixIcon: const Padding(
                                         padding: EdgeInsets.all(16),
@@ -156,7 +156,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                           borderSide: const BorderSide(width: 0.5,color: Color(0xff351070)),
                                           borderRadius: BorderRadius.circular(10)
                                       ),
-                                      hintStyle: TextStyle(fontSize: 12,color:Theme.of(context).hintColor),
+                                      hintStyle: const TextStyle(fontSize: 12,color:Color(0xffA1A2A8)),
                                       hintText:' Enter User Name',
                                       prefixIcon:const Icon(Icons.person_outline_rounded,size: 19,
                                         color: Color(0xffA1A2A8),
@@ -215,7 +215,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color:  const Color(0xffF99F1E),
                     )
                   ],
                 ),

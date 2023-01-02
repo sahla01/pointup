@@ -212,7 +212,7 @@ class _OtpTwoPageState extends State<OtpTwoPage> {
                       text: 'Send Request',
                       size: 12,
                       fw: FontWeight.w700,
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: Color(0xffF99F1E),
                     )
                   ],
                 ),
