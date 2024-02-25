@@ -284,7 +284,9 @@ class _SignInState extends State<SignIn> {
                                                 Icons.visibility_off_outlined,
                                                 color: Color(0xff351070))
                                             : const Icon(Icons.visibility,
-                                                color: Color(0xff351070))),
+                                                color: Color(0xff351070)
+                                        )
+                                    ),
                                   ),
                                 )),
                             const SizedBox(
